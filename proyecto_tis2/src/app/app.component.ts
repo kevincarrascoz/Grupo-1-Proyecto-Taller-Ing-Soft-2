@@ -7,6 +7,10 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { SearchBarPage } from '../pages/search-bar/search-bar';
 import { HistorialPage } from '../pages/historial/historial';
+import { PublicarPage } from '../pages/publicar/publicar';
+import { CategoriasPage } from '../pages/categorias/categorias';
+import { PreguntasPage } from '../pages/preguntas/preguntas';
+import { AcercaDePage } from '../pages/acerca-de/acerca-de';
 
 @Component({
   templateUrl: 'app.html'
@@ -26,7 +30,11 @@ export class MyApp {
     this.pages = [
       { title: 'Inicio', component: HomePage },
       { title: 'Buscar', component: SearchBarPage },
-      { title: 'Historial', component: HistorialPage }
+      { title: 'Historial', component: HistorialPage },
+      { title: 'Publicar', component: PublicarPage },
+      { title: 'Categorias', component: CategoriasPage },
+      { title: 'Preguntas Frecuentes', component: PreguntasPage },
+      { title: 'Acerca de', component: AcercaDePage }
     ];
   }
   openPage(page) {
