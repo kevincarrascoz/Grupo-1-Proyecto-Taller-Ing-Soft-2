@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+
 /**
  * Generated class for the SearchBarPage page.
  *
@@ -21,5 +22,6 @@ export class SearchBarPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad SearchBarPage');
   }
+  
 
 }
