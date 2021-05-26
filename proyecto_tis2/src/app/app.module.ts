@@ -22,6 +22,10 @@ import { RegisterPage } from '../pages/register/register';
 import { Proveedor1Provider } from '../providers/proveedor1/proveedor1';
 import { HttpClientModule } from '@angular/common/http';
 
+import { DetallepublicacionPage } from '../pages/detallepublicacion/detallepublicacion';
+import { HttpModule } from '@angular/http';
+import { HttpClientModule} from '@angular/common/http';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -37,13 +41,15 @@ import { HttpClientModule } from '@angular/common/http';
     PreguntasPage,
     AcercaDePage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    DetallepublicacionPage
   ],
   imports: [
     BrowserModule,
     IonicPageModule.forChild(IngresarPage),
     IonicModule.forRoot(MyApp),
-    HttpClientModule
+    HttpModule,
+    HttpClientModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -60,7 +66,8 @@ import { HttpClientModule } from '@angular/common/http';
     PreguntasPage,
     AcercaDePage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    DetallepublicacionPage
   ],
   providers: [
     StatusBar,
