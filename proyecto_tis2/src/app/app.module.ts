@@ -19,8 +19,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { IngresarPage } from '../pages/ingresar/ingresar';
 import { RegisterPage } from '../pages/register/register';
-import { Proveedor1Provider } from '../providers/proveedor1/proveedor1';
-import { HttpClientModule } from '@angular/common/http';
 
 import { DetallepublicacionPage } from '../pages/detallepublicacion/detallepublicacion';
 import { HttpModule } from '@angular/http';
@@ -72,8 +70,7 @@ import { HttpClientModule} from '@angular/common/http';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Proveedor1Provider
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
 export class AppModule {}
