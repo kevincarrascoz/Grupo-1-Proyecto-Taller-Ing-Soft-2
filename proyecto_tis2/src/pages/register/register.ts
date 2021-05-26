@@ -23,6 +23,6 @@ export class RegisterPage {
     console.log('ionViewDidLoad RegisterPage');
   }
   IrLogin(){
-    this.navCtrl.push(LoginPage)
+    this.navCtrl.pop();
   }
 }
