@@ -11,6 +11,7 @@ import { PublicarPage } from '../pages/publicar/publicar';
 import { CategoriasPage } from '../pages/categorias/categorias';
 import { PreguntasPage } from '../pages/preguntas/preguntas';
 import { AcercaDePage } from '../pages/acerca-de/acerca-de';
+import { IngresarPage } from '../pages/ingresar/ingresar';
 
 @Component({
   templateUrl: 'app.html'
@@ -33,6 +34,7 @@ export class MyApp {
       { title: 'Historial', component: HistorialPage },
       { title: 'Publicar', component: PublicarPage },
       { title: 'Categorias', component: CategoriasPage },
+      { title: 'Ingresar / Registrarte', component: IngresarPage },
       { title: 'Preguntas Frecuentes', component: PreguntasPage },
       { title: 'Acerca de', component: AcercaDePage }
     ];
