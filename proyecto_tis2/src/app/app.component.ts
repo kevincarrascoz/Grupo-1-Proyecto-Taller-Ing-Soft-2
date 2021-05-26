@@ -47,7 +47,7 @@ export class MyApp {
     this.nav.setRoot(page.component);
   }
   IrLogin(){
-    this.nav.push(LoginPage)
+    this.nav.push(LoginPage);
   }
 
 }
