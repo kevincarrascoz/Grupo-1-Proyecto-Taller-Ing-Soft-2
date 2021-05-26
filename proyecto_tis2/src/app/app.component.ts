@@ -31,7 +31,7 @@ export class MyApp {
       splashScreen.hide();
     });
     this.pages = [
-      { title: 'Inicio', component: HomePage },
+      { title: 'Inicio', component: TabsPage },
       { title: 'Buscar', component: SearchBarPage },
       { title: 'Historial', component: HistorialPage },
       { title: 'Publicar', component: PublicarPage },
@@ -47,7 +47,7 @@ export class MyApp {
     this.nav.setRoot(page.component);
   }
   IrLogin(){
-    this.nav.push(LoginPage)
+    this.nav.push(LoginPage);
   }
 
 }
