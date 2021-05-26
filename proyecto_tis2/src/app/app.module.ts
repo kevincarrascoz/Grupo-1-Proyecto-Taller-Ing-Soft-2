@@ -20,6 +20,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { IngresarPage } from '../pages/ingresar/ingresar';
 import { RegisterPage } from '../pages/register/register';
 
+import { DetallepublicacionPage } from '../pages/detallepublicacion/detallepublicacion';
+import { HttpModule } from '@angular/http';
+import { HttpClientModule} from '@angular/common/http';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -35,12 +39,15 @@ import { RegisterPage } from '../pages/register/register';
     PreguntasPage,
     AcercaDePage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    DetallepublicacionPage
   ],
   imports: [
     BrowserModule,
     IonicPageModule.forChild(IngresarPage),
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpModule,
+    HttpClientModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -57,7 +64,8 @@ import { RegisterPage } from '../pages/register/register';
     PreguntasPage,
     AcercaDePage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    DetallepublicacionPage
   ],
   providers: [
     StatusBar,

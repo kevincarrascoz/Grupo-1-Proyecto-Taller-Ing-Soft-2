@@ -9,11 +9,47 @@
     <ion-title>Inicio</ion-title>
   </ion-navbar>
 </ion-header>
+
+
 <ion-content padding>
-  <h2>Bienvenido al Catalogo de oficios</h2>
+  <h2>Bienvenido al Catalogo de Oficios!</h2>
   <p>
-    Esta aplicacion permitira buscar y publicar ofertas de oficios de acuerdo a tu localizacion.
+    Empieza viendo las publicaciones mas reciente o utiliza el buscador!
+    <br><br>
   </p>
+    <h6>Publicaciones recientes:</h6>
+    <br>
   
-</ion-content>
+
+
+
+  <ion-card *ngFor="let pub of publicaciones"(click)="detalle(pub.id)">
+  <ion-item>
+      <ion-avatar item-start>
+        <img src="https://picsum.photos/300">
+      </ion-avatar>
+      <h2><b>Humberto Suazo</b></h2>
+      <h2>{{pub.title}}</h2>
+    </ion-item>
+  
+    
+    <ion-card-content>
+      <p>{{pub.body}}</p>
+    </ion-card-content>
+  
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-start clear small>
+          <ion-icon name="ios-chatbubbles"></ion-icon>
+          <div>Contactar</div>
+        </button>
+      </ion-col>
+      <ion-col align-self-center text-center>
+        <ion-note>
+          05-25-2021
+        </ion-note>
+      </ion-col>
+    </ion-row>
+  
+  </ion-card>
 
