@@ -24,7 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { DetallepublicacionPage } from '../pages/detallepublicacion/detallepublicacion';
 import { HttpModule } from '@angular/http';
-import { HttpClientModule} from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
