@@ -17,8 +17,8 @@ import { LoginPage } from '../pages/login/login';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { RegisterPage } from '../pages/register/register';
 import { IngresarPage } from '../pages/ingresar/ingresar';
+import { RegisterPage } from '../pages/register/register';
 
 @NgModule({
   declarations: [
