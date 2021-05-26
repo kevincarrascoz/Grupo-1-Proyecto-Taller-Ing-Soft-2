@@ -11,6 +11,9 @@ import { PublicarPage } from '../pages/publicar/publicar';
 import { CategoriasPage } from '../pages/categorias/categorias';
 import { PreguntasPage } from '../pages/preguntas/preguntas';
 import { AcercaDePage } from '../pages/acerca-de/acerca-de';
+import { LoginPage } from '../pages/login/login';
+import { IngresarPage } from '../pages/ingresar/ingresar';
+
 
 @Component({
   templateUrl: 'app.html'
@@ -33,6 +36,7 @@ export class MyApp {
       { title: 'Historial', component: HistorialPage },
       { title: 'Publicar', component: PublicarPage },
       { title: 'Categorias', component: CategoriasPage },
+      { title: 'Ingresar / Registrarte', component: IngresarPage },
       { title: 'Preguntas Frecuentes', component: PreguntasPage },
       { title: 'Acerca de', component: AcercaDePage }
     ];
@@ -41,6 +45,9 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+  IrLogin(){
+    this.nav.push(LoginPage)
   }
 
 }

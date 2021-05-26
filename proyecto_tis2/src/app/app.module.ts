@@ -1,6 +1,6 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { IonicApp, IonicModule, IonicErrorHandler, IonicPageModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { AboutPage } from '../pages/about/about';
@@ -13,9 +13,12 @@ import { PublicarPage } from '../pages/publicar/publicar';
 import { CategoriasPage } from '../pages/categorias/categorias';
 import { PreguntasPage } from '../pages/preguntas/preguntas';
 import { AcercaDePage } from '../pages/acerca-de/acerca-de';
+import { LoginPage } from '../pages/login/login';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { RegisterPage } from '../pages/register/register';
+import { IngresarPage } from '../pages/ingresar/ingresar';
 
 @NgModule({
   declarations: [
@@ -28,11 +31,15 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HistorialPage,
     PublicarPage,
     CategoriasPage,
+    IngresarPage,
     PreguntasPage,
-    AcercaDePage
+    AcercaDePage,
+    LoginPage,
+    RegisterPage
   ],
   imports: [
     BrowserModule,
+    IonicPageModule.forChild(IngresarPage),
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -46,8 +53,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HistorialPage,
     PublicarPage,
     CategoriasPage,
+    IngresarPage,
     PreguntasPage,
-    AcercaDePage
+    AcercaDePage,
+    LoginPage,
+    RegisterPage
   ],
   providers: [
     StatusBar,
