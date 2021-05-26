@@ -32,11 +32,9 @@ export class MyApp {
     });
     this.pages = [
       { title: 'Inicio', component: TabsPage },
-      { title: 'Buscar', component: SearchBarPage },
       { title: 'Historial', component: HistorialPage },
       { title: 'Publicar', component: PublicarPage },
       { title: 'Categorias', component: CategoriasPage },
-      { title: 'Ingresar / Registrarte', component: IngresarPage },
       { title: 'Preguntas Frecuentes', component: PreguntasPage },
       { title: 'Acerca de', component: AcercaDePage }
     ];
