@@ -6,13 +6,14 @@ import 'rxjs/add/operator/map';
 
 import { DetallepublicacionPage } from '../detallepublicacion/detallepublicacion';
 
+import {TabsPage} from '../tabs/tabs';
+
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-
   publicaciones:any;
   id:any;
 
