@@ -15,6 +15,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CategoriasPage {
 
+  items = [
+    'Albañil',
+    'Carpintero',
+    'Conserje',
+    'Conductor',
+    'Electricista',
+    'Empleado Domestico',
+    'Estilista',
+    'Gasfiter',
+    'Guardia de seguridad',
+    'Mecanico',
+    'Sastre',
+    'Relojero'
+  ];
+   
+  itemSelected(item: string) {
+    console.log("Selected Item", item);
+  }
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
