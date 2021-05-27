@@ -20,16 +20,23 @@ export class DetallepublicacionPage {
   publicaciones:any;
   userId:any;
   id=this.navParams.get('valor');
+  title:any;
+  content:any;
+  user_id:any;
+  status:any;
   data:Observable<any>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
 
-    this.http.get('https://jsonplaceholder.typicode.com/posts/'+this.id)
+    this.http.get('http://localhost/xampp/otraprueba/post.php/?id='+this.id)
     .map(response => response.json())
     .subscribe(data =>
       {
         this.publicaciones = data;
-        
+        this.title=data.title;
+        this.content=data.content;
+        this.user_id=data.user_id;
+        this.status=data.status;
         console.log(data);
         
       },
@@ -44,5 +51,10 @@ export class DetallepublicacionPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad DetallepublicacionPage');
   }
+
+  /* resena(id){
+    this.navCtrl.push(DetallepublicacionPage,{valor:id})
+  } */
+
 
 }

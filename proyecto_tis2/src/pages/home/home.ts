@@ -9,6 +9,8 @@ import { DetallepublicacionPage } from '../detallepublicacion/detallepublicacion
 import {TabsPage} from '../tabs/tabs';
 
 
+
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -20,7 +22,7 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, public http: Http) {
 
-    this.http.get('https://jsonplaceholder.typicode.com/posts')
+    this.http.get('http://localhost/xampp/otraprueba/post.php')
     .map(response => response.json())
     .subscribe(data =>
       {
