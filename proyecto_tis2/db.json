@@ -1,0 +1,48 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "first_name": "Kevin",
+      "last_name": "Carrasco",
+      "email": "kevincarrasco@gmail.com",
+      "password": "123456789",
+      "direccion": "Finlandia 1667",
+      "fecha_nacimiento": "Feb 23, 1998",
+      "celular": "942018931"
+    },
+    {
+      "id": 2,
+      "first_name": "Ariana",
+      "last_name": "Grande",
+      "email": "arianagrande@gmail.com",
+      "password": "12345",
+      "direccion": "Edimburgo  1712",
+      "fecha_nacimiento": "Dic 15, 1990",
+      "celular": "961386241"
+    },
+    {
+      "id": 3
+    },
+    {
+      "id": 4
+    },
+    {
+      "id": 5
+    },
+    {
+      "id": 6
+    },
+    {
+      "id": 7
+    },
+    {
+      "id": 8
+    },
+    {
+      "id": 9
+    },
+    {
+      "id": 10
+    }
+  ]
+}

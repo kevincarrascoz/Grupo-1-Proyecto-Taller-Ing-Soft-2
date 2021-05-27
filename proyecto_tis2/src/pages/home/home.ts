@@ -16,6 +16,7 @@ import {TabsPage} from '../tabs/tabs';
 export class HomePage {
   publicaciones:any;
   id:any;
+  users: any;
 
   constructor(public navCtrl: NavController, public http: Http) {
 
@@ -44,5 +45,6 @@ export class HomePage {
   ionViewDidLoad(){
     console.log('Ya cargo ListadoPage');
   }
+
 
 }
