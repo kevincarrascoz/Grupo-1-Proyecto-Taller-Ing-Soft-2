@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { RestProvider } from '../../providers/rest/rest';
 import { LoginPage } from '../login/login';
 
 /**
@@ -16,8 +15,7 @@ import { LoginPage } from '../login/login';
   templateUrl: 'register.html',
 })
 export class RegisterPage {
-  user = { id: '', first_name: '', last_name: '', email: '', password: '', direccion: '', fecha_nacimiento: '', celular: ''};
-  constructor(public navCtrl: NavController, public navParams: NavParams, public restProvider: RestProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -26,15 +24,6 @@ export class RegisterPage {
   IrLogin(){
     this.navCtrl.pop();
   }
-
-  saveUser() { 
-    this.restProvider.saveUser(this.user).then((result) => { 
-    console.log("espacio"); 
-    console.log(result); 
-    }, (err) => { 
-    console.log(err); 
-    }); 
-    }
 
     
 

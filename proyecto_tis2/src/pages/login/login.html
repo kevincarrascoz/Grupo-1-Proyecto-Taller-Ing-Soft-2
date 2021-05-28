@@ -22,14 +22,14 @@
 <button ion-button full color="light" (click)="IrRegistro()">Crear una cuenta</button>
 
 <ion-list inset>
-  <ion-item *ngFor="let user of users">
+  <ion-item *ngFor="let user of usuarios">
      <h1>{{user.id}}</h1>
-     <h2>{{user.first_name}} {{user.last_name}}</h2>
-     <h2>{{user.email}}</h2>
-     <h2>{{user.password}}</h2>
+     <h2>{{user.nombre}} {{user.apellido}}</h2>
+     <h2>{{user.correo}}</h2>
+     <h2>{{user.contrasena}}</h2>
      <h2>{{user.direccion}}</h2>
      <h2>{{user.fecha_nacimiento}}</h2>
-     <h2>{{user.celular}}</h2>
+     <h2>{{user.telefono}}</h2>
   </ion-item>
   </ion-list>
 

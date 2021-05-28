@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-05-2021 a las 02:24:50
+-- Tiempo de generación: 28-05-2021 a las 06:52:37
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.4.9
 
@@ -44,6 +44,30 @@ INSERT INTO `posts` (`id`, `title`, `status`, `content`, `user_id`) VALUES
 (2, 'Gasfiter', 'published', 'gasfiter owo mp', 2),
 (3, 'Jardinero', 'published', 'corto pasto', 5);
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(50) COLLATE utf8mb4_spanish2_ci NOT NULL,
+  `apellido` varchar(50) COLLATE utf8mb4_spanish2_ci NOT NULL,
+  `correo` varchar(50) COLLATE utf8mb4_spanish2_ci NOT NULL,
+  `contrasena` varchar(20) COLLATE utf8mb4_spanish2_ci NOT NULL,
+  `direccion` varchar(50) COLLATE utf8mb4_spanish2_ci NOT NULL,
+  `fecha_nacimiento` date NOT NULL,
+  `telefono` int(9) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`id`, `nombre`, `apellido`, `correo`, `contrasena`, `direccion`, `fecha_nacimiento`, `telefono`) VALUES
+(1, 'kevin', 'carrasco', 'kcarrasco@gmail.com', '12345', 'finlandia 1667', '1998-02-23', 942018931);
+
 --
 -- Índices para tablas volcadas
 --
@@ -55,6 +79,12 @@ ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -63,6 +93,12 @@ ALTER TABLE `posts`
 --
 ALTER TABLE `posts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

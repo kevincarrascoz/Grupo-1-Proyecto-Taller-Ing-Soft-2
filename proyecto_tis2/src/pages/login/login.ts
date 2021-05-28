@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { RegisterPage } from '../register/register';
-import { RestProvider } from '../../providers/rest/rest';
 import { NgForOf } from '@angular/common';
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
 /**
  * Generated class for the LoginPage page.
  *
@@ -17,11 +18,29 @@ import { NgForOf } from '@angular/common';
 })
 export class LoginPage {
 
-  users: any;
   email:string;
   password:string;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public restProvider: RestProvider) {
-    this.getUsers();
+  usuarios:any;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
+
+
+    this.http.get('http://localhost/xampp/otraprueba/post_usuario.php')
+    .map(response => response.json())
+    .subscribe(data =>
+      {
+        this.usuarios = data;
+
+        console.log(data);
+        
+      },
+      err =>{
+        console.log("Oops!");
+        //this.presentToast("No existen registros aun");
+      }
+      );
+
+
+
   }
 
   ionViewDidLoad() {
@@ -40,11 +59,5 @@ export class LoginPage {
   IrRegistro(){
     this.navCtrl.push(RegisterPage)
   }
-  getUsers() {
-    this.restProvider.getUsers()
-    .then(data => {
-    this.users = data;
-    console.log(this.users);
-    });
-    }
+  
 }
