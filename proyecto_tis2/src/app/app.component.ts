@@ -35,8 +35,7 @@ export class MyApp {
       { title: 'Historial', component: HistorialPage },
       { title: 'Publicar', component: PublicarPage },
       { title: 'Categorias', component: CategoriasPage },
-      { title: 'Preguntas Frecuentes', component: PreguntasPage },
-      { title: 'Acerca de', component: AcercaDePage }
+      { title: 'Preguntas Frecuentes', component: PreguntasPage }
     ];
   }
   openPage(page) {
