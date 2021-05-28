@@ -15,13 +15,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class PreguntasPage {
 
-
   items = [
-    'Como elegir a tu experto',
-    'Como pagar tu servicio',
-    'Como publicar una oferta',
-    'Como comunicarte con tu experto',
-    'Como cambiar mi direccion',
+    '¿Cómo elegir a ...',
+    '¿Cómo publicar ...',
+    '¿Cómo comunicarse con el .....',
+    '¿Como registrarme?',
+    '¿Como cambiar mis datos personales?'
+
   ];
 
   itemSelected(item: string) {
