@@ -16,6 +16,56 @@
   </ion-navbar>
 </ion-header>
  
-<ion-content padding>
+<ion-content>
+
+  <ion-list>
+    <ion-list-header>
+      Informacion
+    </ion-list-header>
+    <ion-item>
+      <ion-input placeholder="Descripcion" type="text" value=""></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-input placeholder="Horario" type="text" value=""></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input placeholder="Precio" type="text" value=""></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label>Categoria</ion-label>
+      <ion-select  [(ngModel)]="oficio">
+      <ion-option value="Albanil">Albañil</ion-option>
+      <ion-option value="Carpintero">Carpintero</ion-option>
+      <ion-option value="Conserje">Conserje</ion-option>
+      <ion-option value="Conductor">Conductor</ion-option>
+      <ion-option value="Electricista">Electricista</ion-option>
+      <ion-option value="Empleado Domestico">Empleado Domestico</ion-option>
+      <ion-option value="Estilista">Estilista</ion-option>
+      <ion-option value="Gasfiter">Gasfiter</ion-option>
+      <ion-option value="Guardia de seguridad">Guardia de seguridad</ion-option>
+      <ion-option value="Mecanico">Mecanico</ion-option>
+      <ion-option value="Sastre">Sastre</ion-option>
+      <ion-option value="Relojero">Relojero</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Certificados</ion-label>
+    <ion-select [(ngModel)]="certificados" multiple="true">
+      <ion-option>Certificado de Carpintero</ion-option>
+      <ion-option>Certificado de Electricista</ion-option>
+      <ion-option>Certificado de Estilista</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <button ion-button full >Publicar</button>
+  </ion-list>
+  
+
+
+
 
 </ion-content>
