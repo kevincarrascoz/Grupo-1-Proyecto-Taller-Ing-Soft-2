@@ -27,7 +27,7 @@ export class RegisterPage {
   }
 
   Registro(){
-    this.provider.postData(this.userData,'signup').then((result) => {
+    this.provider.postData(this.userData,'post_usuario').then((result) => {
       this.responseData = result;
       if(this.responseData.userData){
       console.log(this.responseData);
