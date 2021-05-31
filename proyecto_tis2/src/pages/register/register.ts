@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { LoginPage } from '../login/login';
+import { Provider } from '../../providers/provider/provider';
+import { HomePage } from '../home/home';
+
 
 /**
  * Generated class for the RegisterPage page.
@@ -15,11 +17,28 @@ import { LoginPage } from '../login/login';
   templateUrl: 'register.html',
 })
 export class RegisterPage {
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  responseData:any;
+  userData = {"nombre":"", "apellido":"","correo":"", "contrasena":"","direccion":"","fecha_nacimiento":"","telefono":""};
+  constructor(public navCtrl: NavController, public navParams: NavParams,public provider:Provider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
+  }
+
+  Registro(){
+    this.provider.postData(this.userData,'signup').then((result) => {
+      this.responseData = result;
+      if(this.responseData.userData){
+      console.log(this.responseData);
+      localStorage.setItem('userData', JSON.stringify(this.responseData));
+      this.navCtrl.push(HomePage);
+      }
+      else{ console.log("User already exists"); }
+    }, (err) => {
+      // Error log
+    });
+
   }
   IrLogin(){
     this.navCtrl.pop();
@@ -29,3 +48,7 @@ export class RegisterPage {
 
     
 }
+function presentToast() {
+  throw new Error('Function not implemented.');
+}
+
