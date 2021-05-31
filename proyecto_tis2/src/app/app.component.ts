@@ -10,9 +10,8 @@ import { HistorialPage } from '../pages/historial/historial';
 import { PublicarPage } from '../pages/publicar/publicar';
 import { CategoriasPage } from '../pages/categorias/categorias';
 import { PreguntasPage } from '../pages/preguntas/preguntas';
-import { AcercaDePage } from '../pages/acerca-de/acerca-de';
 import { LoginPage } from '../pages/login/login';
-import { IngresarPage } from '../pages/ingresar/ingresar';
+
 
 
 @Component({
@@ -20,7 +19,7 @@ import { IngresarPage } from '../pages/ingresar/ingresar';
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-  rootPage:any = TabsPage;
+  rootPage:any=TabsPage;
   pages: Array<{title: string, component: any}>;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
@@ -31,7 +30,7 @@ export class MyApp {
       splashScreen.hide();
     });
     this.pages = [
-      { title: 'Inicio', component: TabsPage },
+      { title: 'Inicio', component: HomePage },
       { title: 'Historial', component: HistorialPage },
       { title: 'Publicar', component: PublicarPage },
       { title: 'Categorias', component: CategoriasPage },

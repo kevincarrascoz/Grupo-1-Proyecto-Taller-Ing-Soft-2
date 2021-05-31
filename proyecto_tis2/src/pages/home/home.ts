@@ -19,7 +19,6 @@ export class HomePage {
   publicaciones:any;
   id:any;
   users: any;
-
   constructor(public navCtrl: NavController, public http: Http) {
 
     this.http.get('http://localhost/xampp/otraprueba/post.php')
