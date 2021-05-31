@@ -1,8 +1,5 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { LoginPage } from '../login/login';
-import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
 
 /**
  * Generated class for the RegisterPage page.
@@ -17,23 +14,26 @@ import 'rxjs/add/operator/map';
   templateUrl: 'register.html',
 })
 export class RegisterPage {
-  usuarios: any;
-  nombre: string = "";
-  apellido: string = "";
-  correo: string = "";
-  contrasena: string = "";
-  direccion: string = "";
-  fecha_nacimiento: string = "";
-  celular: string = "";
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
-
+  nombre:string;
+  apellido:string;
+  correo:string;
+  contrasena:string;
+  direccion:string;
+  fecha_nacimiento:Date;
+  telefono:string;
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad RegisterPage');
+
+  Registro(){
+    if(this.nombre==undefined || this.apellido==undefined || this.correo==undefined || this.contrasena==undefined 
+      || this.direccion==undefined || this.fecha_nacimiento==undefined || this.telefono==undefined ){
+      alert("Ingrese todos los datos");
+    }else{
+    
   }
+  }
+
   IrLogin(){
     this.navCtrl.pop();
   }
@@ -68,7 +68,11 @@ export class RegisterPage {
 
   }
 
-    
+    ionViewDidLoad() {
+    console.log('ionViewDidLoad RegisterPage');
+  }
 
     
 }
+
+

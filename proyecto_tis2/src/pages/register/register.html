@@ -12,27 +12,28 @@
 <ion-content padding>
     <ion-title>Crea tu cuenta</ion-title>
     <ion-item>
-      <ion-input placeholder="Nombre" type="text" [(ngModel)]="nombre" name="nombre"></ion-input>
+      <ion-input placeholder="Nombre" type="text" name="first_name" [(ngModel)]="nombre"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input placeholder="Apellido" type="text" [(ngModel)]="apellido" name="apellido"></ion-input>
+      <ion-input placeholder="Apellido" type="text"name="last_name" [(ngModel)]="apellido"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input placeholder="Email" type="email" [(ngModel)]="correo" name="correo"></ion-input>
+      <ion-input placeholder="Email" type="email" name="email" [(ngModel)]="correo"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input placeholder="Contraseña" type="text" [(ngModel)]="contrasena" name="contrasena"></ion-input>
+      <ion-input placeholder="Contraseña" type="password"  name="password" [(ngModel)]="contrasena"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input placeholder="Direccion" type="text"  [(ngModel)]="direccion" name="direccion"></ion-input>
+      <ion-input placeholder="Direccion" type="text"  name="direccion" [(ngModel)]="direccion"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-datetime placeholder="Fecha de Nacimiento" type="date" [(ngModel)]="fecha_nacimiento" name="fecha_nacimiento"></ion-datetime>
+      <ion-datetime placeholder="Fecha de Nacimiento" type="date"  name="fecha_nacimiento" [(ngModel)]="fecha_nacimiento"></ion-datetime>
     </ion-item>
     <ion-item>
-      <ion-input placeholder="Celular" type="number" [(ngModel)]="celular" name="celular"></ion-input>
+      <ion-input placeholder="Celular" type="number"  name="celular" [(ngModel)]="telefono"></ion-input>
     </ion-item>
-    <button ion-button full (click)="addRegister()">Registrar</button>
+    <button ion-button full (click)="Registro()">Registrar</button>
+    </form>
     <button ion-button full color="light" (click)="IrLogin()">Ya tengo una cuenta</button>
     
 
