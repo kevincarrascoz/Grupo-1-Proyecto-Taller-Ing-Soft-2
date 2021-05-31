@@ -37,36 +37,6 @@ export class RegisterPage {
   IrLogin(){
     this.navCtrl.pop();
   }
-  addRegister(){
-    console.log(this.nombre);
-    let body = {
-      nombre: this.nombre,
-      apellido: this.apellido,
-      correo: this.correo,
-      contrasena: this.contrasena,
-      direccion: this.direccion,
-      fecha_nacimiento: this.fecha_nacimiento,
-      celular: this.celular,
-
-    }
-    console.log(body);
-
-    this.http.post('http://localhost/xampp/otraprueba/post_usuario.php', body)
-    .map(response => response.json())
-    .subscribe(data =>
-      {
-        this.usuarios = data;
-
-        console.log(data);
-        
-      },
-      err =>{
-        console.log("Oops!");
-        //this.presentToast("No existen registros aun");
-      }
-      );
-
-  }
 
     ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
