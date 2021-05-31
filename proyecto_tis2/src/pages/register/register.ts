@@ -1,7 +1,8 @@
 import { Component} from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Provider } from '../../providers/provider/provider';
-import { HomePage } from '../home/home';
+import { ContactPage } from '../contact/contact';
+
 
 
 /**
@@ -32,7 +33,7 @@ export class RegisterPage {
       if(this.responseData.userData){
       console.log(this.responseData);
       localStorage.setItem('userData', JSON.stringify(this.responseData));
-      this.navCtrl.push(HomePage);
+      this.navCtrl.push(ContactPage);
       }
       else{ console.log("User already exists"); }
     }, (err) => {
