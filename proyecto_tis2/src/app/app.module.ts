@@ -23,7 +23,7 @@ import { RegisterPage } from '../pages/register/register';
 import { DetallepublicacionPage } from '../pages/detallepublicacion/detallepublicacion';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
-import { Provider } from '../providers/provider/provider';
+
 
 
 @NgModule({
@@ -72,8 +72,7 @@ import { Provider } from '../providers/provider/provider';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Provider,
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
 export class AppModule {}

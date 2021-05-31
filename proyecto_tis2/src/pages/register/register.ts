@@ -1,8 +1,6 @@
 import { Component} from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Provider } from '../../providers/provider/provider';
 
-import { LoginPage } from '../login/login';
 
 
 
@@ -20,7 +18,7 @@ import { LoginPage } from '../login/login';
 })
 export class RegisterPage {
   userData = {"nombre":"", "apellido":"","correo":"", "contrasena":"","direccion":"","fecha_nacimiento":"","telefono":""};
-  constructor(public navCtrl: NavController, public navParams: NavParams,public provider:Provider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
 
