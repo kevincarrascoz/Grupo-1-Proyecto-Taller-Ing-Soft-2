@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { RegisterPage } from '../register/register';
 import { NgForOf } from '@angular/common';
 import { Http } from '@angular/http';
@@ -21,7 +21,7 @@ export class LoginPage {
   email:string;
   password:string;
   usuarios:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public toastCtrl: ToastController) {
 
 
     this.http.get('http://localhost/xampp/otraprueba/post_usuario.php')
@@ -46,9 +46,19 @@ export class LoginPage {
   }
 
   login(){
-    if(this.email==undefined || this.password==undefined){
-      alert("Ingrese todos los datos");
-    }else{
+    if(this.email==undefined){
+      const toast = this.toastCtrl.create({
+        message: 'Ingrese su correo electronico', 
+        duration: 3000
+      });
+      toast.present();
+  }else if(this.password==undefined){
+      const toast = this.toastCtrl.create({
+        message: 'Ingrese su contraseña', 
+        duration: 3000
+      });
+      toast.present();
+  }else{
     console.log("Email: "+ this.email);
     console.log("Password: "+ this.password);
   }

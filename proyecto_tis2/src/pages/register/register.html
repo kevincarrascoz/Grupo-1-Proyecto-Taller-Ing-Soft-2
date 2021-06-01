@@ -11,7 +11,6 @@
 
 <ion-content padding>
     <ion-title>Crea tu cuenta</ion-title>
-    <form>
     <ion-item>
       <ion-input placeholder="Nombre" type="text" name="first_name" [(ngModel)]="nombre"></ion-input>
     </ion-item>
@@ -34,7 +33,6 @@
       <ion-input placeholder="Celular" type="number"  name="celular" [(ngModel)]="telefono"></ion-input>
     </ion-item>
     <button ion-button full (click)="Registro()">Registrar</button>
-    </form>
     <button ion-button full color="light" (click)="IrLogin()">Ya tengo una cuenta</button>
     
 

@@ -1,5 +1,7 @@
 import { Component} from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
 
 /**
  * Generated class for the RegisterPage page.
@@ -21,17 +23,80 @@ export class RegisterPage {
   direccion:string;
   fecha_nacimiento:Date;
   telefono:string;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public toastCtrl: ToastController) {
   }
 
 
   Registro(){
-    if(this.nombre==undefined || this.apellido==undefined || this.correo==undefined || this.contrasena==undefined 
-      || this.direccion==undefined || this.fecha_nacimiento==undefined || this.telefono==undefined ){
-      alert("Ingrese todos los datos");
+    if(this.nombre==undefined){
+        const toast = this.toastCtrl.create({
+          message: 'Ingrese el nombre', 
+          duration: 3000
+        });
+        toast.present();
+    }else if(this.apellido==undefined){
+        const toast = this.toastCtrl.create({
+          message: 'Ingrese el apellido', 
+          duration: 3000
+        });
+        toast.present();
+    }else if(this.correo==undefined){
+        const toast = this.toastCtrl.create({
+          message: 'Ingrese el correo electronico', 
+          duration: 3000
+        });
+        toast.present();
+    }else if(this.contrasena==undefined){
+        const toast = this.toastCtrl.create({
+          message: 'Ingrese la contraseña', 
+          duration: 3000
+        });
+        toast.present();
+    }else if(this.direccion==undefined){
+        const toast = this.toastCtrl.create({
+          message: 'Ingrese la dirección', 
+          duration: 3000
+        });
+        toast.present();
+    }else if(this.fecha_nacimiento==undefined){
+        const toast = this.toastCtrl.create({
+          message: 'Ingrese la fecha de nacimiento', 
+          duration: 3000
+        });
+        toast.present();
+    }else if(this.telefono==undefined){
+        const toast = this.toastCtrl.create({
+          message: 'Ingrese el telefono', 
+          duration: 3000
+        });
+        toast.present();
     }else{
-    
-  }
+      let body = {
+        nombre: this.nombre,
+        apellido: this.apellido,
+        correo: this.correo,
+        contrasena: this.contrasena,
+        direccion: this.direccion,
+        fecha_nacimiento: this.fecha_nacimiento,
+        telefono: this.telefono,
+  
+      }
+      console.log(body);
+      this.http.post('http://localhost/xampp/otraprueba/post_usuario.php', body)
+      .map(response => response.json())
+      .subscribe(data =>
+        {
+          body = data;
+  
+          console.log(data);
+          
+        },
+        err =>{
+          console.log("Oops!");
+          //this.presentToast("No existen registros aun");
+        }
+        );
+    }
   }
 
   IrLogin(){
