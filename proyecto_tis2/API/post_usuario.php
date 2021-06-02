@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
 }
 
 // Crear un nuevo post
-if ($_SERVER['REQUEST_METHOD'] == 'POST')
+if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
     $input = $_POST;
     $sql = "INSERT INTO usuario
@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 }
 
 //Borrar
-if ($_SERVER['REQUEST_METHOD'] == 'DELETE')
+if($_SERVER['REQUEST_METHOD'] == 'DELETE')
 {
 	$id = $_GET['id'];
   $statement = $dbConn->prepare("DELETE FROM usuario where id=:id");
@@ -87,5 +87,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'PUT')
 
 //En caso de que ninguna de las opciones anteriores se haya ejecutado
 header("HTTP/1.1 400 Bad Request");
+
 
 ?>
