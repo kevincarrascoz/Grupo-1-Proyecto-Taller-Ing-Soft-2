@@ -24,6 +24,7 @@ export class RegisterPage {
   @ViewChild("direccion") direccion;
   @ViewChild("fecha_nacimiento") fecha_nacimiento;
   @ViewChild("telefono") telefono;
+  
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public toastCtrl: ToastController, public loading: LoadingController) {
   }
 
