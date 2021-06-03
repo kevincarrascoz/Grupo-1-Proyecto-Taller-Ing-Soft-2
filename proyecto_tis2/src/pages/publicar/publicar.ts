@@ -106,7 +106,7 @@ export class PublicarPage {
 
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PublicarPage');
+   // console.log('ionViewDidLoad PublicarPage');
   }
 
 }
