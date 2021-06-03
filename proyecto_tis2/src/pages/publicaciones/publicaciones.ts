@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
+import { Http } from '@angular/http';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { DetallepublicacionPage } from '../detallepublicacion/detallepublicacion';
 
-/**
- * Generated class for the PublicacionesPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -14,12 +10,31 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'publicaciones.html',
 })
 export class PublicacionesPage {
+  publicaciones:any;
+  id:any;
+  users: any;
+  constructor(public navCtrl: NavController, public navParams: NavParams,  public http: Http) {
+    this.http.get('http://localhost/xampp/otraprueba/post.php')
+    .map(response => response.json())
+    .subscribe(data =>
+      {
+        this.publicaciones = data;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+        console.log(data);
+        
+      },
+      err =>{
+        console.log("Oops!");
+        //this.presentToast("No existen registros aun");
+      }
+      );
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PublicacionesPage');
+  }
+  detalle(id){
+    this.navCtrl.push(DetallepublicacionPage,{valor:id})
   }
 
 }
