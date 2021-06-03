@@ -62,7 +62,7 @@ export class LoginPage {
   }else{
     console.log("Email: "+ this.email);
     console.log("Password: "+ this.password);
-    this.navCtrl.pop(HomePage);
+    this.navCtrl.pop();
   }
   }
 
