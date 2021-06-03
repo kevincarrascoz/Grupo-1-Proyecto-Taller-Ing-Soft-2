@@ -20,7 +20,6 @@ import { LoginPage } from '../pages/login/login';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
   rootPage:any=TabsPage;
-  pages: Array<{title: string, component: any}>;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
@@ -29,14 +28,7 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
-    this.pages = [
-      { title: 'Inicio', component: TabsPage },
-      { title: 'Catalogo', component: HomePage },
-      { title: 'Historial', component: HistorialPage },
-      { title: 'Publicar', component: PublicarPage },
-      { title: 'Categorias', component: CategoriasPage },
-      { title: 'Preguntas Frecuentes', component: PreguntasPage }
-    ];
+
   }
   openPage(page) {
     // Reset the content nav to have just this page
