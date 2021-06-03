@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { RegisterPage } from '../register/register';
 import { NgForOf } from '@angular/common';
-import { Http } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { LoadingController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 /**
  * Generated class for the LoginPage page.
@@ -18,27 +19,10 @@ import { HomePage } from '../home/home';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-
-  email:string;
-  password:string;
+  @ViewChild("correo") correo;
+  @ViewChild("contrasena") contrasena;
   usuarios:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public toastCtrl: ToastController) {
-
-
-    this.http.get('http://localhost/xampp/otraprueba/post_usuario.php')
-    .map(response => response.json())
-    .subscribe(data =>
-      {
-        this.usuarios = data;
-
-        console.log(data);
-        
-      },
-      err =>{
-        console.log("Oops!");
-        //this.presentToast("No existen registros aun");
-      }
-      );
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public toastCtrl: ToastController, public loading: LoadingController) {
 
   }
 
@@ -47,22 +31,61 @@ export class LoginPage {
   }
 
   login(){
-    if(this.email==undefined){
+    if(this.correo.value==""){
       const toast = this.toastCtrl.create({
-        message: 'Ingrese su correo electronico', 
+        message: 'Ingrese su correo electrónico', 
         duration: 3000
       });
       toast.present();
-  }else if(this.password==undefined){
+  }else if(this.contrasena.value==""){
       const toast = this.toastCtrl.create({
         message: 'Ingrese su contraseña', 
         duration: 3000
       });
       toast.present();
   }else{
-    console.log("Email: "+ this.email);
-    console.log("Password: "+ this.password);
-    this.navCtrl.pop();
+    console.log("Correo Electrónico: "+ this.correo.value);
+    console.log("Contraseña: "+ this.contrasena.value);
+    var headers = new Headers();
+    headers.append("Accept", 'application/json');
+    headers.append('Content-Type', 'application/json' );
+    let options = new RequestOptions({ headers: headers });
+
+    let data = {
+      correo: this.correo.value,
+      contrasena: this.contrasena.value
+    };
+
+    let loader = this.loading.create({
+      content: 'Processing please wait...',
+    });
+
+    loader.present().then(() => {
+
+
+      this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/login.php', data, options)
+      .map(res => res.json())
+      .subscribe(res => {
+      console.log(res)
+       loader.dismiss()
+      if(res=="Your Login success"){
+       
+        const toast = this.toastCtrl.create({
+          message: 'Ingreso realizado correctamente', 
+          duration: 3000
+        });
+        toast.present();
+          this.navCtrl.push(HomePage, data);
+      }else
+      {
+        const toast = this.toastCtrl.create({
+          message: 'Error, intentelo denuevo', 
+          duration: 3000
+        });
+        toast.present();
+        } 
+      });
+      });
   }
   }
 

@@ -12,12 +12,14 @@
 
 <ion-content padding>
 <ion-title>Inicia sesion</ion-title>
+<ion-list no-line>
 <ion-item>
-  <ion-input placeholder="Email" type="email" [(ngModel)]="email"></ion-input>
+  <ion-input placeholder="Correo Electrónico" type="text" name="correo" #correo></ion-input>
 </ion-item>
 <ion-item>
-  <ion-input placeholder="Password" type="password" [(ngModel)]="password"></ion-input>
+  <ion-input placeholder="Contraseña" type="password" name="contrasena" #contrasena></ion-input>
 </ion-item>
+</ion-list>
 <button ion-button full (click)="login()">Iniciar Sesion</button>
 <button ion-button full color="light" (click)="IrRegistro()">Crear una cuenta</button>
 

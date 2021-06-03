@@ -1,6 +1,7 @@
-import { Component} from '@angular/core';
+import { Component, ViewChild} from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
-import { Http } from '@angular/http';
+import {Http, Headers, RequestOptions}  from "@angular/http";
+import { LoadingController } from 'ionic-angular';
 import 'rxjs/add/operator/map';
 
 /**
@@ -16,86 +17,105 @@ import 'rxjs/add/operator/map';
   templateUrl: 'register.html',
 })
 export class RegisterPage {
-  nombre:string;
-  apellido:string;
-  correo:string;
-  contrasena:string;
-  direccion:string;
-  fecha_nacimiento:Date;
-  telefono:string;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public toastCtrl: ToastController) {
+  @ViewChild("nombre") nombre;
+  @ViewChild("apellido") apellido;
+  @ViewChild("correo") correo;
+  @ViewChild("contrasena") contrasena;
+  @ViewChild("direccion") direccion;
+  @ViewChild("fecha_nacimiento") fecha_nacimiento;
+  @ViewChild("telefono") telefono;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public toastCtrl: ToastController, public loading: LoadingController) {
   }
 
 
   Registro(){
-    if(this.nombre==undefined){
+    if(this.nombre.value==""){
         const toast = this.toastCtrl.create({
           message: 'Ingrese el nombre', 
           duration: 3000
         });
         toast.present();
-    }else if(this.apellido==undefined){
+    }else if(this.apellido.value==""){
         const toast = this.toastCtrl.create({
           message: 'Ingrese el apellido', 
           duration: 3000
         });
         toast.present();
-    }else if(this.correo==undefined){
+    }else if(this.correo.value==""){
         const toast = this.toastCtrl.create({
           message: 'Ingrese el correo electronico', 
           duration: 3000
         });
         toast.present();
-    }else if(this.contrasena==undefined){
+    }else if(this.contrasena.value==""){
         const toast = this.toastCtrl.create({
           message: 'Ingrese la contraseña', 
           duration: 3000
         });
         toast.present();
-    }else if(this.direccion==undefined){
+    }else if(this.direccion.value==""){
         const toast = this.toastCtrl.create({
           message: 'Ingrese la dirección', 
           duration: 3000
         });
         toast.present();
-    }else if(this.fecha_nacimiento==undefined){
+    }else if(this.fecha_nacimiento.value==""){
         const toast = this.toastCtrl.create({
           message: 'Ingrese la fecha de nacimiento', 
           duration: 3000
         });
         toast.present();
-    }else if(this.telefono==undefined){
+    }else if(this.telefono.value==""){
         const toast = this.toastCtrl.create({
           message: 'Ingrese el telefono', 
           duration: 3000
         });
         toast.present();
     }else{
-      let body = {
-        nombre: this.nombre,
-        apellido: this.apellido,
-        correo: this.correo,
-        contrasena: this.contrasena,
-        direccion: this.direccion,
-        fecha_nacimiento: this.fecha_nacimiento,
-        telefono: this.telefono,
-  
-      }
-      console.log(body);
-      this.http.post('http://localhost/xampp/otraprueba/post_usuario.php', body)
-      .map(response => response.json())
-      .subscribe(data =>
+
+      var headers = new Headers();
+    headers.append("Accept", 'application/json');
+    headers.append('Content-Type', 'application/json' );
+    let options = new RequestOptions({ headers: headers });
+
+
+
+      let data = {
+        nombre: this.nombre.value,
+        apellido: this.apellido.value,
+        correo: this.correo.value,
+        contrasena: this.contrasena.value,
+        direccion: this.direccion.value,
+        fecha_nacimiento: this.fecha_nacimiento.value,
+        telefono: this.telefono.value
+      };
+      console.log(data);
+      let loader = this.loading.create({
+        content: 'Processing please wait...',
+      });
+      loader.present().then(() => {
+        this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/register.php',data, options)
+        .map(res => res.json())
+        .subscribe(res => {
+        
+         loader.dismiss()
+        if(res=="Registration successfull"){
+          const toast = this.toastCtrl.create({
+            message: 'Registro Exitoso', 
+            duration: 3000
+          });
+        toast.present();
+        
+        }else
         {
-          body = data;
-  
-          console.log(data);
-          
-        },
-        err =>{
-          console.log("Oops!");
-          //this.presentToast("No existen registros aun");
-        }
-        );
+          const toast = this.toastCtrl.create({
+            message: 'Fallo en registro', 
+            duration: 3000
+          });
+          toast.present();
+          } 
+        });
+        });
     }
   }
 

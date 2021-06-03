@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { LoginPage } from '../login/login';
@@ -11,9 +11,9 @@ import { PublicacionesPage } from '../publicaciones/publicaciones';
   templateUrl: 'home.html'
 })
 export class HomePage {
-
-  constructor(public navCtrl: NavController, public http: Http) {
-
+  usuario: any;
+  constructor(public navCtrl: NavController, public http: Http, public navParams: NavParams) {
+    this.usuario = navParams.get('data');
   }
 
 
