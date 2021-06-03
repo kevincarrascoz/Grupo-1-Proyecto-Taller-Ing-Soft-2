@@ -5,8 +5,9 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 import { DetallepublicacionPage } from '../detallepublicacion/detallepublicacion';
+import { LoginPage } from '../login/login';
 
-import {TabsPage} from '../tabs/tabs';
+
 
 
 
@@ -41,7 +42,9 @@ export class HomePage {
   detalle(id){
     this.navCtrl.push(DetallepublicacionPage,{valor:id})
   }
-
+  IrLogin(){
+    this.navCtrl.push(LoginPage);
+  }
 
   ionViewDidLoad(){
     console.log('Ya cargo ListadoPage');
