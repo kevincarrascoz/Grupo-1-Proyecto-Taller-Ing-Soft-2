@@ -1,8 +1,6 @@
 <ion-header>
   <ion-navbar color="lightblue">
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
+
     <ion-searchbar></ion-searchbar>
  </ion-navbar>
   <ion-navbar>
@@ -10,57 +8,21 @@
   </ion-navbar>
 </ion-header>
 
-
 <ion-content padding>
   <h2 text-center >¡Bienvenido a Tus Expertos!</h2>
   <p text-center>
     Puedes comenzar viendo las publicaciones mas recientes de tus Expertos
     <br><br>
-    <button ion-button> Pulsa aqui</button>
+    <button ion-button (click)="IrPublicaciones()"> Pulsa aqui</button>
   </p>
     <p text-center>
       Si necesitas publicar tus servicios, no olvides crearte una cuenta
     <br>
-    <button ion-button>Pulsa Aqui</button>
+    <button ion-button (click)="IrPublicar()">Pulsa Aqui</button>
     </p>
     <p text-center>
       Crea una cuenta
     <br>
-    <button menuClose ion-button (click)="IrLogin()">Ingresa a tu cuenta</button> 
+    <button ion-button (click)="IrLogin()">Ingresa a tu cuenta</button> 
     </p>
-  <!--   <h6>Publicaciones recientes:</h6>
-    <br>
   
-
-
-
-    <ion-card *ngFor="let pub of publicaciones"(click)="detalle(pub.id)">
-  <ion-item>
-      <ion-avatar item-start>
-        <img src="https://picsum.photos/300">
-      </ion-avatar>
-      <h2><b>Humberto Suazo</b></h2>
-      <h2>{{pub.title}}</h2>
-    </ion-item>
-  
-    
-    <ion-card-content>
-      <p>{{pub.content}}</p>
-    </ion-card-content>
-  
-    <ion-row>
-      <ion-col>
-        <button ion-button icon-start clear small>
-          <ion-icon name="ios-chatbubbles"></ion-icon>
-          <div>Contactar</div>
-        </button>
-      </ion-col>
-      <ion-col align-self-center text-center>
-        <ion-note>
-          05-25-2021
-        </ion-note>
-      </ion-col>
-    </ion-row>
-  
-  </ion-card> -->
-

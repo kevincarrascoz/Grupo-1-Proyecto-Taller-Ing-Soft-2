@@ -6,6 +6,8 @@ import 'rxjs/add/operator/map';
 
 import { DetallepublicacionPage } from '../detallepublicacion/detallepublicacion';
 import { LoginPage } from '../login/login';
+import { PublicarPage } from '../publicar/publicar';
+import { PublicacionesPage } from '../publicaciones/publicaciones';
 
 
 
@@ -44,6 +46,12 @@ export class HomePage {
   }
   IrLogin(){
     this.navCtrl.push(LoginPage);
+  }
+  IrPublicar(){
+    this.navCtrl.push(PublicarPage);
+  }
+  IrPublicaciones(){
+    this.navCtrl.push(PublicacionesPage);
   }
 
   ionViewDidLoad(){

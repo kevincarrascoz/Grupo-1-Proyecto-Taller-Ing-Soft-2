@@ -28,6 +28,8 @@ import { RegisterPage } from '../pages/register/register';
 import { DetallepublicacionPage } from '../pages/detallepublicacion/detallepublicacion';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
+import { PublicacionesPage } from '../pages/publicaciones/publicaciones';
+
 
 
 
@@ -52,7 +54,8 @@ import { HttpClientModule } from '@angular/common/http';
     AcercaDePage,
     LoginPage,
     RegisterPage,
-    DetallepublicacionPage
+    DetallepublicacionPage,
+    PublicacionesPage
   ],
   imports: [
     BrowserModule,
@@ -82,7 +85,8 @@ import { HttpClientModule } from '@angular/common/http';
     AcercaDePage,
     LoginPage,
     RegisterPage,
-    DetallepublicacionPage
+    DetallepublicacionPage,
+    PublicacionesPage
   ],
   providers: [
     StatusBar,
