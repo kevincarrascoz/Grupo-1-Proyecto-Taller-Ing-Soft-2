@@ -23,7 +23,7 @@ export class PublicarPage {
   @ViewChild("certificado") certificado;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public toastCtrl: ToastController, public loading: LoadingController) {
   }
 
   Publicar(){
@@ -59,6 +59,47 @@ export class PublicarPage {
         toast.present();
     }   
     else{
+      var headers = new Headers();
+      headers.append("Accept", 'application/json');
+      headers.append('Content-Type', 'application/json' );
+      let options = new RequestOptions({ headers: headers });
+
+      let data = {
+        descripcion: this.descripcion.value,
+        horario: this.horario.value,
+        precio: this.precio.value,
+        categoria: this.categoria.value,
+        certificado: this.certificado.value,        
+      };
+      console.log(data);
+      let loader = this.loading.create({
+        content: 'Processing please wait...',
+      });
+      /*
+      loader.present().then(() => {
+        this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/publicar.php',data, options)
+        .map(res => res.json())
+        .subscribe(res => {
+          loader.dismiss()
+          if(res=="Public successfull"){
+            const toast = this.toastCtrl.create({
+              message: 'Publicacion Exitosa', 
+              duration: 3000
+            });
+          toast.present();
+        }else
+        {
+          const toast = this.toastCtrl.create({
+            message: 'Fallo en publicacion', 
+            duration: 3000
+          });
+          toast.present();
+          } 
+        });
+      });
+*/
+
+  
 
     }
   }
