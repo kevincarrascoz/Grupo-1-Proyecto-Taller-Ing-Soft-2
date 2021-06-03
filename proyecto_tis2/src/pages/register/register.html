@@ -11,27 +11,29 @@
 
 <ion-content padding>
     <ion-title>Crea tu cuenta</ion-title>
+    <ion-list no-line>
     <ion-item>
-      <ion-input placeholder="Nombre" type="text" name="first_name" [(ngModel)]="nombre"></ion-input>
+      <ion-input placeholder="Nombre" type="text" name="nombre" #nombre></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input placeholder="Apellido" type="text"name="last_name" [(ngModel)]="apellido"></ion-input>
+      <ion-input placeholder="Apellido" type="text"name="apellido" #apellido></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input placeholder="Email" type="email" name="email" [(ngModel)]="correo"></ion-input>
+      <ion-input placeholder="Email" type="email" name="correo" #correo></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input placeholder="Contraseña" type="password"  name="password" [(ngModel)]="contrasena"></ion-input>
+      <ion-input placeholder="Contraseña" type="password"  name="contrasena" #contrasena></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input placeholder="Direccion" type="text"  name="direccion" [(ngModel)]="direccion"></ion-input>
+      <ion-input placeholder="Direccion" type="text"  name="direccion" #direccion></ion-input>
     </ion-item>
     <ion-item>
-      <ion-datetime placeholder="Fecha de Nacimiento" type="date"  name="fecha_nacimiento" [(ngModel)]="fecha_nacimiento"></ion-datetime>
+      <ion-input placeholder="Fecha de Nacimiento" type="date"  name="fecha_nacimiento" #fecha_nacimiento></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input placeholder="Celular" type="number"  name="celular" [(ngModel)]="telefono"></ion-input>
+      <ion-input placeholder="Telefono" type="number"  name="telefono" #telefono></ion-input>
     </ion-item>
+  </ion-list>
     <button ion-button full (click)="Registro()">Registrar</button>
     <button ion-button full color="light" (click)="IrLogin()">Ya tengo una cuenta</button>
     
