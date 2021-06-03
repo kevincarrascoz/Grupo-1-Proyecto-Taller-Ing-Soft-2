@@ -4,6 +4,7 @@ import { RegisterPage } from '../register/register';
 import { NgForOf } from '@angular/common';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { HomePage } from '../home/home';
 /**
  * Generated class for the LoginPage page.
  *
@@ -61,6 +62,7 @@ export class LoginPage {
   }else{
     console.log("Email: "+ this.email);
     console.log("Password: "+ this.password);
+    this.navCtrl.pop(HomePage);
   }
   }
 
