@@ -6,25 +6,35 @@
     <ion-searchbar></ion-searchbar>
  </ion-navbar>
   <ion-navbar>
-    <ion-title>Inicio</ion-title>
+    <ion-title text-center>Tus Expertos</ion-title>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
-
-  <h2>Bienvenido al Catalogo de Oficios!</h2>
-  <p>
-    Empieza viendo las publicaciones mas reciente o utiliza el buscador!
+  <h2 text-center >¡Bienvenido a Tus Expertos!</h2>
+  <p text-center>
+    Puedes comenzar viendo las publicaciones mas recientes de tus Expertos
     <br><br>
+    <button ion-button> Pulsa aqui</button>
   </p>
-    <h6>Publicaciones recientes:</h6>
+    <p text-center>
+      Si necesitas publicar tus servicios, no olvides crearte una cuenta
+    <br>
+    <button ion-button>Pulsa Aqui</button>
+    </p>
+    <p text-center>
+      Crea una cuenta
+    <br>
+    <button ion-button>Pulsa Aqui</button>
+    </p>
+  <!--   <h6>Publicaciones recientes:</h6>
     <br>
   
 
 
 
-  <ion-card *ngFor="let pub of publicaciones"(click)="detalle(pub.id)">
+    <ion-card *ngFor="let pub of publicaciones"(click)="detalle(pub.id)">
   <ion-item>
       <ion-avatar item-start>
         <img src="https://picsum.photos/300">
@@ -52,5 +62,5 @@
       </ion-col>
     </ion-row>
   
-  </ion-card>
+  </ion-card> -->
 
