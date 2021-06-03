@@ -60,9 +60,9 @@ export class LoginPage {
       });
       toast.present();
   }else{
-    console.log("Email: "+ this.email);
-    console.log("Password: "+ this.password);
-    this.navCtrl.pop(HomePage);
+    //console.log("Email: "+ this.email);
+    //console.log("Password: "+ this.password);
+    //this.navCtrl.pop(HomePage);
   }
   }
 

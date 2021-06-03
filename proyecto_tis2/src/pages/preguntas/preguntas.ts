@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, Item, NavController, NavParams } from 'ionic-angular';
+import { Faq1Page } from '../faq1/faq1';
+import { Faq2Page } from '../faq2/faq2';
+import { Faq3Page } from '../faq3/faq3';
+import { Faq4Page } from '../faq4/faq4';
+import { Faq5Page } from '../faq5/faq5';
 
 /**
  * Generated class for the PreguntasPage page.
@@ -16,9 +21,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class PreguntasPage {
 
   items = [
-    '¿Cómo elegir a ...',
-    '¿Cómo publicar ...',
-    '¿Cómo comunicarse con el .....',
+    '¿Cómo elegir a un experto?',
+    '¿Cómo publicar un servicio?',
+    '¿Cómo contactarse con un experto?',
     '¿Como registrarme?',
     '¿Como cambiar mis datos personales?'
 
@@ -26,6 +31,21 @@ export class PreguntasPage {
 
   itemSelected(item: string) {
     console.log("Selected Item", item);
+    if(item=="¿Cómo elegir a un experto?"){
+      this.navCtrl.push(Faq1Page);
+    }
+    if(item=="¿Cómo publicar un servicio?"){
+      this.navCtrl.push(Faq2Page);
+    }
+    if(item=="¿Cómo contactarse con un experto?"){
+      this.navCtrl.push(Faq3Page);
+    }
+    if(item=="¿Como registrarme?"){
+      this.navCtrl.push(Faq4Page);
+    }
+    if(item=="¿Como cambiar mis datos personales?"){
+      this.navCtrl.push(Faq5Page);
+    }
   }
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
