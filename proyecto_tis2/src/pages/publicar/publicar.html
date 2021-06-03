@@ -23,18 +23,18 @@
       Informacion
     </ion-list-header>
     <ion-item>
-      <ion-input placeholder="Descripcion" type="text" value=""></ion-input>
+      <ion-input placeholder="Descripcion" type="text" name="descripcion" #descripcion value=""></ion-input>
     </ion-item>
   
     <ion-item>
-      <ion-input placeholder="Horario" type="text" value=""></ion-input>
+      <ion-input placeholder="Horario" type="text" name="horario" #horario value=""></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-input placeholder="Precio" type="text" value=""></ion-input>
+      <ion-input placeholder="Precio" type="text" name="precio" #precio value=""></ion-input>
     </ion-item>
   
-    <ion-item>
+    <ion-item name="categoria" #categoria>
       <ion-label>Categoria</ion-label>
       <ion-select  [(ngModel)]="oficio">
       <ion-option value="Albanil">Albañil</ion-option>
@@ -52,7 +52,7 @@
     </ion-select>
   </ion-item>
 
-  <ion-item>
+  <ion-item name="certificado" #certificado>
     <ion-label>Certificados</ion-label>
     <ion-select [(ngModel)]="certificados" multiple="true">
       <ion-option>Certificado de Carpintero</ion-option>
