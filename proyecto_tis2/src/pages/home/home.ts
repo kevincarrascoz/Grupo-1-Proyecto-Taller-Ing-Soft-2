@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 import { LoginPage } from '../login/login';
 import { PublicarPage } from '../publicar/publicar';
 import { PublicacionesPage } from '../publicaciones/publicaciones';
+import { PreguntasPage } from '../preguntas/preguntas';
 
 @Component({
   selector: 'page-home',
@@ -31,5 +32,8 @@ export class HomePage {
     console.log('Ya cargo ListadoPage');
   }
 
+  IrPreguntas(){
+    this.navCtrl.push(PreguntasPage);
+  }
 
 }
