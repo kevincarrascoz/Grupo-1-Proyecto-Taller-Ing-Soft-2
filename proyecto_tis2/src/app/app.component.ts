@@ -8,6 +8,7 @@ import { HistorialPage } from '../pages/historial/historial';
 import { PublicarPage } from '../pages/publicar/publicar';
 import { CategoriasPage } from '../pages/categorias/categorias';
 import { PreguntasPage } from '../pages/preguntas/preguntas';
+import { LoginPage } from '../pages/login/login';
 
 
 
@@ -18,6 +19,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
   rootPage:any=HomePage;
   pages: Array<{title: string, component: any}>;
+  navCtrl: any;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
@@ -42,4 +44,7 @@ export class MyApp {
     this.nav.setRoot(page.component);
   }
  
+  IrLogin(){
+    this.nav.push(LoginPage);
+  }
 }
