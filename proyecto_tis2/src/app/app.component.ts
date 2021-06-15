@@ -9,6 +9,7 @@ import { PublicarPage } from '../pages/publicar/publicar';
 import { CategoriasPage } from '../pages/categorias/categorias';
 import { PreguntasPage } from '../pages/preguntas/preguntas';
 import { LoginPage } from '../pages/login/login';
+import { PublicacionesPage } from '../pages/publicaciones/publicaciones';
 
 
 
@@ -30,7 +31,7 @@ export class MyApp {
     });
     this.pages = [
       { title: 'Inicio', component: HomePage },
-      { title: 'Catalogo', component: HomePage },
+      { title: 'Catalogo', component: PublicacionesPage },
       { title: 'Historial', component: HistorialPage },
       { title: 'Publicar', component: PublicarPage },
       { title: 'Categorias', component: CategoriasPage },
