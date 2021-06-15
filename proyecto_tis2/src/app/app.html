@@ -1,1 +1,17 @@
+<ion-menu [content]="content" type="overlay">
+    <ion-header>
+      <ion-toolbar>
+         <button menuClose ion-button (click)="IrLogin()">Ingresa a tu cuenta</button> 
+      </ion-toolbar>
+    </ion-header>
+  
+    <ion-content>
+      <ion-list>
+        <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+          {{p.title}}
+        </button>
+      </ion-list>
+    </ion-content>
+  
+  </ion-menu>
 <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
