@@ -38,8 +38,8 @@ if (isset($_SERVER['HTTP_ORIGIN'])) {
 
 
 
-$sql = "INSERT INTO usuario (nombre, apellido, correo, contrasena, direccion, fecha_nacimiento, telefono)
-VALUES ('$nombre', '$apellido', '$correo', '$contrasena', '$direccion', '$fecha_nacimiento', '$telefono')";
+$sql = "INSERT INTO usuario (correo, nombre, apellido, contrasena, direccion, fecha_nacimiento, codigo_comuna, telefono)
+VALUES ('$correo', '$nombre', '$apellido', '$contrasena', '$direccion', '$fecha_nacimiento', 1 , '$telefono')";
 
 
 if ($con->query($sql) === TRUE) {

@@ -33,7 +33,7 @@ if (isset($_SERVER['HTTP_ORIGIN'])) {
 	
  
       
-	  $sql = "SELECT id FROM usuario WHERE correo='$correo' and contrasena='$contrasena'";
+	  $sql = "SELECT correo FROM usuario WHERE correo='$correo' and contrasena='$contrasena'";
       $result = mysqli_query($con,$sql);
       //$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
       //$active = $row['active'];

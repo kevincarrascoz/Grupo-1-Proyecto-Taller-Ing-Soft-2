@@ -28,6 +28,7 @@ import { DetallepublicacionPage } from '../pages/detallepublicacion/detallepubli
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { PublicacionesPage } from '../pages/publicaciones/publicaciones';
+import { LogoutPage } from '../pages/logout/logout';
 
 
 
@@ -53,7 +54,8 @@ import { PublicacionesPage } from '../pages/publicaciones/publicaciones';
     LoginPage,
     RegisterPage,
     DetallepublicacionPage,
-    PublicacionesPage
+    PublicacionesPage,
+    LogoutPage
   ],
   imports: [
     BrowserModule,
@@ -83,7 +85,8 @@ import { PublicacionesPage } from '../pages/publicaciones/publicaciones';
     LoginPage,
     RegisterPage,
     DetallepublicacionPage,
-    PublicacionesPage
+    PublicacionesPage,
+    LogoutPage
   ],
   providers: [
     StatusBar,

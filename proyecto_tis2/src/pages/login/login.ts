@@ -6,6 +6,7 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { LoadingController } from 'ionic-angular';
 import { HomePage } from '../home/home';
+import { Events } from 'ionic-angular';
 /**
  * Generated class for the LoginPage page.
  *
@@ -22,7 +23,7 @@ export class LoginPage {
   @ViewChild("correo") correo;
   @ViewChild("contrasena") contrasena;
   usuarios:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public toastCtrl: ToastController, public loading: LoadingController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public toastCtrl: ToastController, public loading: LoadingController, public events:Events) {
 
   }
 
@@ -63,7 +64,7 @@ export class LoginPage {
     loader.present().then(() => {
 
 
-      this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/login.php', data, options)
+      this.http.post('http://localhost/xampp/Proyecto_Taller_Ing_2/proyecto_tis2/login.php', data, options)
       .map(res => res.json())
       .subscribe(res => {
       console.log(res)
@@ -75,7 +76,8 @@ export class LoginPage {
           duration: 3000
         });
         toast.present();
-          this.navCtrl.push(HomePage, data);
+          this.events.publish('user:loggedin');
+          this.navCtrl.setRoot(HomePage);
       }else
       {
         const toast = this.toastCtrl.create({

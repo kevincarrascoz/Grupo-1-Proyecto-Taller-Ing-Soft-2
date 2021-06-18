@@ -11,7 +11,8 @@ import { PreguntasPage } from '../pages/preguntas/preguntas';
 import { LoginPage } from '../pages/login/login';
 import { PublicacionesPage } from '../pages/publicaciones/publicaciones';
 
-
+import { Events } from 'ionic-angular';
+import { LogoutPage } from '../pages/logout/logout';
 
 @Component({
   templateUrl: 'app.html'
@@ -22,7 +23,7 @@ export class MyApp {
   pages: Array<{title: string, component: any}>;
   navCtrl: any;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, events:Events) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -37,6 +38,28 @@ export class MyApp {
       { title: 'Categorias', component: CategoriasPage },
       { title: 'Preguntas Frecuentes', component: PreguntasPage }
     ];
+    events.subscribe('user:loggedin',()=>{
+      this.pages = [
+                    { title: 'Inicio', component: HomePage },
+                    { title: 'Catalogo', component: PublicacionesPage },
+                    { title: 'Historial', component: HistorialPage },
+                    { title: 'Publicar', component: PublicarPage },
+                    { title: 'Categorias', component: CategoriasPage },
+                    { title: 'Preguntas Frecuentes', component: PreguntasPage },
+                    { title:'Logout', component: LogoutPage}
+                    ];
+    });
+
+      events.subscribe('user:loggedout',()=>{
+      this.pages = [
+                    { title: 'Inicio', component: HomePage },
+                    { title: 'Catalogo', component: PublicacionesPage },
+                    { title: 'Historial', component: HistorialPage },
+                    { title: 'Publicar', component: PublicarPage },
+                    { title: 'Categorias', component: CategoriasPage },
+                    { title: 'Preguntas Frecuentes', component: PreguntasPage }
+                    ];
+    });
   
   }
   openPage(page) {
