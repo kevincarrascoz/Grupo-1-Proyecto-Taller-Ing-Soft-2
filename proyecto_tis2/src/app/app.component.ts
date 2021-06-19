@@ -14,6 +14,7 @@ import { PublicarLogoutPage } from '../pages/publicar-logout/publicar-logout';
 
 import { Events } from 'ionic-angular';
 import { LogoutPage } from '../pages/logout/logout';
+import { ContactPage } from '../pages/contact/contact';
 
 @Component({
   templateUrl: 'app.html'
@@ -32,6 +33,7 @@ export class MyApp {
       splashScreen.hide();
     });
     this.pages = [
+      { title: 'iniciar sesion', component: LoginPage },
       { title: 'Inicio', component: PublicacionesPage },
       { title: 'Catalogo', component: PublicacionesPage },
       { title: 'Historial', component: HistorialPage },
@@ -41,6 +43,7 @@ export class MyApp {
     ];
     events.subscribe('user:loggedin',()=>{
       this.pages = [
+                    { title: 'Mi perfil', component: ContactPage },
                     { title: 'Inicio', component: PublicacionesPage },
                     { title: 'Catalogo', component: PublicacionesPage },
                     { title: 'Historial', component: HistorialPage },

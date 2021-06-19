@@ -57,7 +57,8 @@ import { PublicarLogoutPage } from '../pages/publicar-logout/publicar-logout';
     DetallepublicacionPage,
     PublicacionesPage,
     LogoutPage,
-    PublicarLogoutPage
+    PublicarLogoutPage,
+    ContactPage
   ],
   imports: [
     BrowserModule,
@@ -89,7 +90,8 @@ import { PublicarLogoutPage } from '../pages/publicar-logout/publicar-logout';
     DetallepublicacionPage,
     PublicacionesPage,
     LogoutPage,
-    PublicarLogoutPage
+    PublicarLogoutPage,
+    ContactPage
   ],
   providers: [
     StatusBar,
