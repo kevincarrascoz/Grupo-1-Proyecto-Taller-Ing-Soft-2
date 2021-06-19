@@ -10,6 +10,7 @@ import { CategoriasPage } from '../pages/categorias/categorias';
 import { PreguntasPage } from '../pages/preguntas/preguntas';
 import { LoginPage } from '../pages/login/login';
 import { PublicacionesPage } from '../pages/publicaciones/publicaciones';
+import { PublicarLogoutPage } from '../pages/publicar-logout/publicar-logout';
 
 import { Events } from 'ionic-angular';
 import { LogoutPage } from '../pages/logout/logout';
@@ -19,7 +20,7 @@ import { LogoutPage } from '../pages/logout/logout';
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-  rootPage:any=HomePage;
+  rootPage:any=PublicacionesPage;
   pages: Array<{title: string, component: any}>;
   navCtrl: any;
 
@@ -31,16 +32,16 @@ export class MyApp {
       splashScreen.hide();
     });
     this.pages = [
-      { title: 'Inicio', component: HomePage },
+      { title: 'Inicio', component: PublicacionesPage },
       { title: 'Catalogo', component: PublicacionesPage },
       { title: 'Historial', component: HistorialPage },
-      { title: 'Publicar', component: PublicarPage },
+      { title: 'Publicar', component: PublicarLogoutPage },
       { title: 'Categorias', component: CategoriasPage },
       { title: 'Preguntas Frecuentes', component: PreguntasPage }
     ];
     events.subscribe('user:loggedin',()=>{
       this.pages = [
-                    { title: 'Inicio', component: HomePage },
+                    { title: 'Inicio', component: PublicacionesPage },
                     { title: 'Catalogo', component: PublicacionesPage },
                     { title: 'Historial', component: HistorialPage },
                     { title: 'Publicar', component: PublicarPage },
@@ -52,10 +53,10 @@ export class MyApp {
 
       events.subscribe('user:loggedout',()=>{
       this.pages = [
-                    { title: 'Inicio', component: HomePage },
+                    { title: 'Inicio', component: PublicacionesPage },
                     { title: 'Catalogo', component: PublicacionesPage },
                     { title: 'Historial', component: HistorialPage },
-                    { title: 'Publicar', component: PublicarPage },
+                    { title: 'Publicar', component: PublicarLogoutPage },
                     { title: 'Categorias', component: CategoriasPage },
                     { title: 'Preguntas Frecuentes', component: PreguntasPage }
                     ];

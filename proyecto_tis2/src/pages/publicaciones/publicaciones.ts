@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DetallepublicacionPage } from '../detallepublicacion/detallepublicacion';
+import { PreguntasPage } from '../preguntas/preguntas';
 
 
 @IonicPage()
@@ -28,6 +29,9 @@ export class PublicacionesPage {
         //this.presentToast("No existen registros aun");
       }
       );
+  }
+  IrPreguntas(){
+    this.navCtrl.push(PreguntasPage);
   }
 
   ionViewDidLoad() {
