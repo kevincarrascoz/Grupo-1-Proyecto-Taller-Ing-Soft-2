@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { RegisterPage } from '../register/register';
 import { LoginPage } from '../login/login';
+import { SearchBarPage } from '../search-bar/search-bar';
 
 /**
  * Generated class for the PublicarLogoutPage page.
@@ -30,4 +31,7 @@ export class PublicarLogoutPage {
     console.log('ionViewDidLoad PublicarLogoutPage');
   }
 
+  buscar(){
+    this.navCtrl.push(SearchBarPage);
+  }
 }

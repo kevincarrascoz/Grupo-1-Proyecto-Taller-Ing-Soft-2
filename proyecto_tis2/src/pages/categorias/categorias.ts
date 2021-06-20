@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { SearchBarPage } from '../search-bar/search-bar';
 
 /**
  * Generated class for the CategoriasPage page.
@@ -38,6 +39,10 @@ export class CategoriasPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CategoriasPage');
+  }
+
+  buscar(){
+    this.navCtrl.push(SearchBarPage);
   }
 
 }

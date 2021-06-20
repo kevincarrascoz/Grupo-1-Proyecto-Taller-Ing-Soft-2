@@ -5,7 +5,6 @@ import { MyApp } from './app.component';
 
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
-import { HomePage } from '../pages/home/home';
 import { SearchBarPage } from '../pages/search-bar/search-bar';
 import { HistorialPage } from '../pages/historial/historial';
 import { PublicarPage } from '../pages/publicar/publicar';
@@ -39,7 +38,6 @@ import { PublicarLogoutPage } from '../pages/publicar-logout/publicar-logout';
     MyApp,
     AboutPage,
     ContactPage,
-    HomePage,
     SearchBarPage,
     HistorialPage,
     PublicarPage,
@@ -72,7 +70,6 @@ import { PublicarLogoutPage } from '../pages/publicar-logout/publicar-logout';
     MyApp,
     AboutPage,
     ContactPage,
-    HomePage,
     SearchBarPage,
     HistorialPage,
     PublicarPage,

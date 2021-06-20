@@ -9,7 +9,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-searchbar></ion-searchbar>
+    <ion-searchbar placeholder="Buscar" (click)="buscar()"></ion-searchbar>
  </ion-navbar>
   <ion-navbar>
     <ion-title text-center>Tus Expertos</ion-title>
@@ -20,7 +20,7 @@
     <h6>Publicaciones recientes:</h6>
     <br>
     <ion-card *ngFor="let pub of publicaciones"(click)="detalle(pub.id)">
-  <ion-item>
+  <ion-item >
       <ion-avatar item-start>
         <img src="https://picsum.photos/300">
       </ion-avatar>

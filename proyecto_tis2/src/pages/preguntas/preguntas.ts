@@ -5,6 +5,7 @@ import { Faq2Page } from '../faq2/faq2';
 import { Faq3Page } from '../faq3/faq3';
 import { Faq4Page } from '../faq4/faq4';
 import { Faq5Page } from '../faq5/faq5';
+import { SearchBarPage } from '../search-bar/search-bar';
 
 /**
  * Generated class for the PreguntasPage page.
@@ -52,6 +53,10 @@ export class PreguntasPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PreguntasPage');
+  }
+
+  buscar(){
+    this.navCtrl.push(SearchBarPage);
   }
 
 }

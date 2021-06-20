@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angu
 import {Http, Headers, RequestOptions}  from "@angular/http";
 import { LoadingController } from 'ionic-angular';
 import 'rxjs/add/operator/map';
+import { SearchBarPage } from '../search-bar/search-bar';
 /**
  * Generated class for the PublicarPage page.
  *
@@ -109,4 +110,7 @@ export class PublicarPage {
    // console.log('ionViewDidLoad PublicarPage');
   }
 
+  buscar(){
+    this.navCtrl.push(SearchBarPage);
+  }
 }

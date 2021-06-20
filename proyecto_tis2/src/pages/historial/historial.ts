@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { SearchBarPage } from '../search-bar/search-bar';
 
 /**
  * Generated class for the HistorialPage page.
@@ -22,4 +23,7 @@ export class HistorialPage {
     console.log('ionViewDidLoad HistorialPage');
   }
 
+  buscar(){
+    this.navCtrl.push(SearchBarPage);
+  }
 }
