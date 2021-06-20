@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DetallepublicacionPage } from '../detallepublicacion/detallepublicacion';
-import { PreguntasPage } from '../preguntas/preguntas';
 
 
 @IonicPage()
@@ -48,9 +47,7 @@ export class PublicacionesPage {
       infiniteScroll.complete();
     }, 500);
   }
-  IrPreguntas(){
-    this.navCtrl.push(PreguntasPage);
-  }
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PublicacionesPage');
