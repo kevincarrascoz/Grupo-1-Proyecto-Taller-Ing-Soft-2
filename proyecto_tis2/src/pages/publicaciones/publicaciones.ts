@@ -22,6 +22,9 @@ export class PublicacionesPage {
         this.publicaciones = data;
 
         console.log(data);
+        for (let i = 0; i < data; i++) {
+        this.publicaciones.push( this.publicaciones.length );
+      }
         
       },
       err =>{
@@ -29,6 +32,21 @@ export class PublicacionesPage {
         //this.presentToast("No existen registros aun");
       }
       );
+
+      
+  }
+
+  doInfinite(infiniteScroll) {
+    console.log('Begin async operation');
+
+    setTimeout(() => {
+      for (let i = 0; i < this.publicaciones; i++) {
+        this.publicaciones.push( this.publicaciones.length );
+      }
+
+      console.log('Async operation has ended');
+      infiniteScroll.complete();
+    }, 500);
   }
   IrPreguntas(){
     this.navCtrl.push(PreguntasPage);
@@ -40,5 +58,6 @@ export class PublicacionesPage {
   detalle(id){
     this.navCtrl.push(DetallepublicacionPage,{valor:id})
   }
-
+  
+  
 }
