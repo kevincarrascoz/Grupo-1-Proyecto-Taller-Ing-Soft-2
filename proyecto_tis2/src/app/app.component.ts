@@ -3,7 +3,6 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
 import { HistorialPage } from '../pages/historial/historial';
 import { PublicarPage } from '../pages/publicar/publicar';
 import { CategoriasPage } from '../pages/categorias/categorias';
@@ -22,7 +21,7 @@ import { ContactPage } from '../pages/contact/contact';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
   rootPage:any=PublicacionesPage;
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any, icon: string}>;
   navCtrl: any;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, events:Events) {
@@ -33,35 +32,32 @@ export class MyApp {
       splashScreen.hide();
     });
     this.pages = [
-      { title: 'iniciar sesion', component: LoginPage },
-      { title: 'Inicio', component: PublicacionesPage },
-      { title: 'Catalogo', component: PublicacionesPage },
-      { title: 'Historial', component: HistorialPage },
-      { title: 'Publicar', component: PublicarLogoutPage },
-      { title: 'Categorias', component: CategoriasPage },
-      { title: 'Preguntas Frecuentes', component: PreguntasPage }
+      { title: 'Iniciar Sesion', component: LoginPage, icon:'log-in' },
+      { title: 'Catalogo', component: PublicacionesPage, icon:'pricetags'  },
+      { title: 'Historial', component: HistorialPage, icon:'time'  },
+      { title: 'Publicar', component: PublicarLogoutPage, icon:'briefcase'  },
+      { title: 'Categorias', component: CategoriasPage, icon:'list-box'  },
+      { title: 'Preguntas Frecuentes', component: PreguntasPage, icon:'information-circle'  }
     ];
     events.subscribe('user:loggedin',()=>{
       this.pages = [
-                    { title: 'Mi perfil', component: ContactPage },
-                    { title: 'Inicio', component: PublicacionesPage },
-                    { title: 'Catalogo', component: PublicacionesPage },
-                    { title: 'Historial', component: HistorialPage },
-                    { title: 'Publicar', component: PublicarPage },
-                    { title: 'Categorias', component: CategoriasPage },
-                    { title: 'Preguntas Frecuentes', component: PreguntasPage },
-                    { title:'Logout', component: LogoutPage}
+                    { title: 'Mi perfil', component: ContactPage, icon:'contact'  },
+                    { title: 'Catalogo', component: PublicacionesPage, icon:'pricetags'  },
+                    { title: 'Historial', component: HistorialPage, icon:'time'  },
+                    { title: 'Publicar', component: PublicarPage, icon:'briefcase'  },
+                    { title: 'Categorias', component: CategoriasPage, icon:'list-box'  },
+                    { title: 'Preguntas Frecuentes', component: PreguntasPage, icon:'information-circle'  },
+                    { title:'Logout', component: LogoutPage, icon:'log-out' }
                     ];
     });
 
       events.subscribe('user:loggedout',()=>{
       this.pages = [
-                    { title: 'Inicio', component: PublicacionesPage },
-                    { title: 'Catalogo', component: PublicacionesPage },
-                    { title: 'Historial', component: HistorialPage },
-                    { title: 'Publicar', component: PublicarLogoutPage },
-                    { title: 'Categorias', component: CategoriasPage },
-                    { title: 'Preguntas Frecuentes', component: PreguntasPage }
+                    { title: 'Catalogo', component: PublicacionesPage, icon:'pricetags'  },
+                    { title: 'Historial', component: HistorialPage, icon:'time'  },
+                    { title: 'Publicar', component: PublicarLogoutPage, icon:'briefcase'  },
+                    { title: 'Categorias', component: CategoriasPage, icon:'list-box'  },
+                    { title: 'Preguntas Frecuentes', component: PreguntasPage, icon:'information-circle'  }
                     ];
     });
   
