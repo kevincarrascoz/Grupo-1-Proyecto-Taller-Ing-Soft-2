@@ -1,11 +1,13 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { App, IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { RegisterPage } from '../register/register';
 import { NgForOf } from '@angular/common';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { LoadingController } from 'ionic-angular';
 import { HomePage } from '../home/home';
+import { PublicacionesPage } from '../publicaciones/publicaciones';
+import { PublicarPage } from '../publicar/publicar';
 import { Events } from 'ionic-angular';
 /**
  * Generated class for the LoginPage page.
@@ -76,8 +78,9 @@ export class LoginPage {
           duration: 3000
         });
         toast.present();
-          this.events.publish('user:loggedin');
-          this.navCtrl.setRoot(HomePage);
+          this.events.publish('user:loggedin', {correo: this.correo.value, contrasena: this.contrasena.value}, Date.now());
+          console.log(data);
+          this.navCtrl.setRoot(PublicacionesPage, {correo: this.correo.value, contrasena: this.contrasena.value});
       }else
       {
         const toast = this.toastCtrl.create({

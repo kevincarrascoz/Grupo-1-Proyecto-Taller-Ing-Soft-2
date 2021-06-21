@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { isConstructorDeclaration } from 'typescript';
 import { DetallepublicacionPage } from '../detallepublicacion/detallepublicacion';
 import { SearchBarPage } from '../search-bar/search-bar';
 
@@ -13,9 +14,14 @@ import { SearchBarPage } from '../search-bar/search-bar';
 export class PublicacionesPage {
   publicaciones:any;
   id:any;
-  users: any;
+  correo: any;
+  contrasena: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,  public http: Http) {
+    this.correo = navParams.get('correo');
+    this.contrasena = navParams.get('contrasena');
+    console.log(this.correo,this.contrasena);
+
     this.http.get('http://localhost/xampp/otraprueba/post.php')
     .map(response => response.json())
     .subscribe(data =>

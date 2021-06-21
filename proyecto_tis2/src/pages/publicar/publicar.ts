@@ -22,9 +22,14 @@ export class PublicarPage {
   @ViewChild("precio") precio;
   @ViewChild("categoria") categoria;
   @ViewChild("certificado") certificado;
+  correo: any;
+  contrasena: any;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public toastCtrl: ToastController, public loading: LoadingController) {
+    this.correo = navParams.get('correo');
+    this.contrasena = navParams.get('contrasena');
+    console.log(this.correo,this.contrasena);
   }
 
   Publicar(){

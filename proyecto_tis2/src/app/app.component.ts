@@ -23,6 +23,9 @@ export class MyApp {
   rootPage:any=PublicacionesPage;
   pages: Array<{title: string, component: any, icon: string}>;
   navCtrl: any;
+  correo1: any;
+  contrasena1: any;
+
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, events:Events) {
     platform.ready().then(() => {
@@ -39,7 +42,8 @@ export class MyApp {
       { title: 'Categorias', component: CategoriasPage, icon:'list-box'  },
       { title: 'Preguntas Frecuentes', component: PreguntasPage, icon:'information-circle'  }
     ];
-    events.subscribe('user:loggedin',()=>{
+    events.subscribe('user:loggedin',(correo, contrasena, time)=>{
+      console.log('Welcome', correo, contrasena, 'at', time);
       this.pages = [
                     { title: 'Mi perfil', component: ContactPage, icon:'contact'  },
                     { title: 'Catalogo', component: PublicacionesPage, icon:'pricetags'  },
@@ -47,8 +51,10 @@ export class MyApp {
                     { title: 'Publicar', component: PublicarPage, icon:'briefcase'  },
                     { title: 'Categorias', component: CategoriasPage, icon:'list-box'  },
                     { title: 'Preguntas Frecuentes', component: PreguntasPage, icon:'information-circle'  },
-                    { title:'Logout', component: LogoutPage, icon:'log-out' }
+                    { title:'Logout', component: LogoutPage, icon:'log-out' },
                     ];
+      this.correo1 = correo.correo;
+      this.contrasena1 = correo.contrasena;
     });
 
       events.subscribe('user:loggedout',()=>{
@@ -62,10 +68,17 @@ export class MyApp {
     });
   
   }
+
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+    console.log(this.correo1);
+    console.log(this.contrasena1);
+    if(this.correo1==undefined){
+      this.nav.setRoot(page.component);
+    }else{
+      this.nav.setRoot(page.component, {correo: this.correo1, contrasena: this.contrasena1});
+    }
   }
  
   IrLogin(){

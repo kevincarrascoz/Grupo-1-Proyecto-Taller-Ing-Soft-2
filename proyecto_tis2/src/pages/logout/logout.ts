@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Events } from 'ionic-angular';
 import { HomePage } from '../home/home';
+import { PublicacionesPage } from '../publicaciones/publicaciones';
 
 /**
  * Generated class for the LogoutPage page.
@@ -19,7 +20,7 @@ export class LogoutPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, events:Events) {
     events.publish('user:loggedout');
-    navCtrl.setRoot(HomePage);
+    navCtrl.setRoot(PublicacionesPage);
   }
 
   ionViewDidLoad() {

@@ -3,7 +3,7 @@
   define('HOST','localhost');
   define('USER','root');
   define('PASS','');
-  define('DB','tis2_proyecto.sql');
+  define('DB','tis2_proyecto');
   $con = mysqli_connect(HOST,USER,PASS,DB);
   
   if (!$con){
