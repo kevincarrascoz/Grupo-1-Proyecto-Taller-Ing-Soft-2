@@ -53,8 +53,8 @@ export class MyApp {
                     { title: 'Preguntas Frecuentes', component: PreguntasPage, icon:'information-circle'  },
                     { title:'Logout', component: LogoutPage, icon:'log-out' },
                     ];
-      this.correo1 = correo.correo;
-      this.contrasena1 = correo.contrasena;
+                    this.correo1 = correo.correo;
+                    this.contrasena1 = correo.contrasena;
     });
 
       events.subscribe('user:loggedout',()=>{
@@ -65,6 +65,8 @@ export class MyApp {
                     { title: 'Categorias', component: CategoriasPage, icon:'list-box'  },
                     { title: 'Preguntas Frecuentes', component: PreguntasPage, icon:'information-circle'  }
                     ];
+                    this.correo1 = undefined;
+                    this.contrasena1 = undefined;
     });
   
   }

@@ -12,7 +12,7 @@ $db = [
     'host' => 'localhost',
     'username' => 'root',
     'password' => '',
-    'db' => 'bd_prueba'
+    'db' => 'tis2_proyecto'
 ];
 
 

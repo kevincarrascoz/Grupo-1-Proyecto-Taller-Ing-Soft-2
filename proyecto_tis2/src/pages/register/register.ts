@@ -3,6 +3,10 @@ import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angu
 import {Http, Headers, RequestOptions}  from "@angular/http";
 import { LoadingController } from 'ionic-angular';
 import 'rxjs/add/operator/map';
+import { options } from 'sw-toolbox';
+import { LoginPage } from '../login/login';
+import { _appIdRandomProviderFactory } from '@angular/core/src/application_tokens';
+import { Observable } from 'rxjs';
 
 /**
  * Generated class for the RegisterPage page.
@@ -24,8 +28,27 @@ export class RegisterPage {
   @ViewChild("direccion") direccion;
   @ViewChild("fecha_nacimiento") fecha_nacimiento;
   @ViewChild("telefono") telefono;
+  comuna:Observable<any>;
+  codigo_comuna: Observable<any>;
+  nombre_comuna: Observable<any>;
+  
   
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public toastCtrl: ToastController, public loading: LoadingController) {
+    this.http.get('http://localhost/xampp/Proyecto_Taller_Ing_2/proyecto_tis2/comuna.php')
+    .map(response => response.json())
+    .subscribe(data =>
+      {
+        this.comuna = data;
+        console.log(data);
+        console.log(this.comuna);
+        
+        
+      },
+      err =>{
+        console.log("Oops!");
+        //this.presentToast("No existen registros aun");
+      }
+      );
   }
 
 
@@ -95,7 +118,7 @@ export class RegisterPage {
         content: 'Processing please wait...',
       });
       loader.present().then(() => {
-        this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/register.php',data, options)
+        this.http.post('http://localhost/xampp/Proyecto_Taller_Ing_2/proyecto_tis2/register.php',data, options)
         .map(res => res.json())
         .subscribe(res => {
         
@@ -103,9 +126,10 @@ export class RegisterPage {
         if(res=="Registration successfull"){
           const toast = this.toastCtrl.create({
             message: 'Registro Exitoso', 
-            duration: 3000
+            duration: 3000,
           });
         toast.present();
+        this.navCtrl.pop();
         
         }else
         {

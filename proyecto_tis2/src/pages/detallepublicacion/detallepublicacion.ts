@@ -38,6 +38,7 @@ export class DetallepublicacionPage {
         this.user_id=data.user_id;
         this.status=data.status;
         console.log(data);
+        console.log(this.user_id);
         
       },
       err =>{
