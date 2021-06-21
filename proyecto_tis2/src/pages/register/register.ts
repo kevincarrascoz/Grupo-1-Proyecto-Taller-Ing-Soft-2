@@ -28,9 +28,8 @@ export class RegisterPage {
   @ViewChild("direccion") direccion;
   @ViewChild("fecha_nacimiento") fecha_nacimiento;
   @ViewChild("telefono") telefono;
-  comuna:Observable<any>;
-  codigo_comuna: Observable<any>;
-  nombre_comuna: Observable<any>;
+  @ViewChild("comuna") comuna;
+  comunas:any;
   
   
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public toastCtrl: ToastController, public loading: LoadingController) {
@@ -38,9 +37,9 @@ export class RegisterPage {
     .map(response => response.json())
     .subscribe(data =>
       {
-        this.comuna = data;
+        this.comunas = data;
         console.log(data);
-        console.log(this.comuna);
+        console.log(this.comunas);
         
         
       },
@@ -95,6 +94,12 @@ export class RegisterPage {
           duration: 3000
         });
         toast.present();
+    }else if(this.comuna.value==""){
+      const toast = this.toastCtrl.create({
+        message: 'Ingrese la comuna', 
+        duration: 3000
+      });
+      toast.present();
     }else{
 
       var headers = new Headers();
@@ -111,7 +116,8 @@ export class RegisterPage {
         contrasena: this.contrasena.value,
         direccion: this.direccion.value,
         fecha_nacimiento: this.fecha_nacimiento.value,
-        telefono: this.telefono.value
+        telefono: this.telefono.value,
+        comuna: this.comuna.value
       };
       console.log(data);
       let loader = this.loading.create({

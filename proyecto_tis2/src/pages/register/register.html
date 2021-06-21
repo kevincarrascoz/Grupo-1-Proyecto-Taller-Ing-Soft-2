@@ -33,6 +33,14 @@
     <ion-item>
       <ion-input placeholder="Telefono" type="number"  name="telefono" #telefono></ion-input>
     </ion-item>
+
+    <ion-item placeholder="Comuna" type="text"  name="comuna" #comuna>
+      <ion-label>Comuna</ion-label>
+      <ion-select>
+        <ion-option *ngFor="let com of comunas" value= {{com.nombre_comuna}}>{{com.nombre_comuna}}</ion-option>
+      </ion-select>
+    </ion-item>
+
   </ion-list>
     <button ion-button full (click)="Registro()">Registrar</button>
     <button ion-button full color="light" (click)="IrLogin()">Ya tengo una cuenta</button>
