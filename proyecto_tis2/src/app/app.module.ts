@@ -20,7 +20,7 @@ import { LoginPage } from '../pages/login/login';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { IngresarPage } from '../pages/ingresar/ingresar';
+
 import { RegisterPage } from '../pages/register/register';
 
 import { DetallepublicacionPage } from '../pages/detallepublicacion/detallepublicacion';
@@ -43,7 +43,6 @@ import { ProfilePage } from '../pages/profile/profile';
     HistorialPage,
     PublicarPage,
     CategoriasPage,
-    IngresarPage,
     PreguntasPage,
     Faq1Page,
     Faq2Page,
@@ -62,7 +61,6 @@ import { ProfilePage } from '../pages/profile/profile';
   ],
   imports: [
     BrowserModule,
-    IonicPageModule.forChild(IngresarPage),
     IonicModule.forRoot(MyApp),
     HttpModule,
     HttpClientModule,
@@ -76,7 +74,6 @@ import { ProfilePage } from '../pages/profile/profile';
     HistorialPage,
     PublicarPage,
     CategoriasPage,
-    IngresarPage,
     PreguntasPage,
     Faq1Page,
     Faq2Page,

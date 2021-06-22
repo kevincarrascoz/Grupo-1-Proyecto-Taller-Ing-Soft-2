@@ -1,13 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
 import { App, IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { RegisterPage } from '../register/register';
-import { NgForOf } from '@angular/common';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { LoadingController } from 'ionic-angular';
-import { HomePage } from '../home/home';
 import { PublicacionesPage } from '../publicaciones/publicaciones';
-import { PublicarPage } from '../publicar/publicar';
 import { Events } from 'ionic-angular';
 /**
  * Generated class for the LoginPage page.

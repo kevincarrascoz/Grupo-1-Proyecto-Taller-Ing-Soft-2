@@ -13,7 +13,6 @@ import { PublicarLogoutPage } from '../pages/publicar-logout/publicar-logout';
 
 import { Events } from 'ionic-angular';
 import { LogoutPage } from '../pages/logout/logout';
-import { ContactPage } from '../pages/contact/contact';
 import { ProfilePage } from '../pages/profile/profile';
 
 @Component({
@@ -38,9 +37,8 @@ export class MyApp {
     this.pages = [
       { title: 'Iniciar Sesion', component: LoginPage, icon:'log-in' },
       { title: 'Catalogo', component: PublicacionesPage, icon:'pricetags'  },
-      { title: 'Historial', component: HistorialPage, icon:'time'  },
-      { title: 'Publicar', component: PublicarLogoutPage, icon:'briefcase'  },
       { title: 'Categorias', component: CategoriasPage, icon:'list-box'  },
+      { title: 'Publicar', component: PublicarLogoutPage, icon:'briefcase'  },
       { title: 'Preguntas Frecuentes', component: PreguntasPage, icon:'information-circle'  }
     ];
     events.subscribe('user:loggedin',(correo, contrasena, time)=>{
@@ -60,10 +58,10 @@ export class MyApp {
 
       events.subscribe('user:loggedout',()=>{
       this.pages = [
+                    { title: 'Iniciar Sesion', component: LoginPage, icon:'log-in' },
                     { title: 'Catalogo', component: PublicacionesPage, icon:'pricetags'  },
-                    { title: 'Historial', component: HistorialPage, icon:'time'  },
-                    { title: 'Publicar', component: PublicarLogoutPage, icon:'briefcase'  },
                     { title: 'Categorias', component: CategoriasPage, icon:'list-box'  },
+                    { title: 'Publicar', component: PublicarLogoutPage, icon:'briefcase'  },
                     { title: 'Preguntas Frecuentes', component: PreguntasPage, icon:'information-circle'  }
                     ];
                     this.correo1 = undefined;
