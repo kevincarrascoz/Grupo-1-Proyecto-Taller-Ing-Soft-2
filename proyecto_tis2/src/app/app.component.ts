@@ -14,6 +14,7 @@ import { PublicarLogoutPage } from '../pages/publicar-logout/publicar-logout';
 import { Events } from 'ionic-angular';
 import { LogoutPage } from '../pages/logout/logout';
 import { ContactPage } from '../pages/contact/contact';
+import { ProfilePage } from '../pages/profile/profile';
 
 @Component({
   templateUrl: 'app.html'
@@ -45,7 +46,7 @@ export class MyApp {
     events.subscribe('user:loggedin',(correo, contrasena, time)=>{
       console.log('Welcome', correo, contrasena, 'at', time);
       this.pages = [
-                    { title: 'Mi perfil', component: ContactPage, icon:'contact'  },
+                    { title: 'Mi perfil', component: ProfilePage, icon:'contact'  },
                     { title: 'Catalogo', component: PublicacionesPage, icon:'pricetags'  },
                     { title: 'Historial', component: HistorialPage, icon:'time'  },
                     { title: 'Publicar', component: PublicarPage, icon:'briefcase'  },

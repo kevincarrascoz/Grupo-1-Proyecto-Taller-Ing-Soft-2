@@ -29,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PublicacionesPage } from '../pages/publicaciones/publicaciones';
 import { LogoutPage } from '../pages/logout/logout';
 import { PublicarLogoutPage } from '../pages/publicar-logout/publicar-logout';
+import { ProfilePage } from '../pages/profile/profile';
 
 
 
@@ -56,7 +57,8 @@ import { PublicarLogoutPage } from '../pages/publicar-logout/publicar-logout';
     PublicacionesPage,
     LogoutPage,
     PublicarLogoutPage,
-    ContactPage
+    ContactPage,
+    ProfilePage
   ],
   imports: [
     BrowserModule,
@@ -88,7 +90,8 @@ import { PublicarLogoutPage } from '../pages/publicar-logout/publicar-logout';
     PublicacionesPage,
     LogoutPage,
     PublicarLogoutPage,
-    ContactPage
+    ContactPage,
+    ProfilePage
   ],
   providers: [
     StatusBar,
