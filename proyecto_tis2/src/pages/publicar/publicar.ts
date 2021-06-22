@@ -22,6 +22,8 @@ export class PublicarPage {
   @ViewChild("precio") precio;
   @ViewChild("categoria") categoria;
   @ViewChild("certificado") certificado;
+  @ViewChild("oficio") oficio;
+  oficios:any;
   correo: any;
   contrasena: any;
 
@@ -30,6 +32,21 @@ export class PublicarPage {
     this.correo = navParams.get('correo');
     this.contrasena = navParams.get('contrasena');
     console.log(this.correo,this.contrasena);
+    this.http.get('http://localhost/xampp/Proyecto_Taller_Ing_2/proyecto_tis2/oficio.php')
+    .map(response => response.json())
+    .subscribe(data =>
+      {
+        this.oficios = data;
+        console.log(data);
+        console.log(this.oficios);
+        
+        
+      },
+      err =>{
+        console.log("Oops!");
+        //this.presentToast("No existen registros aun");
+      }
+      );
   }
 
   Publicar(){
@@ -75,7 +92,8 @@ export class PublicarPage {
         horario: this.horario.value,
         precio: this.precio.value,
         categoria: this.categoria.value,
-        certificado: this.certificado.value,        
+        certificado: this.certificado.value, 
+        oficio: this.oficio.value       
       };
       console.log(data);
       let loader = this.loading.create({
