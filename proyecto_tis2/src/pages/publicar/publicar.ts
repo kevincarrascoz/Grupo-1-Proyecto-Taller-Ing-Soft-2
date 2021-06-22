@@ -23,6 +23,7 @@ export class PublicarPage {
   @ViewChild("categoria") categoria;
   @ViewChild("certificado") certificado;
   @ViewChild("oficio") oficio;
+  @ViewChild("edad") edad;
   oficios:any;
   correo: any;
   contrasena: any;
@@ -68,9 +69,9 @@ export class PublicarPage {
           duration: 3000
         });
         toast.present();
-    }else if(this.categoria==""){
+    }else if(this.oficio==""){
         const toast = this.toastCtrl.create({
-          message: 'Ingrese la categoria', 
+          message: 'Ingrese el oficio', 
           duration: 3000
         });
         toast.present();
@@ -91,17 +92,16 @@ export class PublicarPage {
         descripcion: this.descripcion.value,
         horario: this.horario.value,
         precio: this.precio.value,
-        categoria: this.categoria.value,
-        certificado: this.certificado.value, 
-        oficio: this.oficio.value       
+        oficio: this.oficio.value,
+        correo: this.correo,
+        edad: this.edad.value      
       };
       console.log(data);
       let loader = this.loading.create({
         content: 'Processing please wait...',
       });
-      /*
       loader.present().then(() => {
-        this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/publicar.php',data, options)
+        this.http.post('http://localhost/xampp/Proyecto_Taller_Ing_2/proyecto_tis2/publicar.php',data, options)
         .map(res => res.json())
         .subscribe(res => {
           loader.dismiss()
@@ -121,7 +121,6 @@ export class PublicarPage {
           } 
         });
       });
-*/
 
   
 
@@ -130,7 +129,7 @@ export class PublicarPage {
 
 
   ionViewDidLoad() {
-   // console.log('ionViewDidLoad PublicarPage');
+   console.log('ionViewDidLoad PublicarPage');
   }
 
   buscar(){

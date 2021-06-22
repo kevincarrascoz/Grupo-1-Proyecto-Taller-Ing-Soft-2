@@ -1,5 +1,5 @@
 <?php
-/*
+
 if (isset($_SERVER['HTTP_ORIGIN'])) {
         header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
         header('Access-Control-Allow-Credentials: true');
@@ -26,25 +26,23 @@ if (isset($_SERVER['HTTP_ORIGIN'])) {
     $data = file_get_contents("php://input");
     if (isset($data)) {
         $request = json_decode($data);
+		$correo = $request->correo;
 		$descripcion = $request->descripcion;
 		$horario = $request->horario;
 		$precio = $request->precio;
-		$categoria = $request->categoria;
-        $certificado = $request->certificado;     
- 
+        $oficio = $request->oficio;
+        $edad = $request->edad;
 	}
 
+    date_default_timezone_set('America/Santiago');
+    $fecha_actual = date("Y-m-d H:i:s");
 
-
-
-
-//$sql = "INSERT INTO publicacion (descripcion, horario, precio, categoria, certificado)
-//VALUES ('$descripcion', '$horario', '$precio', '$categoria', '$certificado')";
-
+$sql = "INSERT INTO publicacion (id_publicacion, correo, foto, certificado_oficio, descripcion, horario, precio, edad_usuario, id_oficio, fecha_publicacion, estado)
+VALUES ('', '$correo', NULL, NULL, '$descripcion', '$horario', '$precio' , '$edad', '$oficio', '$fecha_actual', 'Activa')";
 
 
 if ($con->query($sql) === TRUE) {
-	$response= "Registration successfull";
+	$response= "Public successfull";
    
 } else {
    $response= "Error: " . $sql . "<br>" . $db->error;
@@ -53,5 +51,5 @@ if ($con->query($sql) === TRUE) {
   
 	echo json_encode( $response);
 
- */
+ 
 ?>

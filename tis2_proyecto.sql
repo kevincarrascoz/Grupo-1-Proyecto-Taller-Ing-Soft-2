@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-06-2021 a las 02:53:18
+-- Tiempo de generación: 22-06-2021 a las 04:50:16
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.4.9
 
@@ -82,7 +82,7 @@ INSERT INTO `comuna` (`codigo_comuna`, `nombre_comuna`, `latitud`, `longitud`, `
 CREATE TABLE `oficio` (
   `id_oficio` int(11) NOT NULL,
   `nombre_oficio` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
-  `descripcion` varchar(100) COLLATE utf8_spanish2_ci NOT NULL
+  `descripcion` varchar(200) COLLATE utf8_spanish2_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
@@ -90,7 +90,8 @@ CREATE TABLE `oficio` (
 --
 
 INSERT INTO `oficio` (`id_oficio`, `nombre_oficio`, `descripcion`) VALUES
-(1, 'Carpintero', 'oficio de trabajar, cortar y labrar la madera y sus derivados.');
+(1, 'Carpintero', 'Oficio de trabajar, cortar y labrar la madera y sus derivados.'),
+(2, 'Conserje', 'Es un oficio que consiste principalmente en controlar el acceso a un determinado sitio, atendiendo a las personas que acceden, y velar por un correcto funcionamiento del mismo');
 
 -- --------------------------------------------------------
 
@@ -127,8 +128,17 @@ CREATE TABLE `publicacion` (
   `precio` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
   `edad_usuario` int(11) NOT NULL,
   `id_oficio` int(11) NOT NULL,
-  `fecha_publicacion` datetime NOT NULL DEFAULT current_timestamp()
+  `fecha_publicacion` datetime NOT NULL DEFAULT current_timestamp(),
+  `Estado` varchar(8) COLLATE utf8_spanish2_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `publicacion`
+--
+
+INSERT INTO `publicacion` (`id_publicacion`, `correo`, `foto`, `certificado_oficio`, `descripcion`, `horario`, `precio`, `edad_usuario`, `id_oficio`, `fecha_publicacion`, `Estado`) VALUES
+(1, 'kcarrasco@gmail.com', NULL, NULL, 'Ofrezco mis servicios como carpintero 10 años de experiencia', 'disponibilidad lunes a viernes de 11:00 a 17:00', '$20.000 aprox, inbox mas info', 26, 1, '2021-06-21 21:28:47', 'Activa'),
+(11, 'ara@gmail.com', NULL, NULL, 'asdsadsa', 'sadasd', 'asdsad', 23, 1, '2021-06-21 22:48:47', 'Activa');
 
 -- --------------------------------------------------------
 
@@ -245,7 +255,7 @@ ALTER TABLE `comuna`
 -- AUTO_INCREMENT de la tabla `oficio`
 --
 ALTER TABLE `oficio`
-  MODIFY `id_oficio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_oficio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `provincia`
@@ -257,7 +267,7 @@ ALTER TABLE `provincia`
 -- AUTO_INCREMENT de la tabla `publicacion`
 --
 ALTER TABLE `publicacion`
-  MODIFY `id_publicacion` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_publicacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `region`
