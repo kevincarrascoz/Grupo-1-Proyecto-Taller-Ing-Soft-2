@@ -29,7 +29,7 @@ export class ProfilePage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
     this.correo = navParams.get('correo');
     console.log(this.correo);
-    this.http.get('http://localhost/xampp/Proyecto_Taller_Ing_2/proyecto_tis2/perfil.php/?correo='+this.correo)
+    this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/perfil.php/?correo='+this.correo)
     .map(response => response.json())
     .subscribe(data =>
       {

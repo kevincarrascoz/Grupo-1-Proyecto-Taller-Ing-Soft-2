@@ -33,7 +33,7 @@ export class RegisterPage {
   
   
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public toastCtrl: ToastController, public loading: LoadingController) {
-    this.http.get('http://localhost/xampp/Proyecto_Taller_Ing_2/proyecto_tis2/comuna.php')
+    this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/comuna.php')
     .map(response => response.json())
     .subscribe(data =>
       {

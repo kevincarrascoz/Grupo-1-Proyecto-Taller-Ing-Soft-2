@@ -33,7 +33,7 @@ export class PublicarPage {
     this.correo = navParams.get('correo');
     this.contrasena = navParams.get('contrasena');
     console.log(this.correo,this.contrasena);
-    this.http.get('http://localhost/xampp/Proyecto_Taller_Ing_2/proyecto_tis2/oficio.php')
+    this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/oficio.php')
     .map(response => response.json())
     .subscribe(data =>
       {
