@@ -22,6 +22,9 @@ export class ProfilePage {
   fecha_nacimiento: any;
   nombre: any;
   apellido: any;
+  comuna: any;
+  codigo_comuna: any;
+  nombre_comuna: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
     this.correo = navParams.get('correo');
@@ -36,14 +39,31 @@ export class ProfilePage {
         this.direccion=data.direccion;
         this.telefono=data.telefono;
         this.fecha_nacimiento=data.fecha_nacimiento;
+        this.codigo_comuna=data.codigo_comuna;
         console.log(data);
         
+        this.http.get('http://localhost/xampp/Proyecto_Taller_Ing_2/proyecto_tis2/comuna.php/?codigo_comuna='+this.codigo_comuna)
+        .map(response => response.json())
+        .subscribe(data2 =>
+          {
+            this.comuna = data2;
+            this.nombre_comuna=data2.nombre_comuna;
+            console.log(data2);
+            
+          },
+          err =>{
+            console.log("Oops!");
+            //this.presentToast("No existen registros aun");
+          }
+          );
+
       },
       err =>{
         console.log("Oops!");
         //this.presentToast("No existen registros aun");
       }
       );
+
 
   }
 

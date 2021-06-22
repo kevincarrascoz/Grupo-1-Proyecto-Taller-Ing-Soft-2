@@ -10,11 +10,11 @@ $dbConn =  connect($db);
  */
 if ($_SERVER['REQUEST_METHOD'] == 'GET')
 {
-    if (isset($_GET['id']))
+    if (isset($_GET['codigo_comuna']))
     {
       //Mostrar un post
-      $sql = $dbConn->prepare("SELECT * FROM comuna where id=:id");
-      $sql->bindValue(':id', $_GET['id']);
+      $sql = $dbConn->prepare("SELECT * FROM comuna where codigo_comuna=:codigo_comuna");
+      $sql->bindValue(':codigo_comuna', $_GET['codigo_comuna']);
       $sql->execute();
       header("HTTP/1.1 200 OK");
       echo json_encode(  $sql->fetch(PDO::FETCH_ASSOC)  );
