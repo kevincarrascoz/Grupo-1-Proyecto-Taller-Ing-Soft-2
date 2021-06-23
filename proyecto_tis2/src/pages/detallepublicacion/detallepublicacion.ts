@@ -25,18 +25,34 @@ export class DetallepublicacionPage {
   user_id:any;
   status:any;
   data:Observable<any>;
+  nombre:any;
+  apellido:any;
+  correo:any;
+  descripcion:any;
+  edad_usuario:any;
+  fecha_publicacion:any;
+  horario:any;
+  nombre_oficio:any;
+  precio:any;
+  telefono:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
-
-    this.http.get('http://localhost/xampp/otraprueba/post.php/?id='+this.id)
+    console.log(this.id);
+    this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/publicaciones.php/?id_publicacion='+this.id)
     .map(response => response.json())
     .subscribe(data =>
       {
         this.publicaciones = data;
-        this.title=data.title;
-        this.content=data.content;
-        this.user_id=data.user_id;
-        this.status=data.status;
+        this.nombre=data.nombre;
+        this.apellido=data.apellido;
+        this.correo=data.correo;
+        this.descripcion=data.descripcion;
+        this.edad_usuario=data.edad_usuario;
+        this.fecha_publicacion=data.fecha_publicacion;
+        this.horario=data.horario;
+        this.nombre_oficio=data.nombre_oficio;
+        this.precio=data.precio;
+        this.telefono=data.telefono;
         console.log(data);
         console.log(this.user_id);
         

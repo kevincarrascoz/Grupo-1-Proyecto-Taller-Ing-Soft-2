@@ -51,19 +51,19 @@ export class PublicarPage {
   }
 
   Publicar(){
-    if(this.descripcion==""){
+    if(this.descripcion.value==""){
         const toast = this.toastCtrl.create({
           message: 'Ingrese una descripcion', 
           duration: 3000
         });
         toast.present();
-    }else if(this.horario==""){
+    }else if(this.horario.value==""){
         const toast = this.toastCtrl.create({
           message: 'Ingrese el horario', 
           duration: 3000
         });
         toast.present();
-    }else if(this.precio==""){
+    }else if(this.precio.value==""){
         const toast = this.toastCtrl.create({
           message: 'Ingrese el precio', 
           duration: 3000
@@ -101,7 +101,7 @@ export class PublicarPage {
         content: 'Processing please wait...',
       });
       loader.present().then(() => {
-        this.http.post('http://localhost/xampp/Proyecto_Taller_Ing_2/proyecto_tis2/publicar.php',data, options)
+        this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/publicar.php',data, options)
         .map(res => res.json())
         .subscribe(res => {
           loader.dismiss()

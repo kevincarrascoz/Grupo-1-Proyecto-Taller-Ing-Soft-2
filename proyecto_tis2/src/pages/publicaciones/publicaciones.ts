@@ -4,6 +4,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { isConstructorDeclaration } from 'typescript';
 import { DetallepublicacionPage } from '../detallepublicacion/detallepublicacion';
 import { SearchBarPage } from '../search-bar/search-bar';
+import { Observable } from 'rxjs';
 
 
 @IonicPage()
@@ -16,19 +17,20 @@ export class PublicacionesPage {
   id:any;
   correo: any;
   contrasena: any;
+  oficio: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,  public http: Http) {
     this.correo = navParams.get('correo');
     this.contrasena = navParams.get('contrasena');
     console.log(this.correo,this.contrasena);
 
-    this.http.get('http://localhost/xampp/otraprueba/post.php')
+    this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/publicaciones.php')
     .map(response => response.json())
     .subscribe(data =>
       {
         this.publicaciones = data;
-        
-        console.log(data);
+        console.log(this.publicaciones);
+
         for (let i = 0; i < data; i++) {
         this.publicaciones.push( this.publicaciones.length );
       }

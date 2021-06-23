@@ -19,30 +19,30 @@
 <ion-content padding>
     <h6>Publicaciones recientes:</h6>
     <br>
-    <ion-card *ngFor="let pub of publicaciones"(click)="detalle(pub.id)">
+    <ion-card *ngFor="let pub of publicaciones" (click)="detalle(pub.id_publicacion)">
   <ion-item >
       <ion-avatar item-start>
-        <img src="https://picsum.photos/300">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png">
       </ion-avatar>
-      <h2><b>Humberto Suazo</b></h2>
-      <h2>{{pub.title}}</h2>
+      <h2><b>{{pub.nombre}} {{pub.apellido}}</b></h2>
+      <h2>{{pub.nombre_oficio}}</h2>
     </ion-item>
   
     
     <ion-card-content>
-      <p>{{pub.content}}</p>
+      <p>{{pub.descripcion}}</p>
     </ion-card-content>
   
     <ion-row>
       <ion-col>
         <button ion-button icon-start clear small>
-          <ion-icon name="ios-chatbubbles"></ion-icon>
-          <div>Contactar</div>
+          <ion-icon name="add-circle"></ion-icon>
+          <div>Ver mas</div>
         </button>
       </ion-col>
       <ion-col align-self-center text-center>
         <ion-note>
-          05-25-2021
+          {{pub.fecha_publicacion}}
         </ion-note>
       </ion-col>
     </ion-row>

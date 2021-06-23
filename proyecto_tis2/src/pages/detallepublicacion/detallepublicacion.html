@@ -21,21 +21,27 @@
       <ion-avatar item-start>
         <img src="https://picsum.photos/300">
       </ion-avatar>
-      <h2><b>Humberto Suazo</b></h2>
-      <h2>{{title}}</h2>
+      <h2><b>{{nombre}} {{apellido}}</b></h2>
+      <h2>{{nombre_oficio}}</h2>
+        <p>{{edad_usuario}} años de edad</p>
     </ion-item>
   
     <ion-card-content>
-      <p>id publicacion: {{id}}</p>
+      <p>Datos de contacto.</p>
+      <p>Correo Electrónico: {{correo}}</p>
+      <p>Numero de teléfono: {{telefono}}</p>
     </ion-card-content>
     <ion-card-content>
-      <p>id usuario: {{user_id}}</p>
+      <p>Horarios.</p>
+      <p>{{horario}}</p>
     </ion-card-content>
     <ion-card-content>
-      <p>estado: {{status}}</p>
+      <p>Precio del servicio.</p>
+      <p>{{precio}}</p>
     </ion-card-content>
     <ion-card-content>
-      <p>detalles: {{content}}</p>
+      <p>Descripción.</p>
+      <p>{{descripcion}}</p>
     </ion-card-content>
   
     <ion-row>
@@ -47,7 +53,7 @@
       </ion-col>
       <ion-col align-self-center text-center>
         <ion-note>
-          05-25-2021
+          {{fecha_publicacion}}
         </ion-note>
       </ion-col>
     </ion-row>
