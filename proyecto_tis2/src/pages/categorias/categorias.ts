@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Http } from '@angular/http';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SearchBarPage } from '../search-bar/search-bar';
 
@@ -15,26 +16,25 @@ import { SearchBarPage } from '../search-bar/search-bar';
   templateUrl: 'categorias.html',
 })
 export class CategoriasPage {
+  nombre_oficio:any;
+  oficio:any;
 
-  items = [
-    'Albañil',
-    'Carpintero',
-    'Conserje',
-    'Conductor',
-    'Electricista',
-    'Empleado Domestico',
-    'Estilista',
-    'Gasfiter',
-    'Guardia de seguridad',
-    'Mecanico',
-    'Sastre',
-    'Relojero'
-  ];
-   
-  itemSelected(item: string) {
-    console.log("Selected Item", item);
-  }
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
+    this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/oficio.php/')
+    .map(response => response.json())
+    .subscribe(data =>
+      {
+        this.oficio = data;
+        this.nombre_oficio=data.nombre_oficio;
+        console.log(this.nombre_oficio);
+        
+      },
+      err =>{
+        console.log("Oops!");
+        //this.presentToast("No existen registros aun");
+      }
+      );
+
   }
 
   ionViewDidLoad() {
