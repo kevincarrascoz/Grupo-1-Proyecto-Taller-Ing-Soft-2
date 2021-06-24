@@ -18,8 +18,12 @@
 
 <ion-content padding>
   <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemSelected(item)">
-      {{ item }}
-    </button>  
+      <ion-card-content style="font-size: medium;"*ngFor="let p of preguntas" >
+        <div>
+           {{p.pregunta}}
+        <p >{{p.respuesta}} </p>
+        </div>
+      </ion-card-content>
+
   </ion-list>
 </ion-content>

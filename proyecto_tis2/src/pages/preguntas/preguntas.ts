@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Http } from '@angular/http';
 import { IonicPage, Item, NavController, NavParams } from 'ionic-angular';
 import { Faq1Page } from '../faq1/faq1';
 import { Faq2Page } from '../faq2/faq2';
@@ -20,7 +21,9 @@ import { SearchBarPage } from '../search-bar/search-bar';
   templateUrl: 'preguntas.html',
 })
 export class PreguntasPage {
-
+preguntas:any;
+pregunta:any;
+respuesta:any;
   items = [
     '¿Cómo elegir a un experto?',
     '¿Cómo publicar un servicio?',
@@ -48,7 +51,23 @@ export class PreguntasPage {
       this.navCtrl.push(Faq5Page);
     }
   }
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
+    this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/preguntas.php/')
+    .map(response => response.json())
+    .subscribe(data =>
+      {
+        this.preguntas = data;
+        this.pregunta=data.pregunta;
+        this.respuesta= data.respuesta;
+        console.log(this.pregunta);
+        console.log(this.respuesta);
+        
+      },
+      err =>{
+        console.log("Oops!");
+        //this.presentToast("No existen registros aun");
+      }
+      );
   }
 
   ionViewDidLoad() {

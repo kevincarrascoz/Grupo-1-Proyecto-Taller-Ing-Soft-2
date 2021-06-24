@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-06-2021 a las 04:50:16
--- Versión del servidor: 10.4.14-MariaDB
--- Versión de PHP: 7.4.9
+-- Tiempo de generación: 24-06-2021 a las 05:49:29
+-- Versión del servidor: 10.4.19-MariaDB
+-- Versión de PHP: 8.0.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -91,7 +91,29 @@ CREATE TABLE `oficio` (
 
 INSERT INTO `oficio` (`id_oficio`, `nombre_oficio`, `descripcion`) VALUES
 (1, 'Carpintero', 'Oficio de trabajar, cortar y labrar la madera y sus derivados.'),
-(2, 'Conserje', 'Es un oficio que consiste principalmente en controlar el acceso a un determinado sitio, atendiendo a las personas que acceden, y velar por un correcto funcionamiento del mismo');
+(2, 'Conserje', 'Es un oficio que consiste principalmente en controlar el acceso a un determinado sitio, atendiendo a las personas que acceden, y velar por un correcto funcionamiento del mismo'),
+(3, 'Albañil', 'Oficio a la construcción, reforma, renovación y reparación de edificaciones, tanto viviendas como industriales.');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `preguntas`
+--
+
+CREATE TABLE `preguntas` (
+  `id` int(11) NOT NULL,
+  `pregunta` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
+  `respuesta` varchar(500) COLLATE utf8_spanish2_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `preguntas`
+--
+
+INSERT INTO `preguntas` (`id`, `pregunta`, `respuesta`) VALUES
+(1, '¿Cómo elegir a un experto?', 'Para elegir a un experto puedes explorar las publicaciones de la página Catalogo, también puedes utilizar el buscador para encontrar lo que necesites!'),
+(2, '¿Cómo publicar un servicio?', 'Para publicar tus servicios, despliega el menú lateral en la esquina superior izquierda de tu dispositivo y selecciona la opción \"Publicar\", luego rellena todos los campos necesarios y podrás realizar tu publicación. Ahora solo debes esperar a que se contacten contigo!'),
+(3, '¿Cómo registrarme?', 'Para registrarte y poder utilizar todas las utilidades de la aplicación, despliega el menú lateral en la esquina superior izquierda de tu dispositivo, luego selecciona la opción \"Iniciar Sesión\", se mostrará una ventana donde podrás ingresar o crear una nueva cuenta.');
 
 -- --------------------------------------------------------
 
@@ -214,6 +236,12 @@ ALTER TABLE `oficio`
   ADD PRIMARY KEY (`id_oficio`);
 
 --
+-- Indices de la tabla `preguntas`
+--
+ALTER TABLE `preguntas`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `provincia`
 --
 ALTER TABLE `provincia`
@@ -255,7 +283,13 @@ ALTER TABLE `comuna`
 -- AUTO_INCREMENT de la tabla `oficio`
 --
 ALTER TABLE `oficio`
-  MODIFY `id_oficio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_oficio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `preguntas`
+--
+ALTER TABLE `preguntas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `provincia`
@@ -267,7 +301,7 @@ ALTER TABLE `provincia`
 -- AUTO_INCREMENT de la tabla `publicacion`
 --
 ALTER TABLE `publicacion`
-  MODIFY `id_publicacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_publicacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `region`
