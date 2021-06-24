@@ -16,11 +16,13 @@ import { Http } from '@angular/http';
   templateUrl: 'search-bar.html',
 })
 export class SearchBarPage {
-
+  public isSearchbarOpened = true;
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
      
   }
-   
+  onSearch(event){
+    console.log(event.target.value);
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad SearchBarPage'); 
     
