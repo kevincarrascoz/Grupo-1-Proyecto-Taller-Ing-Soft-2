@@ -22,6 +22,11 @@
     <ion-list-header>
       Informacion
     </ion-list-header>
+    <ion-item name="foto" #foto><br>
+      <ion-label>Imagen</ion-label>
+      <ion-input type="file"></ion-input>
+    </ion-item>
+
     <ion-item>
       <ion-input placeholder="Descripcion" type="text" name="descripcion" #descripcion ></ion-input>
     </ion-item>
@@ -46,14 +51,10 @@
 
   <ion-item name="certificado" #certificado>
     <ion-label>Certificados</ion-label>
-    <ion-select [(ngModel)]="certificados" multiple="true">
-      <ion-option>Certificado de Carpintero</ion-option>
-      <ion-option>Certificado de Electricista</ion-option>
-      <ion-option>Certificado de Estilista</ion-option>
-    </ion-select>
+    <ion-input type="file"></ion-input>
   </ion-item>
 
-  <button ion-button full (click)="Publicar()" >Publicar</button>
+  <button ion-button full round (click)="Publicar()" >Publicar</button>
   </ion-list>
   
 
