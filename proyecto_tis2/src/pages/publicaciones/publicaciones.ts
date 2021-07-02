@@ -24,7 +24,8 @@ export class PublicacionesPage {
     this.contrasena = navParams.get('contrasena');
     console.log(this.correo,this.contrasena);
 
-    this.http.get('https://proyectooficiosapp.000webhostapp.com/publicaciones.php')
+    this.http.get('http://oficiosapp.infinityfreeapp.com/publicaciones.php')
+    //this.http.get('https://proyectooficiosapp.000webhostapp.com/publicaciones.php')
     .map(response => response.json())
     .subscribe(data =>
       {
