@@ -21,6 +21,7 @@ export class CategoriasPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
     this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/oficio.php/')
+    //this.http.get('https://proyectooficiosapp.000webhostapp.com/oficio.php')
     .map(response => response.json())
     .subscribe(data =>
       {
