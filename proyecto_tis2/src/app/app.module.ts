@@ -4,13 +4,11 @@ import { IonicApp, IonicModule, IonicErrorHandler, IonicPageModule } from 'ionic
 import { MyApp } from './app.component';
 
 import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
 import { SearchBarPage } from '../pages/search-bar/search-bar';
 import { HistorialPage } from '../pages/historial/historial';
 import { PublicarPage } from '../pages/publicar/publicar';
 import { CategoriasPage } from '../pages/categorias/categorias';
 import { PreguntasPage } from '../pages/preguntas/preguntas';
-import { AcercaDePage } from '../pages/acerca-de/acerca-de';
 import { LoginPage } from '../pages/login/login';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -33,20 +31,17 @@ import { ProfilePage } from '../pages/profile/profile';
   declarations: [
     MyApp,
     AboutPage,
-    ContactPage,
     SearchBarPage,
     HistorialPage,
     PublicarPage,
     CategoriasPage,
     PreguntasPage,
-    AcercaDePage,
     LoginPage,
     RegisterPage,
     DetallepublicacionPage,
     PublicacionesPage,
     LogoutPage,
     PublicarLogoutPage,
-    ContactPage,
     ProfilePage
   ],
   imports: [
@@ -59,20 +54,17 @@ import { ProfilePage } from '../pages/profile/profile';
   entryComponents: [
     MyApp,
     AboutPage,
-    ContactPage,
     SearchBarPage,
     HistorialPage,
     PublicarPage,
     CategoriasPage,
     PreguntasPage,
-    AcercaDePage,
     LoginPage,
     RegisterPage,
     DetallepublicacionPage,
     PublicacionesPage,
     LogoutPage,
     PublicarLogoutPage,
-    ContactPage,
     ProfilePage
   ],
   providers: [

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Http, Headers, RequestOptions}  from "@angular/http";
+import { SearchBarPage } from '../search-bar/search-bar';
 
 /**
  * Generated class for the ProfilePage page.
@@ -71,6 +72,10 @@ export class ProfilePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
+  }
+
+  buscar(){
+    this.navCtrl.push(SearchBarPage);
   }
 
 }

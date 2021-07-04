@@ -9,42 +9,40 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-searchbar></ion-searchbar>
+    <ion-searchbar placeholder="Buscar" (click)="buscar()"></ion-searchbar>
  </ion-navbar>
   <ion-navbar>
-    <ion-title>
+    <ion-title text-center>
       Perfil
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-    <h1 text-center>{{nombre}} {{apellido}}</h1>
+    <h2 text-center>{{nombre}} {{apellido}}</h2>
 
   <ion-avatar>
     <img style='margin-left:auto; margin-right:auto; width:50%;' src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" />
-  </ion-avatar>
-  
-  <p text-center>Usuario desde junio del 2020</p>
-  
-  <ion-list>
-    <ion-list-header>
+  </ion-avatar> 
+  <ion-list padding>
+    <br>
+    <ion-title text-center>
       Información básica
-    </ion-list-header>
+    </ion-title>
     <ion-item>
-      <p>Correo electrónico: {{correo}}</p>
-      <p>Dirección: {{direccion}} , {{nombre_comuna}}</p>
-      <p>Número telefónico: {{telefono}}</p>
-      <p>Fecha de nacimiento: {{fecha_nacimiento}}</p>
+      <h3>Correo electrónico: {{correo}}</h3>
+      <h3>Dirección: {{direccion}} , {{nombre_comuna}}</h3>
+      <h3>Número telefónico: {{telefono}}</h3>
+      <h3>Fecha de nacimiento: {{fecha_nacimiento}}</h3>
     </ion-item>
     <ion-item detail-push lines="none">
-      <p>Mis publicaciones</p>
+      <h3>Mis publicaciones</h3>
     </ion-item>
     <ion-item detail-push>
-      <p>Mis comentarios</p>
+      <h3>Mis comentarios</h3>
     </ion-item>
     <ion-item detail-push>
-      <p>Mis certificaciones</p>
+      <h3>Mis certificaciones</h3>
     </ion-item>
   </ion-list>
     

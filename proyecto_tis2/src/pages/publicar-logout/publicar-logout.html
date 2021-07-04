@@ -13,18 +13,18 @@
  </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2 text-center >Aún no has iniciado sesión</h2>
-  <p text-center>
-    Para poder crear una publicación debes haber iniciado sesión, puedes hacerlo aquí.
+<ion-content padding><br>
+  <h2 text-center >Aún no has iniciado sesión <br><ion-icon name="sad"></ion-icon> </h2>
+  <h5 text-center>
+    Para crear una publicación debes haber iniciado sesión, puedes hacerlo aquí<br><ion-icon name="happy"></ion-icon>
     <br>
     <button ion-button round (click)="IrLogin()"> Iniciar sesion</button>
-  </p>
-    <p text-center>
-      Si no has creado una cuenta, puedes registrarte aquí.
+  </h5><br>
+    <h5 text-center>
+      Si no has creado una cuenta, puedes registrarte aquí<br> <ion-icon name="arrow-round-down"></ion-icon>
     <br>
     <button ion-button round (click)="IrRegistro()">Registrarse</button>
-    </p>
+    </h5><br>
 
     
 </ion-content>

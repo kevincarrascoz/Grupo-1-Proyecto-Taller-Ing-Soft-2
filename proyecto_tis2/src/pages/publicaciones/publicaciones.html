@@ -17,8 +17,7 @@
 </ion-header>
 
 <ion-content padding>
-    <h6>Publicaciones recientes:</h6>
-    <br>
+    <h5 text-center>Publicaciones recientes:</h5>
     <ion-card *ngFor="let pub of publicaciones" (click)="detalle(pub.id_publicacion)">
   <ion-item >
       <ion-avatar item-start>
@@ -26,11 +25,12 @@
       </ion-avatar>
       <h2><b>{{pub.nombre}} {{pub.apellido}}</b></h2>
       <h2>{{pub.nombre_oficio}}</h2>
+      
     </ion-item>
-  
+   
     
     <ion-card-content>
-      <p>{{pub.descripcion}}</p>
+      <p>{{pub.descripcion}}</p>      
     </ion-card-content>
   
     <ion-row>
@@ -38,8 +38,10 @@
         <button ion-button icon-start clear small>
           <ion-icon name="add-circle"></ion-icon>
           <div>Ver mas</div>
-        </button>
+        </button> 
       </ion-col>
+
+      
       <ion-col align-self-center text-center>
         <ion-note>
           {{pub.fecha_publicacion}}
