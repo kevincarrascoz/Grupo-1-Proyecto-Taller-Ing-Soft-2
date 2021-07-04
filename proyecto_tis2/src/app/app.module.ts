@@ -1,6 +1,6 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler, IonicPageModule } from 'ionic-angular';
+import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { AboutPage } from '../pages/about/about';
@@ -15,7 +15,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { RegisterPage } from '../pages/register/register';
-
+import { DetallepublicacionLogoutPage } from '../pages/detallepublicacion-logout/detallepublicacion-logout';
 import { DetallepublicacionPage } from '../pages/detallepublicacion/detallepublicacion';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
@@ -42,7 +42,8 @@ import { ProfilePage } from '../pages/profile/profile';
     PublicacionesPage,
     LogoutPage,
     PublicarLogoutPage,
-    ProfilePage
+    ProfilePage,
+    DetallepublicacionLogoutPage
   ],
   imports: [
     BrowserModule,
@@ -65,7 +66,8 @@ import { ProfilePage } from '../pages/profile/profile';
     PublicacionesPage,
     LogoutPage,
     PublicarLogoutPage,
-    ProfilePage
+    ProfilePage,
+    DetallepublicacionLogoutPage
   ],
   providers: [
     StatusBar,

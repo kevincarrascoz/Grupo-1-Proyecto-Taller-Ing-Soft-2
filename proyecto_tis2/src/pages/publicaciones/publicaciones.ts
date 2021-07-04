@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { isConstructorDeclaration } from 'typescript';
 import { DetallepublicacionPage } from '../detallepublicacion/detallepublicacion';
 import { SearchBarPage } from '../search-bar/search-bar';
-import { Observable } from 'rxjs';
+import { DetallepublicacionLogoutPage } from '../detallepublicacion-logout/detallepublicacion-logout';
 
 
 @IonicPage()
@@ -18,7 +17,7 @@ export class PublicacionesPage {
   correo: any;
   contrasena: any;
   oficio: any;
-
+  correo1: any;
   constructor(public navCtrl: NavController, public navParams: NavParams,  public http: Http) {
     this.correo = navParams.get('correo');
     this.contrasena = navParams.get('contrasena');
@@ -62,7 +61,13 @@ export class PublicacionesPage {
     console.log('ionViewDidLoad PublicacionesPage');
   }
   detalle(id){
-    this.navCtrl.push(DetallepublicacionPage,{valor:id})
+    console.log(this.correo1);
+    if(this.correo1==this.correo){
+      this.navCtrl.push(DetallepublicacionLogoutPage,{valor:id});
+    }else{
+      this.navCtrl.push(DetallepublicacionPage,{valor:id});
+    }
+    
   }
   
   buscar(){
