@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Http } from '@angular/http';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, LoadingController, NavController, NavParams, ToastController } from 'ionic-angular';
+import { Http, RequestOptions, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs';
 
@@ -17,6 +17,8 @@ import { Observable } from 'rxjs';
   templateUrl: 'detallepublicacion.html',
 })
 export class DetallepublicacionPage {
+
+  @ViewChild("comentario") comentario;
   publicaciones:any;
   userId:any;
   id=this.navParams.get('valor');
@@ -35,8 +37,7 @@ export class DetallepublicacionPage {
   nombre_oficio:any;
   precio:any;
   telefono:any;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public toastCtrl: ToastController, public loading: LoadingController) {
     console.log(this.id);
     this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/publicaciones.php/?id_publicacion='+this.id)
     //this.http.get('https://proyectooficiosapp.000webhostapp.com/publicaciones.php/?id_publicacion='+this.id)
@@ -70,9 +71,58 @@ export class DetallepublicacionPage {
     console.log('ionViewDidLoad DetallepublicacionPage');
   }
 
-  /* resena(id){
-    this.navCtrl.push(DetallepublicacionPage,{valor:id})
-  } */
+  Comentar(){
+    if(this.comentario.value==""){
+      const toast = this.toastCtrl.create({
+        message: 'Ingrese algun comentario', 
+        duration: 3000
+      });
+      toast.present();
+  }  
+  else{
+    var headers = new Headers();
+    headers.append("Accept", 'application/json');
+    headers.append('Content-Type', 'application/json' );
+    let options = new RequestOptions({ headers: headers });
+
+    let data = {
+      comentario: this.comentario.value,   
+      correo: this.correo
+       
+    };
+    console.log(data);
+    let loader = this.loading.create({
+      content: 'Processing please wait...',
+    });
+    loader.present().then(() => {
+      this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/comentar.php',data, options)
+      //this.http.post('https://proyectooficiosapp.000webhostapp.com/comentarios.php',data, options)
+      .map(res => res.json())
+      .subscribe(res => {
+        loader.dismiss()
+        if(res=="Comentario exitoso"){
+          const toast = this.toastCtrl.create({
+            message: 'Comentario Exitoso', 
+            duration: 3000
+          });
+        toast.present();
+        this.comentario.value="";
+
+      }else
+      {
+        const toast = this.toastCtrl.create({
+          message: 'Fallo el comentario', 
+          duration: 3000
+        });
+        toast.present();
+        } 
+      });
+    });
+
+
+
+  }
+  }
 
 
 }
