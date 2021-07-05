@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { PubOficioPage } from '../pub-oficio/pub-oficio';
 import { SearchBarPage } from '../search-bar/search-bar';
 
 /**
@@ -45,5 +46,7 @@ export class CategoriasPage {
   buscar(){
     this.navCtrl.push(SearchBarPage);
   }
-
+  verPubOficio(id_oficio){
+    this.navCtrl.push(PubOficioPage, {valor: id_oficio});
+  }
 }

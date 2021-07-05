@@ -25,7 +25,7 @@ import { PublicarLogoutPage } from '../pages/publicar-logout/publicar-logout';
 import { ProfilePage } from '../pages/profile/profile';
 import { ChatPage } from '../pages/chat/chat';
 import { MensajePage } from '../pages/mensaje/mensaje';
-
+import { PubOficioPage } from '../pages/pub-oficio/pub-oficio';
 
 
 
@@ -47,7 +47,8 @@ import { MensajePage } from '../pages/mensaje/mensaje';
     ProfilePage,
     DetallepublicacionLogoutPage,
     ChatPage,
-    MensajePage
+    MensajePage,
+    PubOficioPage
   ],
   imports: [
     BrowserModule,
@@ -73,7 +74,8 @@ import { MensajePage } from '../pages/mensaje/mensaje';
     ProfilePage,
     DetallepublicacionLogoutPage,
     ChatPage,
-    MensajePage
+    MensajePage,
+    PubOficioPage
   ],
   providers: [
     StatusBar,

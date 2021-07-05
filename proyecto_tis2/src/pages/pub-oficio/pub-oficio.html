@@ -1,5 +1,5 @@
 <!--
-  Generated template for the SearchBarPage page.
+  Generated template for the PubOficioPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -9,9 +9,12 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-searchbar animated placeholder="Buscar" *ngIf="isSearchbarOpened" (ionInput)="onSearch($event)" (ionClear)="resetFilter()"></ion-searchbar>
+    <ion-searchbar placeholder="Buscar" (click)="buscar()"></ion-searchbar>
  </ion-navbar>
-  </ion-header>
+  <ion-navbar>
+    <ion-title text-center>Publicaciones por Oficio</ion-title>
+  </ion-navbar>
+</ion-header>
 
 <ion-content padding>
   <ion-card *ngFor="let pub of publicaciones" (click)="detalle(pub.id_publicacion)">
@@ -23,10 +26,10 @@
         <h2>{{pub.nombre_oficio}}</h2>
         <h2>{{pub.nombre_comuna}}</h2>
       </ion-item>
-    
+     
       
       <ion-card-content>
-        <p>{{pub.descripcion}}</p>
+        <p>{{pub.descripcion}}</p>      
       </ion-card-content>
     
       <ion-row>
@@ -34,8 +37,10 @@
           <button ion-button icon-start clear small>
             <ion-icon name="add-circle"></ion-icon>
             <div>Ver mas</div>
-          </button>
+          </button> 
         </ion-col>
+  
+        
         <ion-col align-self-center text-center>
           <ion-note>
             {{pub.fecha_publicacion}}
@@ -48,4 +53,5 @@
     <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
       <ion-infinite-scroll-content ></ion-infinite-scroll-content>
     </ion-infinite-scroll>
+  
 </ion-content>
