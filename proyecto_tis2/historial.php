@@ -23,30 +23,31 @@ if (isset($_SERVER['HTTP_ORIGIN'])) {
  
   require "dbconnect.php";
   
-    $data = file_get_contents("php://input");
-    if (isset($data)) {
-        $request = json_decode($data);
+    $data2 = file_get_contents("php://input");
+    echo 'console.log('. json_encode( $data2 ) .')';
+    if (isset($data2)) {
+        $request = json_decode($data2);
 		$correo = $request->correo;
 		$id_publicacion = $request->id_publicacion;
 		
 	}
+    
+  
 
-    date_default_timezone_set('America/Santiago');
-    $fecha_actual = date("Y-m-d H:i:s");
 
 $sql = "INSERT INTO historial (correo, id_publicacion)
 VALUES ('$correo','$id_publicacion')";
 
-
+/*
 if ($con->query($sql) === TRUE) {
-	$response= "Historial successfull";
+	$response= "Historial exitoso";
    
 } else {
    $response= "Error: " . $sql . "<br>" . $db->error;
 }
  
   
-	echo json_encode( $response);
+	echo json_encode( $response);*/
 
  
 ?>

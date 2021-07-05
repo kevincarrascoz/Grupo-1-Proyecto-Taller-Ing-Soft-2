@@ -1,10 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Http } from '@angular/http';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, LoadingController, NavController, NavParams, ToastController } from 'ionic-angular';
 import {Headers, RequestOptions}  from "@angular/http";
 import { DetallepublicacionPage } from '../detallepublicacion/detallepublicacion';
 import { SearchBarPage } from '../search-bar/search-bar';
 import { DetallepublicacionLogoutPage } from '../detallepublicacion-logout/detallepublicacion-logout';
+import { options } from 'sw-toolbox';
+import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs';
 
 
 @IonicPage()
@@ -15,12 +18,16 @@ import { DetallepublicacionLogoutPage } from '../detallepublicacion-logout/detal
 export class PublicacionesPage {
   publicaciones:any;
   id:any;
-  correo: any;
-    id_publicacion: any;
+  correo:any;
+  id_publicacion:any;
+  data2:any;
+  
+  //id_publicacion: any;
+
   contrasena: any;
   oficio: any;
   correo1: any;
-  constructor(public navCtrl: NavController, public navParams: NavParams,  public http: Http) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
     this.correo = navParams.get('correo');
     this.contrasena = navParams.get('contrasena');
     console.log(this.correo,this.contrasena);
@@ -63,7 +70,6 @@ export class PublicacionesPage {
     console.log('ionViewDidLoad PublicacionesPage');
   }
   detalle(id){
-    console.log(this.correo1);
     if(this.correo1==this.correo){
       this.navCtrl.push(DetallepublicacionLogoutPage,{valor:id});
     }else{
@@ -77,7 +83,7 @@ export class PublicacionesPage {
         id_publicacion: id,
       };
       console.log(data2);
-      //this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/historial.php',data2, options)
+      this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/historial.php',data2, options);
       this.navCtrl.push(DetallepublicacionPage,{valor:id, correo: this.correo});
     }
     
