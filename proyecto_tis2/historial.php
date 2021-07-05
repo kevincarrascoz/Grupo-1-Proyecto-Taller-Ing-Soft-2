@@ -24,7 +24,6 @@ if (isset($_SERVER['HTTP_ORIGIN'])) {
   require "dbconnect.php";
   
     $data2 = file_get_contents("php://input");
-    echo 'console.log('. json_encode( $data2 ) .')';
     if (isset($data2)) {
         $request = json_decode($data2);
 		$correo = $request->correo;
@@ -35,10 +34,9 @@ if (isset($_SERVER['HTTP_ORIGIN'])) {
   
 
 
-$sql = "INSERT INTO historial (correo, id_publicacion)
-VALUES ('$correo','$id_publicacion')";
+$sql = "INSERT INTO historial (id_historial, correo, id_publicacion)
+VALUES ('', '$correo','$id_publicacion')";
 
-/*
 if ($con->query($sql) === TRUE) {
 	$response= "Historial exitoso";
    
@@ -47,7 +45,7 @@ if ($con->query($sql) === TRUE) {
 }
  
   
-	echo json_encode( $response);*/
+	echo json_encode( $response);
 
  
 ?>

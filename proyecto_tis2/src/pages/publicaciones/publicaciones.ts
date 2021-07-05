@@ -77,13 +77,28 @@ export class PublicacionesPage {
       headers.append("Accept", 'application/json');
       headers.append('Content-Type', 'application/json' );
       let options = new RequestOptions({ headers: headers });
-
-      let data2 = {
+       let data2 = {
         correo: this.correo,
         id_publicacion: id,
       };
       console.log(data2);
-      this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/historial.php',data2, options);
+      this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/historial.php',data2, options)
+        //this.http.post('https://proyectooficiosapp.000webhostapp.com/register.php',data, options)
+        .map(res => res.json())
+        .subscribe(res => {
+        
+       
+        if(res=="Historial exitoso"){
+        
+            console.log('registro exitoso');
+          }
+        
+        else
+        {
+        console.log('error');
+          } 
+        });
+        
       this.navCtrl.push(DetallepublicacionPage,{valor:id, correo: this.correo});
     }
     
