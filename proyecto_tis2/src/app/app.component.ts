@@ -14,6 +14,7 @@ import { PublicarLogoutPage } from '../pages/publicar-logout/publicar-logout';
 import { Events } from 'ionic-angular';
 import { LogoutPage } from '../pages/logout/logout';
 import { ProfilePage } from '../pages/profile/profile';
+import { ChatPage } from '../pages/chat/chat';
 
 @Component({
   templateUrl: 'app.html'
@@ -48,6 +49,7 @@ export class MyApp {
                     { title: 'Catalogo', component: PublicacionesPage, icon:'pricetags'  },
                     { title: 'Historial', component: HistorialPage, icon:'time'  },
                     { title: 'Publicar', component: PublicarPage, icon:'briefcase'  },
+                    { title: 'Mensajes', component: ChatPage, icon:'chatbubbles'  },
                     { title: 'Categorias', component: CategoriasPage, icon:'list-box'  },
                     { title: 'Preguntas Frecuentes', component: PreguntasPage, icon:'information-circle'  },
                     { title:'Logout', component: LogoutPage, icon:'log-out' },

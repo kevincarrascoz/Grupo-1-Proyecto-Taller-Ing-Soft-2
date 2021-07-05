@@ -65,7 +65,7 @@ export class PublicacionesPage {
     if(this.correo1==this.correo){
       this.navCtrl.push(DetallepublicacionLogoutPage,{valor:id});
     }else{
-      this.navCtrl.push(DetallepublicacionPage,{valor:id});
+      this.navCtrl.push(DetallepublicacionPage,{valor:id, correo: this.correo});
     }
     
   }

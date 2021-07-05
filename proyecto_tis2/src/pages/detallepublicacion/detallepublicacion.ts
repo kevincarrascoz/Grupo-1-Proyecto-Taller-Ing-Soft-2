@@ -3,6 +3,7 @@ import { IonicPage, LoadingController, NavController, NavParams, ToastController
 import { Http, RequestOptions, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs';
+import { MensajePage } from '../mensaje/mensaje';
 
 /**
  * Generated class for the DetallepublicacionPage page.
@@ -37,6 +38,7 @@ export class DetallepublicacionPage {
   nombre_oficio:any;
   precio:any;
   telefono:any;
+  correo_login=this.navParams.get('correo');
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public toastCtrl: ToastController, public loading: LoadingController) {
     console.log(this.id);
     this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/publicaciones.php/?id_publicacion='+this.id)
@@ -69,6 +71,9 @@ export class DetallepublicacionPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DetallepublicacionPage');
+  }
+  enviarMensaje() {
+    this.navCtrl.push(MensajePage, {id_publicacion: this.id, correo: this.correo_login, nombre: this.nombre, apellido: this.apellido});
   }
 
   Comentar(){
