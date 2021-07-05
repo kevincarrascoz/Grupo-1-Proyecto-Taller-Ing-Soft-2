@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Headers, RequestOptions}  from "@angular/http";
 import { DetallepublicacionPage } from '../detallepublicacion/detallepublicacion';
 import { SearchBarPage } from '../search-bar/search-bar';
 import { DetallepublicacionLogoutPage } from '../detallepublicacion-logout/detallepublicacion-logout';
@@ -15,6 +16,7 @@ export class PublicacionesPage {
   publicaciones:any;
   id:any;
   correo: any;
+    id_publicacion: any;
   contrasena: any;
   oficio: any;
   correo1: any;
@@ -65,6 +67,17 @@ export class PublicacionesPage {
     if(this.correo1==this.correo){
       this.navCtrl.push(DetallepublicacionLogoutPage,{valor:id});
     }else{
+      var headers = new Headers();
+      headers.append("Accept", 'application/json');
+      headers.append('Content-Type', 'application/json' );
+      let options = new RequestOptions({ headers: headers });
+      let data2 = {
+        correo: this.correo,
+        id_publicacion: id,
+             
+      };
+      console.log(data2);
+      this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/historial.php/',data2, options)
       this.navCtrl.push(DetallepublicacionPage,{valor:id, correo: this.correo});
     }
     
