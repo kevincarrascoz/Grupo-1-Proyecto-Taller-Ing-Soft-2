@@ -9,7 +9,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-searchbar animated placeholder="Buscar" *ngIf="isSearchbarOpened" (ionInput)="onSearch($event)"></ion-searchbar>
+    <ion-searchbar animated placeholder="Buscar" *ngIf="isSearchbarOpened" (ionInput)="onSearch($event)" (ionClear)="resetFilter()"></ion-searchbar>
  </ion-navbar>
   </ion-header>
 

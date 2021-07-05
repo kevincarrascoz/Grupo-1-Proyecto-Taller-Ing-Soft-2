@@ -23,6 +23,7 @@ export class SearchBarPage {
   contrasena: any;
   oficios: any;
   oficio_name: any;
+  temp_data: any;
   public isSearchbarOpened = true;
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
     this.correo = navParams.get('correo');
@@ -35,7 +36,7 @@ export class SearchBarPage {
       {
         this.publicaciones = data;
         console.log(this.publicaciones);
-
+        this.temp_data = this.publicaciones;
         for (let i = 0; i < data; i++) {
         this.publicaciones.push( this.publicaciones.length );
       }
@@ -49,18 +50,23 @@ export class SearchBarPage {
   }
   onSearch(event){
     console.log(event.target.value);
-    const val = String(event.target.value);
-    if(val && val.trim() != ''){
+    const val = event.target.value;
+    if(val && val.trim() != ""){
       this.publicaciones = this.publicaciones.filter(ofi => {
         return ((ofi.nombre_oficio.toLowerCase().indexOf(val.toLowerCase())>-1) || (ofi.nombre_comuna.toLowerCase().indexOf(val.toLowerCase()) > -1));
       })
+    }
+    else{
+      this.resetFilter();
     }
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad SearchBarPage'); 
     
   }
-
+  resetFilter(){
+    this.publicaciones = this.temp_data;
+  }
   doInfinite(infiniteScroll) {
     console.log('Begin async operation');
 
