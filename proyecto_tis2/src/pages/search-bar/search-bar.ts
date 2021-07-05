@@ -24,6 +24,7 @@ export class SearchBarPage {
   oficios: any;
   oficio_name: any;
   temp_data: any;
+  @ViewChild("f_oficio") f_oficio;
   public isSearchbarOpened = true;
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
     this.correo = navParams.get('correo');
@@ -47,6 +48,13 @@ export class SearchBarPage {
         //this.presentToast("No existen registros aun");
       }
       );
+
+      this.http.get("http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/oficio.php/")
+      .map(response => response.json())
+      .subscribe(data => {
+        this.oficios = data;
+
+      })
   }
   onSearch(event){
     console.log(event.target.value);
@@ -66,6 +74,18 @@ export class SearchBarPage {
   }
   resetFilter(){
     this.publicaciones = this.temp_data;
+  }
+  Filtrar(){
+    console.log(this.f_oficio.value);
+    const op = this.f_oficio.value;
+    this.publicaciones = this.publicaciones.filter(dato => {
+      if(op != "none"){
+        return dato.nombre_oficio == op;
+      }
+      else{
+        this.resetFilter();
+      }
+    })
   }
   doInfinite(infiniteScroll) {
     console.log('Begin async operation');
