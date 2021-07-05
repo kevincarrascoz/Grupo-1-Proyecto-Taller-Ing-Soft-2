@@ -73,27 +73,24 @@
   <ion-card>
     <ion-item>
         <ion-avatar item-start>
-          <img src="https://picsum.photos/300">
+         
         </ion-avatar>
-        <h2><b>{{nombre}} {{apellido}}</b></h2>
-        <p>{{comentario}}</p>
+        <h2><b></b></h2>
+        <p></p>
       </ion-item>
       <ion-row>
         <ion-col align-self-center text-center>
           <ion-note>
-            {{fecha_publicacion}}
           </ion-note>
         </ion-col>
       </ion-row>
     
     </ion-card>
     <ion-card>
-      <ion-item>
-          <h2><b>Agregar comentario</b></h2><br>
-          <input type="text">
+      <h2 text-center><b>Agregar comentario</b></h2><br>
+      <ion-item center>
+          <ion-input placeholder="Comenta" type="text" #comentario></ion-input><br>
         </ion-item>
-        <ion-row>
-        </ion-row>
-      
-      </ion-card>
+        <button ion-button full round (click)="Comentar()" >Enviar</button>
+    </ion-card>
 </ion-content>
