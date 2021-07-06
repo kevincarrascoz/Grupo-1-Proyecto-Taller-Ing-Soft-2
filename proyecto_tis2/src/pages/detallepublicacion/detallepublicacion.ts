@@ -21,6 +21,7 @@ export class DetallepublicacionPage {
 
   @ViewChild("comentario") comentario;
   publicaciones:any = [];
+  comentarios: any = [];
   id=this.navParams.get('valor');
   data:Observable<any>;
   nombre:any;
@@ -49,7 +50,16 @@ export class DetallepublicacionPage {
         //this.presentToast("No existen registros aun");
       }
       );
+    
+    this.http.get("http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/comentarios.php?id_publicacion="+this.id)
+    .map(response => response.json())
+    .subscribe(data => {
+      this.comentarios = data;
 
+      for(let i = 0; i < data; i++){
+        this.comentarios.push(this.comentarios.length());
+      }
+    })
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad DetallepublicacionPage');
