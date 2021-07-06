@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
       $sql = $dbConn->prepare("SELECT * FROM publicacion,usuario,oficio,comuna where usuario.correo=publicacion.correo and oficio.id_oficio=publicacion.id_oficio and usuario.codigo_comuna = comuna.codigo_comuna");
       $sql->execute();
       header("HTTP/1.1 200 OK");
-      echo json_encode( $sql->fetchAll()  );
+      echo json_encode( $sql->fetchAll(PDO::FETCH_ASSOC)  );
       exit();
 	}
 }
