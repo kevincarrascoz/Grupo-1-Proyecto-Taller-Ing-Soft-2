@@ -15,7 +15,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { RegisterPage } from '../pages/register/register';
-import { DetallepublicacionLogoutPage } from '../pages/detallepublicacion-logout/detallepublicacion-logout';
 import { DetallepublicacionPage } from '../pages/detallepublicacion/detallepublicacion';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
@@ -45,7 +44,6 @@ import { PubOficioPage } from '../pages/pub-oficio/pub-oficio';
     LogoutPage,
     PublicarLogoutPage,
     ProfilePage,
-    DetallepublicacionLogoutPage,
     ChatPage,
     MensajePage,
     PubOficioPage
@@ -72,7 +70,6 @@ import { PubOficioPage } from '../pages/pub-oficio/pub-oficio';
     LogoutPage,
     PublicarLogoutPage,
     ProfilePage,
-    DetallepublicacionLogoutPage,
     ChatPage,
     MensajePage,
     PubOficioPage

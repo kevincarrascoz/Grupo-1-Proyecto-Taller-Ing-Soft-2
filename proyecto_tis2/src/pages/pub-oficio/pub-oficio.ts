@@ -3,7 +3,6 @@ import { Http } from '@angular/http';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Headers, RequestOptions}  from "@angular/http";
 import { DetallepublicacionPage } from '../detallepublicacion/detallepublicacion';
-import { DetallepublicacionLogoutPage } from '../detallepublicacion-logout/detallepublicacion-logout';
 import 'rxjs/add/operator/map';
 import { SearchBarPage } from '../search-bar/search-bar';
 

@@ -21,23 +21,11 @@ export class DetallepublicacionPage {
 
   @ViewChild("comentario") comentario;
   publicaciones:any = [];
-  userId:any;
   id=this.navParams.get('valor');
-  title:any;
-  content:any;
-  user_id:any;
-  status:any;
   data:Observable<any>;
   nombre:any;
   apellido:any;
   correo_login:any;
-  descripcion:any;
-  edad_usuario:any;
-  fecha_publicacion:any;
-  horario:any;
-  nombre_oficio:any;
-  precio:any;
-  telefono:any;
   contrasena: any;
   public isUserLogged = false;
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public toastCtrl: ToastController, public loading: LoadingController) {
@@ -53,16 +41,6 @@ export class DetallepublicacionPage {
     .subscribe(data =>
       {
         this.publicaciones = [data];
-        /*this.nombre=data.nombre;
-        this.apellido=data.apellido;
-        this.correo_login=data.correo;
-        this.descripcion=data.descripcion;
-        this.edad_usuario=data.edad_usuario;
-        this.fecha_publicacion=data.fecha_publicacion;
-        this.horario=data.horario;
-        this.nombre_oficio=data.nombre_oficio;
-        this.precio=data.precio;
-        this.telefono=data.telefono;*/
         console.log(data);
         
       },
@@ -77,7 +55,7 @@ export class DetallepublicacionPage {
     console.log('ionViewDidLoad DetallepublicacionPage');
   }
   enviarMensaje() {
-    this.navCtrl.push(MensajePage, {id_publicacion: this.id, correo: this.correo_login, nombre: this.nombre, apellido: this.apellido});
+    this.navCtrl.push(MensajePage, {id_publicacion: this.id, correo: this.correo_login, nombre: this.publicaciones.nombre, apellido: this.publicaciones.apellido});
   }
 
   Comentar(){

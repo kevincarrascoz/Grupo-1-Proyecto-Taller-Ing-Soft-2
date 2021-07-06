@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Http } from '@angular/http';
+import {Headers, RequestOptions}  from "@angular/http";
+import 'rxjs/add/operator/map';
 import { DetallepublicacionPage } from '../detallepublicacion/detallepublicacion';
 
 
@@ -22,6 +24,7 @@ export class SearchBarPage {
   correo: any;
   contrasena: any;
   temp_data: any;
+  correo1: any;
   public isSearchbarOpened = true;
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
     this.correo = navParams.get('correo');
@@ -79,6 +82,37 @@ export class SearchBarPage {
   }
 
   detalle(id){
-    this.navCtrl.push(DetallepublicacionPage,{valor:id})
+    if(this.correo1==this.correo){
+      this.navCtrl.push(DetallepublicacionPage,{valor:id})
+    }
+    else{
+      var headers = new Headers();
+      headers.append("Accept", 'application/json');
+      headers.append('Content-Type', 'application/json' );
+      let options = new RequestOptions({ headers: headers });
+       let data2 = {
+        correo: this.correo,
+        id_publicacion: id,
+      };
+      console.log(data2);
+      this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/historial.php',data2, options)
+        //this.http.post('https://proyectooficiosapp.000webhostapp.com/register.php',data, options)
+        .map(res => res.json())
+        .subscribe(res => {
+        
+       
+        if(res=="Historial exitoso"){
+        
+            console.log('registro exitoso');
+          }
+        
+        else
+        {
+        console.log('error');
+          } 
+        });
+        
+      this.navCtrl.push(DetallepublicacionPage,{valor:id, correo: this.correo, contrasena: this.contrasena});
+    }
   }
 }
