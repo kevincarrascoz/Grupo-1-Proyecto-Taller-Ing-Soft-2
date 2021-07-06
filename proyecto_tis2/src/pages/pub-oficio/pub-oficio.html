@@ -17,7 +17,7 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card *ngFor="let pub of publicaciones" (click)="detalle(pub.id_publicacion)">
+  <ion-card *ngFor="let pub of publicaciones">
     <ion-item >
         <ion-avatar item-start>
           <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png">
@@ -36,7 +36,7 @@
         <ion-col>
           <button ion-button icon-start clear small>
             <ion-icon name="add-circle"></ion-icon>
-            <div>Ver mas</div>
+            <div (click)="detalle(pub.id_publicacion)">Ver mas</div>
           </button> 
         </ion-col>
   

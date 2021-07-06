@@ -121,6 +121,17 @@ export class DetallepublicacionPage {
 
   }
   }
+  doInfinite(infiniteScroll) {
+    console.log('Begin async operation');
 
+    setTimeout(() => {
+      for (let i = 0; i < this.publicaciones; i++) {
+        this.publicaciones.push( this.publicaciones.length );
+      }
+
+      console.log('Async operation has ended');
+      infiniteScroll.complete();
+    }, 500);
+  }
 
 }

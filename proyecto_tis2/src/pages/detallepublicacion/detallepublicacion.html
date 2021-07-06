@@ -104,4 +104,8 @@
         </ion-item>
         <button ion-button full round (click)="Comentar()" >Enviar</button>
     </ion-card>
+
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content ></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
 </ion-content>
