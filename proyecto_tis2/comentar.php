@@ -28,13 +28,14 @@ if (isset($_SERVER['HTTP_ORIGIN'])) {
         $request = json_decode($data);
 		$comentario = $request->comentario;
         $correo = $request->correo;
+        $id_publicacion = $request->id_publicacion;
 	}
 
     date_default_timezone_set('America/Santiago');
     $fecha_actual = date("Y-m-d H:i:s");
 
-$sql = "INSERT INTO comentario (id_comentario, comentario, fecha_comentario,correo)
-VALUES ('', '$comentario', '$fecha_actual', '$correo')";
+$sql = "INSERT INTO comentario (id_comentario, comentario, fecha_comentario,correo,id_publicacion)
+VALUES ('', '$comentario', '$fecha_actual', '$correo','$id_publicacion')";
 
 
 if ($con->query($sql) === TRUE) {

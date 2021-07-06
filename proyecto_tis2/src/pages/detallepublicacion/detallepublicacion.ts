@@ -92,7 +92,8 @@ export class DetallepublicacionPage {
 
     let data = {
       comentario: this.comentario.value,   
-      correo: this.correo
+      correo: this.correo,
+      id_publicacion: this.id
        
     };
     console.log(data);
