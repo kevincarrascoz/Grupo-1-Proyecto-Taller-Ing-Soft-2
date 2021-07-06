@@ -21,6 +21,7 @@ export class MensajePage {
   apellido=this.navParams.get('apellido');
   @ViewChild("mensaje") mensaje;
   id_chat: any;
+  content:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
     console.log(this.correo, this.id_publicacion);
@@ -52,14 +53,33 @@ export class MensajePage {
         console.log(data2);
         this.id_chat = data2.id_chat;
         console.log(this.id_chat);
-        let data = {
-          correo: this.correo,
-          mensaje: this.mensaje.value,
-          id_chat: this.id_chat
-        };
         console.log(data);
+        if(data2==false){
+          console.log('no hay registros');
+          this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/ingresarChat.php',data, options)
+        //this.http.post('https://proyectooficiosapp.000webhostapp.com/register.php',data, options)
+        .map(res => res.json())
+        .subscribe(res => {
+        this.content = res;
+        console.log(this.content);
 
-        this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/ingresarMensajeChat.php',data, options)
+        
+        
+        });
+
+
+
+
+
+        }else{
+          let data = {
+            correo: this.correo,
+            mensaje: this.mensaje.value,
+            id_chat: this.id_chat
+          };
+          console.log(data);
+          console.log('si hay registros');
+          this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/ingresarMensajeChat.php',data, options)
         //this.http.post('https://proyectooficiosapp.000webhostapp.com/register.php',data, options)
         .map(res => res.json())
         .subscribe(res => {
@@ -73,20 +93,16 @@ export class MensajePage {
         });
 
 
+
+
+
+        }
+
+
       },
       err =>{
-        console.log("No existen mensajes de este usuario, se abre sala nueva");
+        console.log("opps");
         //this.presentToast("No existen registros aun");
-        this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/ingresarChat.php',data, options)
-        //this.http.post('https://proyectooficiosapp.000webhostapp.com/register.php',data, options)
-        .map(res => res.json())
-        .subscribe(res => {
-        this.id_chat = res;
-        console.log(this.id_chat);
-
-        
-        
-        });
       }
       );
 
@@ -94,3 +110,11 @@ export class MensajePage {
   }
 
 }
+
+
+
+
+
+
+
+
