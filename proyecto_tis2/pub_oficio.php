@@ -13,11 +13,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
     if (isset($_GET['id_oficio']))
     {
       //Mostrar un post
-      $sql = $dbConn->prepare("SELECT * FROM publicacion, usuario, oficio, comuna where oficio.id_oficio=:id_oficio and usuario.correo=publicacion.correo and oficio.id_oficio=publicacion.id_oficio and usuario.codigo_comuna = comuna.codigo_comuna");
+      $sql = $dbConn->prepare("SELECT pub.id_publicacion, pub.descripcion, pub.fecha_publicacion, u.nombre, u.apellido, of.nombre_oficio, co.nombre_comuna 
+                               FROM publicacion pub, usuario u, oficio of, comuna co
+                               where of.id_oficio=:id_oficio 
+                               and u.correo=pub.correo 
+                               and of.id_oficio=pub.id_oficio 
+                               and u.codigo_comuna = co.codigo_comuna");
       $sql->bindValue(':id_oficio', $_GET['id_oficio']);
       $sql->execute();
       header("HTTP/1.1 200 OK");
-      echo json_encode(  $sql->fetchAll()  );
+      echo json_encode(  $sql->fetchAll(PDO::FETCH_ASSOC)  );
       exit();
 	}
 }

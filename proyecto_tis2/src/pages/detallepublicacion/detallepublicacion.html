@@ -18,39 +18,39 @@
 <ion-content padding>
 
 
-  <ion-card>
+  <ion-card *ngFor="let pub of publicaciones">
   <ion-item>
       <ion-avatar item-start>
         <img src="https://picsum.photos/300">
       </ion-avatar>
-      <h2><b>{{nombre}} {{apellido}}</b></h2>
-      <h2>{{nombre_oficio}}</h2>
-        <p>{{edad_usuario}} años.</p>
+      <h2><b>{{pub.nombre}} {{pub.apellido}}</b></h2>
+      <h2>{{pub.nombre_oficio}}</h2>
+        <p>{{pub.edad_usuario}} años.</p>
     </ion-item>
   
     <ion-card-content>
       <p><b>Datos de contacto</b></p>
       <div style="margin-left: 15px;">
-        <p style="padding-top: 5px;">E-mail: {{correo}}</p>
-        <p>Teléfono: {{telefono}}</p>
+        <p style="padding-top: 5px;">E-mail: {{pub.correo}}</p>
+        <p>Teléfono: {{pub.telefono}}</p>
       </div>
     </ion-card-content>
     <ion-card-content>
       <p><b> Disponibilidad horaria</b></p>
       <div style="margin-left: 15px;">
-        <p>{{horario}}</p>
+        <p>{{pub.horario}}</p>
       </div>
     </ion-card-content>
     <ion-card-content>
       <p><b> Precio del servicio</b></p>
       <div style="margin-left: 15px;">
-        <p>{{precio}}</p>
+        <p>{{pub.precio}}</p>
       </div>
     </ion-card-content>
     <ion-card-content>
       <p><b> Detalles</b></p>
       <div style="margin-left: 15px;">
-      <p>{{descripcion}}</p>
+      <p>{{pub.descripcion}}</p>
       </div>
     </ion-card-content>
   
@@ -63,7 +63,7 @@
       </ion-col>
       <ion-col align-self-center text-center>
         <ion-note>
-          {{fecha_publicacion}}
+          {{pub.fecha_publicacion}}
         </ion-note>
       </ion-col>
     </ion-row>

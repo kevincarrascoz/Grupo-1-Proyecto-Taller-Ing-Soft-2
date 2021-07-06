@@ -18,7 +18,7 @@ import { LoginPage } from '../login/login';
 })
 export class DetallepublicacionLogoutPage {
 
-  publicaciones:any;
+  publicaciones:any = [];
   userId:any;
   id=this.navParams.get('valor');
   title:any;
@@ -39,24 +39,13 @@ export class DetallepublicacionLogoutPage {
 
    constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
     console.log(this.id);
-    this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/publicaciones.php/?id_publicacion='+this.id)
+    this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/publicacion.php/?id_publicacion='+this.id)
     //this.http.get('https://proyectooficiosapp.000webhostapp.com/publicaciones.php/?id_publicacion='+this.id)
     .map(response => response.json())
     .subscribe(data =>
       {
-        this.publicaciones = data;
-        this.nombre=data.nombre;
-        this.apellido=data.apellido;
-        this.correo=data.correo;
-        this.descripcion=data.descripcion;
-        this.edad_usuario=data.edad_usuario;
-        this.fecha_publicacion=data.fecha_publicacion;
-        this.horario=data.horario;
-        this.nombre_oficio=data.nombre_oficio;
-        this.precio=data.precio;
-        this.telefono=data.telefono;
+        this.publicaciones = [data];
         console.log(data);
-        console.log(this.user_id);
         
       },
       err =>{

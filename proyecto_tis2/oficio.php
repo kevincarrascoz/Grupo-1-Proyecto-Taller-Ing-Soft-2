@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
       $sql = $dbConn->prepare("SELECT * FROM oficio");
       $sql->execute();
       header("HTTP/1.1 200 OK");
-      echo json_encode( $sql->fetchAll()  );
+      echo json_encode( $sql->fetchAll(PDO::FETCH_ASSOC)  );
       exit();
 	}
 }

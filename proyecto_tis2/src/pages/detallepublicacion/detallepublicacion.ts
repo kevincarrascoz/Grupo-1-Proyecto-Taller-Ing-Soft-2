@@ -20,7 +20,7 @@ import { MensajePage } from '../mensaje/mensaje';
 export class DetallepublicacionPage {
 
   @ViewChild("comentario") comentario;
-  publicaciones:any;
+  publicaciones:any = [];
   userId:any;
   id=this.navParams.get('valor');
   title:any;
@@ -43,13 +43,13 @@ export class DetallepublicacionPage {
     this.correo_login=this.navParams.get('correo');
     this.contrasena = this.navParams.get('contrasena');
     console.log("Correo logeado: "+this.correo_login);
-    this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/publicaciones.php/?id_publicacion='+this.id)
+    this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/publicacion.php/?id_publicacion='+this.id)
     //this.http.get('https://proyectooficiosapp.000webhostapp.com/publicaciones.php/?id_publicacion='+this.id)
     .map(response => response.json())
     .subscribe(data =>
       {
-        this.publicaciones = data;
-        this.nombre=data.nombre;
+        this.publicaciones = [data];
+        /*this.nombre=data.nombre;
         this.apellido=data.apellido;
         this.correo_login=data.correo;
         this.descripcion=data.descripcion;
@@ -58,9 +58,8 @@ export class DetallepublicacionPage {
         this.horario=data.horario;
         this.nombre_oficio=data.nombre_oficio;
         this.precio=data.precio;
-        this.telefono=data.telefono;
+        this.telefono=data.telefono;*/
         console.log(data);
-        console.log(this.user_id);
         
       },
       err =>{

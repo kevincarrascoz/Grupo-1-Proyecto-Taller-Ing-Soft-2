@@ -15,7 +15,7 @@ import 'rxjs/add/operator/map';
   templateUrl: 'publicaciones.html',
 })
 export class PublicacionesPage {
-  publicaciones:any;
+  publicaciones:any = [];
   id:any;
   correo:any;
   id_publicacion:any;
