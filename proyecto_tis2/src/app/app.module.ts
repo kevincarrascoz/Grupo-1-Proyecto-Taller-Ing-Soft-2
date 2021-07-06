@@ -20,7 +20,6 @@ import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { PublicacionesPage } from '../pages/publicaciones/publicaciones';
 import { LogoutPage } from '../pages/logout/logout';
-import { PublicarLogoutPage } from '../pages/publicar-logout/publicar-logout';
 import { ProfilePage } from '../pages/profile/profile';
 import { ChatPage } from '../pages/chat/chat';
 import { MensajePage } from '../pages/mensaje/mensaje';
@@ -42,7 +41,6 @@ import { PubOficioPage } from '../pages/pub-oficio/pub-oficio';
     DetallepublicacionPage,
     PublicacionesPage,
     LogoutPage,
-    PublicarLogoutPage,
     ProfilePage,
     ChatPage,
     MensajePage,
@@ -68,7 +66,6 @@ import { PubOficioPage } from '../pages/pub-oficio/pub-oficio';
     DetallepublicacionPage,
     PublicacionesPage,
     LogoutPage,
-    PublicarLogoutPage,
     ProfilePage,
     ChatPage,
     MensajePage,

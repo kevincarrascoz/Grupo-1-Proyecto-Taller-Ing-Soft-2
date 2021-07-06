@@ -12,53 +12,63 @@
     <ion-searchbar placeholder="Buscar" (click)="buscar()"></ion-searchbar> 
  </ion-navbar>
   <ion-navbar>
-    <ion-title text-center>Agregar publicación</ion-title>
+    <ion-title text-center *ngIf="isUserLogged">Agregar publicación</ion-title>
   </ion-navbar>
 </ion-header>
  
 <ion-content>
-
-  <ion-list>
-    <ion-list-header>
-      Información
-    </ion-list-header>
-    <ion-item name="foto" #foto><br>
-      <ion-label>Imagen</ion-label>
+  <div *ngIf="isUserLogged">
+    <ion-list>
+      <ion-list-header>
+        Información
+      </ion-list-header>
+      <ion-item name="foto" #foto><br>
+        <ion-label>Imagen</ion-label>
+        <ion-input type="file"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-input placeholder="Descripcion" type="text" name="descripcion" #descripcion ></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-input placeholder="Horario" type="text" name="horario" #horario ></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-input placeholder="Precio" type="text" name="precio" #precio ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input placeholder="Edad" type="number" name="edad" #edad ></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label>Oficio</ion-label>
+        <ion-select name="oficio" #oficio>
+          <ion-option *ngFor="let of of oficios" value="{{of.id_oficio}}">{{of.nombre_oficio}}</ion-option>
+        </ion-select>
+      </ion-item>
+  
+    <ion-item name="certificado" #certificado>
+      <ion-label>Certificados</ion-label>
       <ion-input type="file"></ion-input>
     </ion-item>
-
-    <ion-item>
-      <ion-input placeholder="Descripcion" type="text" name="descripcion" #descripcion ></ion-input>
-    </ion-item>
   
-    <ion-item>
-      <ion-input placeholder="Horario" type="text" name="horario" #horario ></ion-input>
-    </ion-item>
+    <button ion-button full round (click)="Publicar()" >Publicar</button>
+    </ion-list>
+  </div>
+  <div *ngIf="!isUserLogged">
+    <h2 text-center >Aún no has iniciado sesión <br><ion-icon name="sad"></ion-icon> </h2>
+    <h5 text-center>
+      Para crear una publicación debes haber iniciado sesión, puedes hacerlo aquí<br><ion-icon name="happy"></ion-icon>
+    <br>
+    <button ion-button round (click)="IrLogin()"> Iniciar sesion</button>
+    </h5><br>
+    <h5 text-center>
+      Si no has creado una cuenta, puedes registrarte aquí<br> <ion-icon name="arrow-round-down"></ion-icon>
+    <br>
+      <button ion-button round (click)="IrRegistro()">Registrarse</button>
+    </h5><br>
 
-    <ion-item>
-      <ion-input placeholder="Precio" type="text" name="precio" #precio ></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input placeholder="Edad" type="number" name="edad" #edad ></ion-input>
-    </ion-item>
-  
-    <ion-item>
-      <ion-label>Oficio</ion-label>
-      <ion-select name="oficio" #oficio>
-        <ion-option *ngFor="let of of oficios" value="{{of.id_oficio}}">{{of.nombre_oficio}}</ion-option>
-      </ion-select>
-    </ion-item>
-
-  <ion-item name="certificado" #certificado>
-    <ion-label>Certificados</ion-label>
-    <ion-input type="file"></ion-input>
-  </ion-item>
-
-  <button ion-button full round (click)="Publicar()" >Publicar</button>
-  </ion-list>
-  
-
-
-
-
+  </div>
 </ion-content>

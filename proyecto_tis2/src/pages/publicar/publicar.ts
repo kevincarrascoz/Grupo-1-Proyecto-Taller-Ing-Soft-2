@@ -27,11 +27,13 @@ export class PublicarPage {
   oficios:any;
   correo: any;
   contrasena: any;
-
-
+  public isUserLogged = false;
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public toastCtrl: ToastController, public loading: LoadingController) {
     this.correo = navParams.get('correo');
     this.contrasena = navParams.get('contrasena');
+    if(this.correo && this.contrasena != ''){
+      this.isUserLogged = true;
+    }
     console.log(this.correo,this.contrasena);
     this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/oficio.php')
     .map(response => response.json())

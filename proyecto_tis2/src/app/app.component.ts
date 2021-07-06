@@ -9,7 +9,6 @@ import { CategoriasPage } from '../pages/categorias/categorias';
 import { PreguntasPage } from '../pages/preguntas/preguntas';
 import { LoginPage } from '../pages/login/login';
 import { PublicacionesPage } from '../pages/publicaciones/publicaciones';
-import { PublicarLogoutPage } from '../pages/publicar-logout/publicar-logout';
 
 import { Events } from 'ionic-angular';
 import { LogoutPage } from '../pages/logout/logout';
@@ -39,7 +38,7 @@ export class MyApp {
       { title: 'Iniciar Sesion', component: LoginPage, icon:'log-in' },
       { title: 'Catalogo', component: PublicacionesPage, icon:'pricetags'  },
       { title: 'Categorias', component: CategoriasPage, icon:'list-box'  },
-      { title: 'Publicar', component: PublicarLogoutPage, icon:'briefcase'  },
+      { title: 'Publicar', component: PublicarPage, icon:'briefcase'  },
       { title: 'Preguntas Frecuentes', component: PreguntasPage, icon:'information-circle'  }
     ];
     events.subscribe('user:loggedin',(correo, contrasena, time)=>{
@@ -63,7 +62,7 @@ export class MyApp {
                     { title: 'Iniciar Sesion', component: LoginPage, icon:'log-in' },
                     { title: 'Catalogo', component: PublicacionesPage, icon:'pricetags'  },
                     { title: 'Categorias', component: CategoriasPage, icon:'list-box'  },
-                    { title: 'Publicar', component: PublicarLogoutPage, icon:'briefcase'  },
+                    { title: 'Publicar', component: PublicarPage, icon:'briefcase'  },
                     { title: 'Preguntas Frecuentes', component: PreguntasPage, icon:'information-circle'  }
                     ];
                     this.correo1 = undefined;
