@@ -1,13 +1,12 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { Http } from '@angular/http';
-import { IonicPage, LoadingController, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Headers, RequestOptions}  from "@angular/http";
 import { DetallepublicacionPage } from '../detallepublicacion/detallepublicacion';
 import { SearchBarPage } from '../search-bar/search-bar';
 import { DetallepublicacionLogoutPage } from '../detallepublicacion-logout/detallepublicacion-logout';
-import { options } from 'sw-toolbox';
 import 'rxjs/add/operator/map';
-import { Observable } from 'rxjs';
+
 
 
 @IonicPage()

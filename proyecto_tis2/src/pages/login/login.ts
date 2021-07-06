@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { App, IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { RegisterPage } from '../register/register';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';

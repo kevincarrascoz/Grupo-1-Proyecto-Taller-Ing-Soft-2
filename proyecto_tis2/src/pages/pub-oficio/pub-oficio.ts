@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
 import { Http } from '@angular/http';
-import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Headers, RequestOptions}  from "@angular/http";
 import { DetallepublicacionPage } from '../detallepublicacion/detallepublicacion';
 import { DetallepublicacionLogoutPage } from '../detallepublicacion-logout/detallepublicacion-logout';
-import { options } from 'sw-toolbox';
 import 'rxjs/add/operator/map';
-import { Observable } from 'rxjs';
 import { SearchBarPage } from '../search-bar/search-bar';
 
 /**

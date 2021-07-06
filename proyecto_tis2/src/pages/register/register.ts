@@ -3,10 +3,8 @@ import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angu
 import {Http, Headers, RequestOptions}  from "@angular/http";
 import { LoadingController } from 'ionic-angular';
 import 'rxjs/add/operator/map';
-import { options } from 'sw-toolbox';
-import { LoginPage } from '../login/login';
 import { _appIdRandomProviderFactory } from '@angular/core/src/application_tokens';
-import { Observable } from 'rxjs';
+
 
 /**
  * Generated class for the RegisterPage page.
