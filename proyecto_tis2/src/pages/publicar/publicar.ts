@@ -41,7 +41,6 @@ export class PublicarPage {
       {
         this.oficios = data;
         console.log(data);
-        console.log(this.oficios);
         
         
       },
