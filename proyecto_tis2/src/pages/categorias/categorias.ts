@@ -19,8 +19,11 @@ import { SearchBarPage } from '../search-bar/search-bar';
 export class CategoriasPage {
   nombre_oficio:any;
   oficio:any;
-
+  correo: any;
+  contrasena: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
+    this.correo = navParams.get('correo');
+    this.contrasena = navParams.get('contrasena');
     this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/oficio.php/')
     //this.http.get('https://proyectooficiosapp.000webhostapp.com/oficio.php')
     .map(response => response.json())
@@ -47,6 +50,6 @@ export class CategoriasPage {
     this.navCtrl.push(SearchBarPage);
   }
   verPubOficio(id_oficio){
-    this.navCtrl.push(PubOficioPage, {valor: id_oficio});
+    this.navCtrl.push(PubOficioPage, {valor: id_oficio, correo: this.correo, contrasena: this.contrasena});
   }
 }

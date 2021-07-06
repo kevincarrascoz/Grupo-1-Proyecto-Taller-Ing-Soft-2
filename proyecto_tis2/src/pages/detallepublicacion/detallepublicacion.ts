@@ -30,7 +30,7 @@ export class DetallepublicacionPage {
   data:Observable<any>;
   nombre:any;
   apellido:any;
-  correo:any;
+  correo_login:any;
   descripcion:any;
   edad_usuario:any;
   fecha_publicacion:any;
@@ -38,9 +38,11 @@ export class DetallepublicacionPage {
   nombre_oficio:any;
   precio:any;
   telefono:any;
-  correo_login=this.navParams.get('correo');
+  contrasena: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public toastCtrl: ToastController, public loading: LoadingController) {
-    console.log(this.id);
+    this.correo_login=this.navParams.get('correo');
+    this.contrasena = this.navParams.get('contrasena');
+    console.log("Correo logeado: "+this.correo_login);
     this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/publicaciones.php/?id_publicacion='+this.id)
     //this.http.get('https://proyectooficiosapp.000webhostapp.com/publicaciones.php/?id_publicacion='+this.id)
     .map(response => response.json())
@@ -49,7 +51,7 @@ export class DetallepublicacionPage {
         this.publicaciones = data;
         this.nombre=data.nombre;
         this.apellido=data.apellido;
-        this.correo=data.correo;
+        this.correo_login=data.correo;
         this.descripcion=data.descripcion;
         this.edad_usuario=data.edad_usuario;
         this.fecha_publicacion=data.fecha_publicacion;
@@ -92,7 +94,7 @@ export class DetallepublicacionPage {
 
     let data = {
       comentario: this.comentario.value,   
-      correo: this.correo,
+      correo: this.correo_login,
       id_publicacion: this.id
        
     };
