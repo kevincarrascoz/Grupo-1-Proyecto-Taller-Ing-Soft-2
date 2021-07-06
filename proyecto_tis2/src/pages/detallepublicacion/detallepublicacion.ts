@@ -39,9 +39,13 @@ export class DetallepublicacionPage {
   precio:any;
   telefono:any;
   contrasena: any;
+  public isUserLogged = false;
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public toastCtrl: ToastController, public loading: LoadingController) {
     this.correo_login=this.navParams.get('correo');
     this.contrasena = this.navParams.get('contrasena');
+    if(this.correo_login && this.contrasena != ''){
+      this.isUserLogged =true;
+    }
     console.log("Correo logeado: "+this.correo_login);
     this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/publicacion.php/?id_publicacion='+this.id)
     //this.http.get('https://proyectooficiosapp.000webhostapp.com/publicaciones.php/?id_publicacion='+this.id)
@@ -69,7 +73,6 @@ export class DetallepublicacionPage {
       );
 
   }
-
   ionViewDidLoad() {
     console.log('ionViewDidLoad DetallepublicacionPage');
   }

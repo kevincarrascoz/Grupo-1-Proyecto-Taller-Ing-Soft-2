@@ -70,7 +70,7 @@ export class PublicacionesPage {
   }
   detalle(id){
     if(this.correo1==this.correo){
-      this.navCtrl.push(DetallepublicacionLogoutPage,{valor:id});
+      this.navCtrl.push(DetallepublicacionPage,{valor:id});
     }else{
       var headers = new Headers();
       headers.append("Accept", 'application/json');

@@ -85,7 +85,19 @@
       </ion-row>
     
     </ion-card>-->
-    <ion-card>
+
+    <ion-card *ngIf="!isUserLogged">
+      <ion-item >
+          <h2 text-center><b>Agregar comentario</b></h2>
+           <p text-center>Debes iniciar sesión si deseas comentar</p>
+           <button   ion-button  full round (click)="IrLogin()"> Iniciar sesion</button>
+        </ion-item>
+        <ion-row>
+        </ion-row>
+      
+      </ion-card>
+
+    <ion-card *ngIf="isUserLogged">
       <h2 text-center><b>Agregar comentario</b></h2><br>
       <ion-item center>
           <ion-input placeholder="Comenta" type="text" #comentario></ion-input><br>
