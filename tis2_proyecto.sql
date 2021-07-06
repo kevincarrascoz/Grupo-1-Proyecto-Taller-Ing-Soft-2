@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-07-2021 a las 06:29:02
--- Versión del servidor: 10.4.19-MariaDB
--- Versión de PHP: 8.0.6
+-- Tiempo de generación: 06-07-2021 a las 02:32:32
+-- Versión del servidor: 10.4.14-MariaDB
+-- Versión de PHP: 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -39,15 +39,36 @@ CREATE TABLE `busca` (
 --
 
 CREATE TABLE `chat` (
-  `id_conversacion` int(9) NOT NULL,
-  `correo_usuario1` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
-  `correo_usuario2` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
-  `contrasena1` int(20) NOT NULL,
-  `contrasena2` int(20) NOT NULL,
-  `id_publicacion` int(6) NOT NULL,
-  `mensaje1` varchar(500) COLLATE utf8_spanish2_ci NOT NULL,
-  `mensaje2` varchar(500) COLLATE utf8_spanish2_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+  `id_chat` int(11) NOT NULL,
+  `id_publicacion` int(11) NOT NULL,
+  `fecha` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `chat`
+--
+
+INSERT INTO `chat` (`id_chat`, `id_publicacion`, `fecha`) VALUES
+(15, 11, '2021-07-05 20:29:43');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `chatea`
+--
+
+CREATE TABLE `chatea` (
+  `id` int(11) NOT NULL,
+  `correo` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish2_ci NOT NULL,
+  `id_chat` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `chatea`
+--
+
+INSERT INTO `chatea` (`id`, `correo`, `id_chat`) VALUES
+(6, 'kcarrasco@gmail.com', 15);
 
 -- --------------------------------------------------------
 
@@ -57,10 +78,10 @@ CREATE TABLE `chat` (
 
 CREATE TABLE `comentario` (
   `id_comentario` int(11) NOT NULL,
-  `comentario` text COLLATE utf8_spanish2_ci NOT NULL,
-  `fecha_comentario` date NOT NULL,
-  `correo` varchar(50) COLLATE utf8_spanish2_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+  `comentario` varchar(500) COLLATE utf8mb4_spanish2_ci NOT NULL,
+  `fecha_comentario` datetime NOT NULL DEFAULT current_timestamp(),
+  `correo` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish2_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish2_ci;
 
 -- --------------------------------------------------------
 
@@ -89,23 +110,77 @@ INSERT INTO `comuna` (`codigo_comuna`, `nombre_comuna`, `latitud`, `longitud`, `
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `historial`
+--
+
+CREATE TABLE `historial` (
+  `id_historial` int(11) NOT NULL,
+  `correo` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish2_ci NOT NULL,
+  `id_publicacion` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `historial`
+--
+
+INSERT INTO `historial` (`id_historial`, `correo`, `id_publicacion`) VALUES
+(1, 'kcarrasco@gmail.com', 11),
+(2, 'kcarrasco@gmail.com', 11),
+(3, 'kcarrasco@gmail.com', 11),
+(4, 'kcarrasco@gmail.com', 11),
+(5, 'kcarrasco@gmail.com', 11),
+(6, 'kcarrasco@gmail.com', 11),
+(7, 'kcarrasco@gmail.com', 11),
+(8, 'kcarrasco@gmail.com', 11),
+(9, 'kcarrasco@gmail.com', 11),
+(10, 'kcarrasco@gmail.com', 11);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `mensaje`
+--
+
+CREATE TABLE `mensaje` (
+  `id_mensaje` int(11) NOT NULL,
+  `correo` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish2_ci NOT NULL,
+  `id_chat` int(11) NOT NULL,
+  `mensaje` varchar(500) COLLATE utf8mb4_spanish2_ci NOT NULL,
+  `fecha_mensaje` datetime NOT NULL DEFAULT current_timestamp(),
+  `visualizacion` varchar(8) COLLATE utf8mb4_spanish2_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `mensaje`
+--
+
+INSERT INTO `mensaje` (`id_mensaje`, `correo`, `id_chat`, `mensaje`, `fecha_mensaje`, `visualizacion`) VALUES
+(2, 'kcarrasco@gmail.com', 15, 'hola bro como estas', '2021-07-05 20:29:43', 'No vista');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `oficio`
 --
 
 CREATE TABLE `oficio` (
   `id_oficio` int(11) NOT NULL,
   `nombre_oficio` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
-  `descripcion` varchar(200) COLLATE utf8_spanish2_ci NOT NULL
+  `descripcion_oficio` varchar(200) COLLATE utf8_spanish2_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
 -- Volcado de datos para la tabla `oficio`
 --
 
-INSERT INTO `oficio` (`id_oficio`, `nombre_oficio`, `descripcion`) VALUES
+INSERT INTO `oficio` (`id_oficio`, `nombre_oficio`, `descripcion_oficio`) VALUES
 (1, 'Carpintero', 'Oficio de trabajar, cortar y labrar la madera y sus derivados.'),
 (2, 'Conserje', 'Es un oficio que consiste principalmente en controlar el acceso a un determinado sitio, atendiendo a las personas que acceden, y velar por un correcto funcionamiento del mismo'),
-(3, 'Albañil', 'Oficio a la construcción, reforma, renovación y reparación de edificaciones, tanto viviendas como industriales.');
+(3, 'Albañil', 'persona con conocimientos profesionales y experiencia que se dedica como oficio a la construcción, reforma, renovación y reparación de edificaciones en general.'),
+(4, 'Conductor', 'La persona encargada de conducir un vehículo de motor para transportar a otras personas'),
+(5, 'Empleado domestico', 'Persona que trabaja en el ámbito de una residencia. '),
+(6, 'Estilista', 'Profesionales encargados de crear una armonía estética alrededor de un sujeto o escenario.'),
+(7, 'Gasfiter', 'Actividad relacionada con la instalación y mantenimiento de redes de tuberías para el abastecimiento de agua potable y evacuación de aguas residuales');
 
 -- --------------------------------------------------------
 
@@ -115,9 +190,9 @@ INSERT INTO `oficio` (`id_oficio`, `nombre_oficio`, `descripcion`) VALUES
 
 CREATE TABLE `preguntas` (
   `id` int(11) NOT NULL,
-  `pregunta` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
-  `respuesta` varchar(500) COLLATE utf8_spanish2_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+  `pregunta` varchar(200) COLLATE utf8mb4_spanish2_ci NOT NULL,
+  `respuesta` varchar(500) COLLATE utf8mb4_spanish2_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish2_ci;
 
 --
 -- Volcado de datos para la tabla `preguntas`
@@ -164,16 +239,17 @@ CREATE TABLE `publicacion` (
   `edad_usuario` int(11) NOT NULL,
   `id_oficio` int(11) NOT NULL,
   `fecha_publicacion` datetime NOT NULL DEFAULT current_timestamp(),
-  `Estado` varchar(8) COLLATE utf8_spanish2_ci NOT NULL
+  `estado` varchar(8) COLLATE utf8_spanish2_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
 -- Volcado de datos para la tabla `publicacion`
 --
 
-INSERT INTO `publicacion` (`id_publicacion`, `correo`, `foto`, `certificado_oficio`, `descripcion`, `horario`, `precio`, `edad_usuario`, `id_oficio`, `fecha_publicacion`, `Estado`) VALUES
+INSERT INTO `publicacion` (`id_publicacion`, `correo`, `foto`, `certificado_oficio`, `descripcion`, `horario`, `precio`, `edad_usuario`, `id_oficio`, `fecha_publicacion`, `estado`) VALUES
 (1, 'kcarrasco@gmail.com', NULL, NULL, 'Ofrezco mis servicios como carpintero 10 años de experiencia', 'disponibilidad lunes a viernes de 11:00 a 17:00', '$20.000 aprox, inbox mas info', 26, 1, '2021-06-21 21:28:47', 'Activa'),
-(11, 'ara@gmail.com', NULL, NULL, 'asdsadsa', 'sadasd', 'asdsad', 23, 1, '2021-06-21 22:48:47', 'Activa');
+(11, 'ara@gmail.com', NULL, NULL, 'Ofrezco mis servicios como estilista, puedo hacer visitas a domicilio, 3 años de experiencia en este oficio, cualquier consulta inbox o comunicarse a mi numero telefonico', 'Miercoles a viernes de 11:00 a 15:00', 'Aprox $25000', 26, 6, '2021-06-21 22:48:47', 'Activa'),
+(14, 'czenteno@gmail.com', NULL, NULL, 'Realizo trabajos como empleada domestica por el día, incluyendo fines de semana y feriados, cualquier consulta inbox', 'Todos los dias de 9:00 a 18:00', '$40.000 aprox ', 42, 5, '2021-06-23 18:41:33', 'Activa');
 
 -- --------------------------------------------------------
 
@@ -217,6 +293,7 @@ CREATE TABLE `usuario` (
 INSERT INTO `usuario` (`correo`, `nombre`, `apellido`, `contrasena`, `direccion`, `fecha_nacimiento`, `codigo_comuna`, `telefono`) VALUES
 ('ara@gmail.com', 'aracely', 'zenteno', '123456789', 'edimburgo 1712', '1996-08-26', 1, 961386241),
 ('czenteno@gmail.com', 'carmen', 'zenteno', '12345', 'sadasdsa', '2021-06-21', 4, 987654321),
+('dlipa@gmail.com', 'dua', 'lipa', '1111', 'sadsadsa', '2021-06-30', 3, 987654321),
 ('kcarrasco@gmail.com', 'kevin', 'carrasco', '12345', 'finlandia 1667', '1998-02-23', 1, 942018931);
 
 --
@@ -233,7 +310,16 @@ ALTER TABLE `busca`
 -- Indices de la tabla `chat`
 --
 ALTER TABLE `chat`
-  ADD PRIMARY KEY (`id_conversacion`);
+  ADD PRIMARY KEY (`id_chat`),
+  ADD KEY `id_publicacion` (`id_publicacion`);
+
+--
+-- Indices de la tabla `chatea`
+--
+ALTER TABLE `chatea`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_chat` (`id_chat`),
+  ADD KEY `correo` (`correo`);
 
 --
 -- Indices de la tabla `comentario`
@@ -248,6 +334,22 @@ ALTER TABLE `comentario`
 ALTER TABLE `comuna`
   ADD PRIMARY KEY (`codigo_comuna`),
   ADD KEY `codigo_provincia` (`codigo_provincia`);
+
+--
+-- Indices de la tabla `historial`
+--
+ALTER TABLE `historial`
+  ADD PRIMARY KEY (`id_historial`),
+  ADD KEY `correo` (`correo`),
+  ADD KEY `id_publicacion` (`id_publicacion`);
+
+--
+-- Indices de la tabla `mensaje`
+--
+ALTER TABLE `mensaje`
+  ADD PRIMARY KEY (`id_mensaje`),
+  ADD KEY `id_chat` (`id_chat`),
+  ADD KEY `correo` (`correo`);
 
 --
 -- Indices de la tabla `oficio`
@@ -294,10 +396,22 @@ ALTER TABLE `usuario`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `chat`
+--
+ALTER TABLE `chat`
+  MODIFY `id_chat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT de la tabla `chatea`
+--
+ALTER TABLE `chatea`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT de la tabla `comentario`
 --
 ALTER TABLE `comentario`
-  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `comuna`
@@ -306,16 +420,28 @@ ALTER TABLE `comuna`
   MODIFY `codigo_comuna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT de la tabla `historial`
+--
+ALTER TABLE `historial`
+  MODIFY `id_historial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de la tabla `mensaje`
+--
+ALTER TABLE `mensaje`
+  MODIFY `id_mensaje` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT de la tabla `oficio`
 --
 ALTER TABLE `oficio`
-  MODIFY `id_oficio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_oficio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `preguntas`
 --
 ALTER TABLE `preguntas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `provincia`
@@ -327,7 +453,7 @@ ALTER TABLE `provincia`
 -- AUTO_INCREMENT de la tabla `publicacion`
 --
 ALTER TABLE `publicacion`
-  MODIFY `id_publicacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id_publicacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `region`
@@ -340,16 +466,43 @@ ALTER TABLE `region`
 --
 
 --
+-- Filtros para la tabla `chat`
+--
+ALTER TABLE `chat`
+  ADD CONSTRAINT `chat_ibfk_1` FOREIGN KEY (`id_publicacion`) REFERENCES `publicacion` (`id_publicacion`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `chatea`
+--
+ALTER TABLE `chatea`
+  ADD CONSTRAINT `chatea_ibfk_1` FOREIGN KEY (`id_chat`) REFERENCES `chat` (`id_chat`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `chatea_ibfk_2` FOREIGN KEY (`correo`) REFERENCES `usuario` (`correo`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Filtros para la tabla `comentario`
 --
 ALTER TABLE `comentario`
-  ADD CONSTRAINT `comentario_ibfk_1` FOREIGN KEY (`correo`) REFERENCES `usuario` (`correo`);
+  ADD CONSTRAINT `comentario_ibfk_1` FOREIGN KEY (`correo`) REFERENCES `usuario` (`correo`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `comuna`
 --
 ALTER TABLE `comuna`
   ADD CONSTRAINT `comuna_ibfk_1` FOREIGN KEY (`codigo_provincia`) REFERENCES `provincia` (`codigo_provincia`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `historial`
+--
+ALTER TABLE `historial`
+  ADD CONSTRAINT `historial_ibfk_1` FOREIGN KEY (`correo`) REFERENCES `usuario` (`correo`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `historial_ibfk_2` FOREIGN KEY (`id_publicacion`) REFERENCES `publicacion` (`id_publicacion`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `mensaje`
+--
+ALTER TABLE `mensaje`
+  ADD CONSTRAINT `mensaje_ibfk_1` FOREIGN KEY (`id_chat`) REFERENCES `chat` (`id_chat`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `mensaje_ibfk_2` FOREIGN KEY (`correo`) REFERENCES `usuario` (`correo`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `provincia`
