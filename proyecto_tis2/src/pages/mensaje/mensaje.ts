@@ -24,9 +24,13 @@ export class MensajePage {
   id_chat: any;
   content:any;
   mensajes: any;
-  public isUserLogged = false;
+  public isMensajeEnviado = false;
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
     console.log(this.correo, this.id_publicacion);
+
+    
+
+
     let data5 = {
       correo: this.correo,
       id_publicacion: this.id_publicacion
@@ -40,9 +44,9 @@ export class MensajePage {
         if(data3 != false){
           this.mensajes = data3;
           console.log(data3);
-          this.isUserLogged =true;
+          this.isMensajeEnviado =true;
         }else{
-          this.isUserLogged = false;
+          this.isMensajeEnviado = false;
         }
 
 
