@@ -23,9 +23,38 @@ export class MensajePage {
   @ViewChild("mensaje") mensaje;
   id_chat: any;
   content:any;
-
+  mensajes: any;
+  public isUserLogged = false;
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
     console.log(this.correo, this.id_publicacion);
+    let data5 = {
+      correo: this.correo,
+      id_publicacion: this.id_publicacion
+    };
+    this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/obtenerMensajes.php', data5)
+    //this.http.get('https://proyectooficiosapp.000webhostapp.com/publicaciones.php/?id_publicacion='+this.id)
+    .map(res => res.json())
+    .subscribe(data3 =>
+      {
+
+        if(data3 != false){
+          this.mensajes = data3;
+          console.log(data3);
+          this.isUserLogged =true;
+        }else{
+          this.isUserLogged = false;
+        }
+
+
+
+      });
+
+
+
+
+
+
+
   }
 
   ionViewDidLoad() {

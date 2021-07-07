@@ -17,6 +17,38 @@
 
 <ion-content padding>
 
+  <ion-card *ngIf="!isUserLogged">
+    <ion-item >
+        <h2 text-center><b>Mensajes</b></h2>
+        <p text-center>Aun no has enviado ningun mensaje</p>
+    </ion-item>
+  </ion-card>
+
+
+     
+        <div style="width: 50%;" *ngIf="isUserLogged">
+        <ion-card *ngFor="let men of mensajes">
+          <ion-item >
+              <h2><b>{{men.mensaje}}</b></h2>
+              <ion-row>
+                <ion-col align-self-center text-left>
+                  <ion-note>
+                    {{men.visualizacion}}
+                  </ion-note>
+                </ion-col>
+                <ion-col align-self-center text-right>
+                  <ion-note>
+                    {{men.fecha_mensaje}}
+                  </ion-note>
+                </ion-col>
+              </ion-row>
+          </ion-item>
+
+        </ion-card>
+        </div>
+      
+  
+
 </ion-content>
 
 
