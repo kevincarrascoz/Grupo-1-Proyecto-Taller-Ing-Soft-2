@@ -15,48 +15,28 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
-    <ion-item-sliding>
-      <ion-item>
+  <div *ngIf="tieneMensajes">
+  <ion-list *ngFor="let m of mensajes" (click)="irMensajes(m.nombre, m.apellido, m.id_publicacion, m.correo_publicacion, m.id_chat)">
+      <ion-item >
         <ion-avatar item-start>
           <img src="https://picsum.photos/300">
         </ion-avatar>
-        <h2>Slimer</h2>
+        <h2>{{m.nombre}} {{m.apellido}}</h2>
       </ion-item>
-      <ion-item>
-        <ion-avatar item-start>
-          <img src="https://picsum.photos/300">
-        </ion-avatar>
-        <h2>Slimer</h2>
-      </ion-item>
-      <ion-item>
-        <ion-avatar item-start>
-          <img src="https://picsum.photos/300">
-        </ion-avatar>
-        <h2>Slimer</h2>
-      </ion-item>
-      <ion-item>
-        <ion-avatar item-start>
-          <img src="https://picsum.photos/300">
-        </ion-avatar>
-        <h2>Slimer</h2>
-      </ion-item>
-      <ion-item-options side="left">
-        <button ion-button color="primary">
-          <ion-icon name="text"></ion-icon>
-          Text
-        </button>
-        <button ion-button color="secondary">
-          <ion-icon name="call"></ion-icon>
-          Call
-        </button>
-      </ion-item-options>
-      <ion-item-options side="right">
-        <button ion-button color="primary">
-          <ion-icon name="mail"></ion-icon>
-          Email
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
   </ion-list>
+  </div>
+
+  <div *ngIf="!tieneMensajes">
+    <h2 text-center >Aún no has enviado ningun mensaje <br><ion-icon name="sad"></ion-icon> </h2>
+    <h5 text-center>
+      Para enviar un mensaje relacionada a una publicacion en especifica debes ingresar al catalogo<br><ion-icon name="happy"></ion-icon>
+    <br>
+    <button ion-button round (click)="irPublicaciones()"> Ir al Catalogo</button>
+    </h5><br>
+
+  </div>
+
+
+
+
 </ion-content>
