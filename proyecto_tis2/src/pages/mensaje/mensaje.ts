@@ -58,7 +58,6 @@ export class MensajePage {
 
 
 
-
   }
 
   ionViewDidLoad() {
@@ -148,8 +147,18 @@ export class MensajePage {
       }
       );
   
+      
+    this.reloadPage();
+  }
 
-    
+
+  reloadPage(){
+    this.navCtrl.pop().then(() =>{
+
+      this.navCtrl.push(MensajePage, 
+        {id_publicacion: this.id_publicacion, correo: this.correo, nombre: this.nombre, apellido: this.apellido, correo_publicacion: this.correo_publicacion});       
+   
+   });
   }
 
 }

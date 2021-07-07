@@ -131,8 +131,7 @@ export class PublicacionesPage {
     console.log('success');
       
     });
-    
-    this.navCtrl.setRoot(this.navCtrl.getActive().component); 
+    this.navCtrl.setRoot(this.navCtrl.getActive().component, {valor:id, correo: this.correo}); 
 
   }
   
