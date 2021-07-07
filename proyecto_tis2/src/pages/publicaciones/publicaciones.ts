@@ -105,7 +105,7 @@ export class PublicacionesPage {
         console.log('error');
           } 
         });
-        
+       
       this.navCtrl.push(DetallepublicacionPage,{valor:id, correo: this.correo});
     }
     
@@ -131,6 +131,8 @@ export class PublicacionesPage {
     console.log('success');
       
     });
+    
+    this.navCtrl.setRoot(this.navCtrl.getActive().component); 
 
   }
   
