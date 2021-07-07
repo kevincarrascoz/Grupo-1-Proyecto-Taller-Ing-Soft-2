@@ -34,18 +34,24 @@ if (isset($_SERVER['HTTP_ORIGIN'])) {
   
 
 
-$sql = "INSERT INTO historial (id_historial, correo, id_publicacion)
-VALUES ('', '$correo','$id_publicacion')";
 
-if ($con->query($sql) === TRUE) {
-	$response= "Historial exitoso";
-   
-} else {
-   $response= "Error: " . $sql . "<br>" . $db->error;
+$consulta = "SELECT * FROM historial WHERE correo='$correo' AND id_publicacion='$id_publicacion'";
+$resultado = mysqli_query($con, $consulta);
+$rows=mysqli_num_rows($resultado);
+        
+
+if($rows==0){
+    $sql = "INSERT INTO historial (id_historial, correo, id_publicacion)
+    VALUES ('', '$correo','$id_publicacion')";
+
+    if ($con->query($sql) === TRUE) {
+        $response= "Historial exitoso";
+    
+    } else {
+    $response= "Error: " . $sql . "<br>" . $db->error;
+    }
 }
- 
-  
-	echo json_encode( $response);
+    //echo json_encode( $response);
 
  
 ?>
