@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-07-2021 a las 05:43:52
--- Versión del servidor: 10.4.19-MariaDB
--- Versión de PHP: 8.0.6
+-- Tiempo de generación: 07-07-2021 a las 20:49:43
+-- Versión del servidor: 10.4.14-MariaDB
+-- Versión de PHP: 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,6 +44,13 @@ CREATE TABLE `chat` (
   `fecha` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish2_ci;
 
+--
+-- Volcado de datos para la tabla `chat`
+--
+
+INSERT INTO `chat` (`id_chat`, `id_publicacion`, `fecha`) VALUES
+(16, 16, '2021-07-07 14:48:15');
+
 -- --------------------------------------------------------
 
 --
@@ -55,6 +62,14 @@ CREATE TABLE `chatea` (
   `correo` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish2_ci NOT NULL,
   `id_chat` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `chatea`
+--
+
+INSERT INTO `chatea` (`id`, `correo`, `id_chat`) VALUES
+(7, 'av@gmail.com', 16),
+(8, 'ara@gmail.com', 16);
 
 -- --------------------------------------------------------
 
@@ -111,7 +126,7 @@ CREATE TABLE `historial` (
 --
 
 INSERT INTO `historial` (`id_historial`, `correo`, `id_publicacion`) VALUES
-(14, 'kcarrasco@gmail.com', 15);
+(11, 'av@gmail.com', 16);
 
 -- --------------------------------------------------------
 
@@ -127,6 +142,13 @@ CREATE TABLE `mensaje` (
   `fecha_mensaje` datetime NOT NULL DEFAULT current_timestamp(),
   `visualizacion` varchar(8) COLLATE utf8mb4_spanish2_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `mensaje`
+--
+
+INSERT INTO `mensaje` (`id_mensaje`, `correo`, `id_chat`, `mensaje`, `fecha_mensaje`, `visualizacion`) VALUES
+(3, 'av@gmail.com', 16, 'hola', '2021-07-07 14:48:15', 'No vista');
 
 -- --------------------------------------------------------
 
@@ -263,6 +285,7 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`correo`, `nombre`, `apellido`, `contrasena`, `direccion`, `fecha_nacimiento`, `codigo_comuna`, `telefono`) VALUES
 ('ara@gmail.com', 'aracely', 'zenteno', '123456789', 'edimburgo 1712', '1996-08-26', 1, 961386241),
+('av@gmail.com', 'Alejandro', 'Vejar', '123', 'Calle 1', '2021-07-07', 3, 123),
 ('czenteno@gmail.com', 'carmen', 'zenteno', '12345', 'sadasdsa', '2021-06-21', 4, 987654321),
 ('dlipa@gmail.com', 'dua', 'lipa', '1111', 'sadsadsa', '2021-06-30', 3, 987654321),
 ('kcarrasco@gmail.com', 'kevin', 'carrasco', '12345', 'finlandia 1667', '1998-02-23', 1, 942018931);
@@ -371,13 +394,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `chat`
 --
 ALTER TABLE `chat`
-  MODIFY `id_chat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_chat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `chatea`
 --
 ALTER TABLE `chatea`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `comentario`
@@ -395,13 +418,13 @@ ALTER TABLE `comuna`
 -- AUTO_INCREMENT de la tabla `historial`
 --
 ALTER TABLE `historial`
-  MODIFY `id_historial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_historial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `mensaje`
 --
 ALTER TABLE `mensaje`
-  MODIFY `id_mensaje` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_mensaje` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `oficio`
