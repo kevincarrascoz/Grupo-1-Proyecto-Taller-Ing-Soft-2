@@ -30,8 +30,8 @@ export class PublicacionesPage {
     this.contrasena = navParams.get('contrasena');
     console.log(this.correo,this.contrasena);
 
-    this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/publicaciones.php/')
-    //this.http.get('https://proyectooficiosapp.000webhostapp.com/publicaciones.php')
+    //this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/publicaciones.php/')
+    this.http.get('https://proyectoficiosapp.000webhostapp.com/publicaciones.php')
     .map(response => response.json())
     .subscribe(data =>
       {
