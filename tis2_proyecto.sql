@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-07-2021 a las 20:49:43
+-- Tiempo de generación: 07-07-2021 a las 23:19:12
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.4.9
 
@@ -232,17 +232,18 @@ CREATE TABLE `publicacion` (
   `edad_usuario` int(11) NOT NULL,
   `id_oficio` int(11) NOT NULL,
   `fecha_publicacion` datetime NOT NULL DEFAULT current_timestamp(),
-  `estado` varchar(8) COLLATE utf8_spanish2_ci NOT NULL
+  `estado` varchar(8) COLLATE utf8_spanish2_ci NOT NULL,
+  `visitas` int(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
 -- Volcado de datos para la tabla `publicacion`
 --
 
-INSERT INTO `publicacion` (`id_publicacion`, `correo`, `foto`, `certificado_oficio`, `descripcion`, `horario`, `precio`, `edad_usuario`, `id_oficio`, `fecha_publicacion`, `estado`) VALUES
-(15, 'kcarrasco@gmail.com', NULL, NULL, 'Ofrezco mis servicios como carpintero 10 años de experiencia', 'disponibilidad lunes a viernes de 11:00 a 17:00', '$20.000 aprox, inbox mas info', 26, 1, '2021-07-05 23:33:29', 'Activa'),
-(16, 'ara@gmail.com', NULL, NULL, 'Ofrezco mis servicios como estilista, puedo hacer visitas a domicilio, 3 años de experiencia en este oficio, cualquier consulta inbox o comunicarse a mi numero telefonico', 'Miercoles a viernes de 11:00 a 15:00', 'Aprox $25000', 26, 6, '2021-07-05 23:35:42', 'Activa'),
-(17, 'czenteno@gmail.com', NULL, NULL, 'Realizo trabajos como empleada domestica por el día, incluyendo fines de semana y feriados, cualquier consulta inbox', 'Todos los dias de 9:00 a 18:00', '$40.000 aprox ', 42, 5, '2021-07-05 23:35:42', 'Activa');
+INSERT INTO `publicacion` (`id_publicacion`, `correo`, `foto`, `certificado_oficio`, `descripcion`, `horario`, `precio`, `edad_usuario`, `id_oficio`, `fecha_publicacion`, `estado`, `visitas`) VALUES
+(15, 'kcarrasco@gmail.com', NULL, NULL, 'Ofrezco mis servicios como carpintero 10 años de experiencia', 'disponibilidad lunes a viernes de 11:00 a 17:00', '$20.000 aprox, inbox mas info', 26, 1, '2021-07-05 23:33:29', 'Activa', 14),
+(16, 'ara@gmail.com', NULL, NULL, 'Ofrezco mis servicios como estilista, puedo hacer visitas a domicilio, 3 años de experiencia en este oficio, cualquier consulta inbox o comunicarse a mi numero telefonico', 'Miercoles a viernes de 11:00 a 15:00', 'Aprox $25000', 26, 6, '2021-07-05 23:35:42', 'Activa', 3),
+(17, 'czenteno@gmail.com', NULL, NULL, 'Realizo trabajos como empleada domestica por el día, incluyendo fines de semana y feriados, cualquier consulta inbox', 'Todos los dias de 9:00 a 18:00', '$40.000 aprox ', 42, 5, '2021-07-05 23:35:42', 'Activa', 0);
 
 -- --------------------------------------------------------
 
