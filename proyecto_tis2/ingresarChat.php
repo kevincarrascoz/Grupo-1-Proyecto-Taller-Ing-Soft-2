@@ -29,6 +29,7 @@ if (isset($_SERVER['HTTP_ORIGIN'])) {
 		$id_publicacion = $request->id_publicacion;
         $correo = $request->correo;
         $mensaje = $request->mensaje;
+        $correo_publicacion = $request->correo_publicacion;
 	}
 
     date_default_timezone_set('America/Santiago');
@@ -43,7 +44,9 @@ if ($con->query($sql) === TRUE) {
 
     $sql2 = "INSERT INTO chatea (id, correo, id_chat)
     VALUES ('', '$correo', '$response')";
-    if ($con->query($sql2) === TRUE) {
+    $sql4 = "INSERT INTO chatea (id, correo, id_chat)
+    VALUES ('', '$correo_publicacion', '$response')";
+    if ($con->query($sql2) === TRUE && $con->query($sql4) === TRUE) {
         $sql3 = "INSERT INTO mensaje (id_mensaje, correo, id_chat, mensaje, fecha_mensaje, visualizacion)
         VALUES ('', '$correo', '$response', '$mensaje', '$fecha_actual', 'No vista')";
         if ($con->query($sql3) === TRUE) {

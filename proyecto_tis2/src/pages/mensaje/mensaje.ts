@@ -19,6 +19,7 @@ export class MensajePage {
   correo=this.navParams.get('correo');
   nombre=this.navParams.get('nombre');
   apellido=this.navParams.get('apellido');
+  correo_publicacion=this.navParams.get('correo_publicacion');
   @ViewChild("mensaje") mensaje;
   id_chat: any;
   content:any;
@@ -41,7 +42,8 @@ export class MensajePage {
        let data = {
         correo: this.correo,
         id_publicacion: this.id_publicacion,
-        mensaje: this.mensaje.value
+        mensaje: this.mensaje.value,
+        correo_publicacion: this.correo_publicacion
       };
 
 

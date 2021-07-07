@@ -28,6 +28,7 @@ export class DetallepublicacionPage {
   apellido:any;
   correo_login:any;
   contrasena: any;
+  correo_publicacion: any;
   public isUserLogged = false;
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public toastCtrl: ToastController, public loading: LoadingController) {
     this.correo_login=this.navParams.get('correo');
@@ -43,6 +44,9 @@ export class DetallepublicacionPage {
       {
         this.publicaciones = [data];
         console.log(data);
+        this.apellido = data.apellido;
+        this.nombre = data.nombre;
+        this.correo_publicacion = data.correo;
         
       },
       err =>{
@@ -65,7 +69,7 @@ export class DetallepublicacionPage {
     console.log('ionViewDidLoad DetallepublicacionPage');
   }
   enviarMensaje() {
-    this.navCtrl.push(MensajePage, {id_publicacion: this.id, correo: this.correo_login, nombre: this.publicaciones.nombre, apellido: this.publicaciones.apellido});
+    this.navCtrl.push(MensajePage, {id_publicacion: this.id, correo: this.correo_login, nombre: this.nombre, apellido: this.apellido, correo_publicacion: this.correo_publicacion});
   }
 
   Comentar(){
