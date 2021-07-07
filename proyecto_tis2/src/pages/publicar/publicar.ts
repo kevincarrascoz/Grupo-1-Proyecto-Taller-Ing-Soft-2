@@ -4,6 +4,8 @@ import {Http, Headers, RequestOptions}  from "@angular/http";
 import { LoadingController } from 'ionic-angular';
 import 'rxjs/add/operator/map';
 import { SearchBarPage } from '../search-bar/search-bar';
+import { RegisterPage } from '../register/register';
+import { LoginPage } from '../login/login';
 /**
  * Generated class for the PublicarPage page.
  *
@@ -136,5 +138,11 @@ export class PublicarPage {
 
   buscar(){
     this.navCtrl.push(SearchBarPage);
+  }
+  IrLogin(){
+    this.navCtrl.push(LoginPage)
+  }
+  IrRegistro(){
+    this.navCtrl.push(RegisterPage)
   }
 }

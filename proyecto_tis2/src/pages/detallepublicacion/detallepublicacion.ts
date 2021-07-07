@@ -4,6 +4,7 @@ import { Http, RequestOptions, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs';
 import { MensajePage } from '../mensaje/mensaje';
+import { LoginPage } from '../login/login';
 
 /**
  * Generated class for the DetallepublicacionPage page.
@@ -70,6 +71,9 @@ export class DetallepublicacionPage {
   }
   enviarMensaje() {
     this.navCtrl.push(MensajePage, {id_publicacion: this.id, correo: this.correo_login, nombre: this.nombre, apellido: this.apellido, correo_publicacion: this.correo_publicacion});
+  }
+  IrLogin(){
+    this.navCtrl.push(LoginPage)
   }
 
   Comentar(){

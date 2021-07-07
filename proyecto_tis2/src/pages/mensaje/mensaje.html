@@ -15,7 +15,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding *ngIf="isUserLogged">
         <div style="width: 80%;" *ngIf="isMensajeEnviado">
         <ion-card *ngFor="let men of mensajes">
           <ion-item >
@@ -61,3 +61,20 @@
 
 </ion-content>
 
+<ion-content padding *ngIf="!isUserLogged">
+
+  <h2 text-center >Aún no has iniciado sesión <br><ion-icon name="sad"></ion-icon> </h2>
+    <h5 text-center>
+      Para enviar un mensaje debes haber iniciado sesión, puedes hacerlo aquí<br><ion-icon name="happy"></ion-icon>
+    <br>
+    <button ion-button round (click)="IrLogin()"> Iniciar sesion</button>
+    </h5><br>
+    <h5 text-center>
+      Si no has creado una cuenta, puedes registrarte aquí<br> <ion-icon name="arrow-round-down"></ion-icon>
+    <br>
+      <button ion-button round (click)="IrRegistro()">Registrarse</button>
+    </h5><br>
+
+
+
+</ion-content>

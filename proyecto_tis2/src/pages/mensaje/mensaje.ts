@@ -1,7 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Http, RequestOptions, Headers } from '@angular/http';
-
+import { RegisterPage } from '../register/register';
+import { LoginPage } from '../login/login';
 /**
  * Generated class for the MensajePage page.
  *
@@ -24,13 +25,12 @@ export class MensajePage {
   id_chat: any;
   content:any;
   mensajes: any;
+  public isUserLogged = false;
   public isMensajeEnviado = false;
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
     console.log(this.correo, this.id_publicacion);
-
-    
-
-
+    if(this.correo !=undefined){
+    this.isUserLogged = true;
     let data5 = {
       correo: this.correo,
       id_publicacion: this.id_publicacion
@@ -54,7 +54,7 @@ export class MensajePage {
       });
 
 
-
+  }
 
 
 
@@ -63,6 +63,13 @@ export class MensajePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MensajePage');
+  }
+
+  IrLogin(){
+    this.navCtrl.push(LoginPage)
+  }
+  IrRegistro(){
+    this.navCtrl.push(RegisterPage)
   }
 
   enviarMensaje() {
