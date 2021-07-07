@@ -31,11 +31,13 @@ export class DetallepublicacionPage {
   contrasena: any;
   correo_publicacion: any;
   public isUserLogged = false;
+  public comentar = false;
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public toastCtrl: ToastController, public loading: LoadingController) {
     this.correo_login=this.navParams.get('correo');
     this.contrasena = this.navParams.get('contrasena');
     if(this.correo_login && this.contrasena != ''){
       this.isUserLogged =true;
+      this.comentar = true;
     }
     console.log("Correo logeado: "+this.correo_login);
     this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/publicacion.php/?id_publicacion='+this.id)
@@ -133,8 +135,8 @@ export class DetallepublicacionPage {
     console.log('Begin async operation');
 
     setTimeout(() => {
-      for (let i = 0; i < this.publicaciones; i++) {
-        this.publicaciones.push( this.publicaciones.length );
+      for (let i = 0; i < this.comentarios; i++) {
+        this.comentarios.push( this.comentarios.length );
       }
 
       console.log('Async operation has ended');
