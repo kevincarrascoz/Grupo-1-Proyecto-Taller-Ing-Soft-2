@@ -16,7 +16,7 @@ $data = file_get_contents("php://input");
  */
     
       //Mostrar un post
-      $sql = $dbConn->prepare("SELECT * FROM chatea, chat, usuario, mensaje where chatea.correo='$correo' and chatea.id_chat=chat.id_chat and chatea.correo=usuario.correo and chat.id_publicacion='$id_publicacion' and usuario.correo=mensaje.correo and chat.id_chat=mensaje.id_chat");
+      $sql = $dbConn->prepare("SELECT * FROM chatea, chat, usuario where chatea.correo='$correo' and chatea.id_chat=chat.id_chat and chatea.correo=usuario.correo and chat.id_publicacion='$id_publicacion'");
       $sql->execute();
       header("HTTP/1.1 200 OK");
       echo json_encode(  $sql->fetch(PDO::FETCH_ASSOC)  );
