@@ -82,11 +82,11 @@ export class PublicacionesPage {
       console.log(data2);
       this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/historial.php',data2, options)
         //this.http.post('https://proyectooficiosapp.000webhostapp.com/register.php',data, options)
-        .map(res => res.json())
-        .subscribe(res => {
+        //.map(res => res.json())
+        //.subscribe(res => {
         
        
-        if(res=="Historial exitoso"){
+        /*if(res=="Historial exitoso"){
         
             console.log('registro exitoso');
           }
@@ -95,7 +95,7 @@ export class PublicacionesPage {
         {
         console.log('error');
           } 
-        });
+        });*/
         
       this.navCtrl.push(DetallepublicacionPage,{valor:id, correo: this.correo});
     }
