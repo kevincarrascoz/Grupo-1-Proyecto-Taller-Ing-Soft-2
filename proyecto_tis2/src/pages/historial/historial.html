@@ -16,7 +16,13 @@
   </ion-navbar>
 </ion-header>
 
+
+
 <ion-content padding>
+  <button ion-button icon-start clear small>
+    <ion-icon name="trash"></ion-icon>
+    <div  (click)="borrar()">Borrar historial</div>
+  </button> 
 
   <ion-card *ngFor="let pub of publicaciones">
     <ion-item >

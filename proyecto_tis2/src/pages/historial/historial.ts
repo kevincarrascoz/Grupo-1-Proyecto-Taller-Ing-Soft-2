@@ -57,8 +57,36 @@ export class HistorialPage {
     
   }
     
-  
-
+  borrar(){
+    var headers = new Headers();
+      headers.append("Accept", 'application/json');
+      headers.append('Content-Type', 'application/json' );
+      let options = new RequestOptions({ headers: headers });
+       let data2 = {
+        correo: this.correo,
+        };
+      console.log(data2);
+      this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/historialdelete.php',data2, options)
+        //this.http.post('https://proyectooficiosapp.000webhostapp.com/historialdelete.php',data2, options)
+        .map(res => res.json())
+        .subscribe(res => {
+        
+       
+        if(res=="Historial borrar exitoso"){
+        
+            console.log('borrar exitoso');
+          }
+        
+        else
+        {
+        console.log('error');
+          } 
+        });
+        
+      //this.navCtrl.push(HistorialPage,{correo: this.correo1, contrasena: this.contrasena});
+      //window.location.reload();
+      this.navCtrl.setRoot(this.navCtrl.getActive().component);
+  }
 
 
   ionViewDidLoad() {
