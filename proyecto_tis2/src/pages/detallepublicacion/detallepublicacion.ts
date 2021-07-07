@@ -37,8 +37,9 @@ export class DetallepublicacionPage {
     this.contrasena = this.navParams.get('contrasena');
     if(this.correo_login && this.contrasena != ''){
       this.isUserLogged =true;
-      this.comentar = true;
+      this.comentar = false;
     }
+    
     console.log("Correo logeado: "+this.correo_login);
     this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/publicacion.php/?id_publicacion='+this.id)
     //this.http.get('https://proyectooficiosapp.000webhostapp.com/publicaciones.php/?id_publicacion='+this.id)
