@@ -80,8 +80,8 @@
       </ion-card>
 
     <ion-card *ngIf="isUserLogged">
-      <h2 text-center><b>Agregar comentario</b></h2><br>
-      <ion-item center>
+      <br><h2 text-center><b>Agregar comentario</b></h2><br>
+      <ion-item >
           <ion-input placeholder="Comenta" type="text" #comentario></ion-input><br>
         </ion-item>
         <button ion-button full round (click)="Comentar()" >Enviar</button>
