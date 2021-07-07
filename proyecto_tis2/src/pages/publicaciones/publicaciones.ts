@@ -5,6 +5,7 @@ import {Headers, RequestOptions}  from "@angular/http";
 import { DetallepublicacionPage } from '../detallepublicacion/detallepublicacion';
 import { SearchBarPage } from '../search-bar/search-bar';
 import 'rxjs/add/operator/map';
+import { options } from 'sw-toolbox';
 
 
 
@@ -19,7 +20,8 @@ export class PublicacionesPage {
   correo:any;
   id_publicacion:any;
   data2:any;
-  
+  data3:any;
+  data4:any;
   //id_publicacion: any;
 
   contrasena: any;
@@ -30,8 +32,8 @@ export class PublicacionesPage {
     this.contrasena = navParams.get('contrasena');
     console.log(this.correo,this.contrasena);
 
-    //this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/publicaciones.php/')
-    this.http.get('https://proyectoficiosapp.000webhostapp.com/publicaciones.php')
+    this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/publicaciones.php/')
+    //this.http.get('https://proyectoficiosapp.000webhostapp.com/publicaciones.php')
     .map(response => response.json())
     .subscribe(data =>
       {
@@ -68,13 +70,20 @@ export class PublicacionesPage {
     console.log('ionViewDidLoad PublicacionesPage');
   }
   detalle(id){
+    this.visitas(id);
+
     if(this.correo1==this.correo){
+       
       this.navCtrl.push(DetallepublicacionPage,{valor:id});
+      
     }else{
-      var headers = new Headers();
-      headers.append("Accept", 'application/json');
-      headers.append('Content-Type', 'application/json' );
-      let options = new RequestOptions({ headers: headers });
+
+        var headers = new Headers();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json' );
+        let options = new RequestOptions({ headers: headers });
+              
+      
        let data2 = {
         correo: this.correo,
         id_publicacion: id,
@@ -100,6 +109,29 @@ export class PublicacionesPage {
       this.navCtrl.push(DetallepublicacionPage,{valor:id, correo: this.correo});
     }
     
+  }
+
+
+  visitas(id){
+    console.log("entre visitas");
+    var headers = new Headers();
+    headers.append("Accept", 'application/json');
+    headers.append('Content-Type', 'application/json' );
+    let options = new RequestOptions({ headers: headers });
+    let data3 = {
+      id_publicacion: id,
+    };
+    console.log(data3);
+    this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/visitas.php',data3, options)
+    //.map(res => res.json())
+    .subscribe(res => {
+    
+   
+    
+    console.log('success');
+      
+    });
+
   }
   
   buscar(){

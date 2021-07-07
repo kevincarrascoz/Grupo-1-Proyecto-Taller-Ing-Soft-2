@@ -22,34 +22,24 @@ if (isset($_SERVER['HTTP_ORIGIN'])) {
     }
  
   require "dbconnect.php";
-  
-    $data = file_get_contents("php://input");
+
+  $data = file_get_contents("php://input");
     if (isset($data)) {
         $request = json_decode($data);
-		$correo = $request->correo;
-		$descripcion = $request->descripcion;
-		$horario = $request->horario;
-		$precio = $request->precio;
-        $oficio = $request->oficio;
-        $edad = $request->edad;
+		$id_publicacion = $request->id_publicacion;
+		
 	}
-
-    date_default_timezone_set('America/Santiago');
-    $fecha_actual = date("Y-m-d H:i:s");
-
-$sql = "INSERT INTO publicacion (id_publicacion, correo, foto, certificado_oficio, descripcion, horario, precio, edad_usuario, id_oficio, fecha_publicacion, estado, visitas)
-VALUES ('', '$correo', NULL, NULL, '$descripcion', '$horario', '$precio' , '$edad', '$oficio', '$fecha_actual', 'Activa', 0)";
-
-
-if ($con->query($sql) === TRUE) {
-	$response= "Public successfull";
-   
-} else {
-   $response= "Error: " . $sql . "<br>" . $db->error;
-}
- 
   
-	echo json_encode( $response);
+    
+    $sql = "UPDATE publicacion SET visitas=(SELECT visitas FROM publicacion WHERE id_publicacion=$id_publicacion)+1 WHERE id_publicacion='$id_publicacion'";
+    if ($con->query($sql) === TRUE) {
+        $response= "Historial exitoso";
+    
+    } else {
+    $response= "Error: " . $sql . "<br>" . $db->error;
+    } 
+    echo json_encode( $response);
+        
 
- 
+    
 ?>
