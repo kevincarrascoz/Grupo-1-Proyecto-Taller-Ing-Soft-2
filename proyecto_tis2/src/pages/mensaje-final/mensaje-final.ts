@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { Http, RequestOptions, Headers } from '@angular/http';
 
 /**
@@ -24,7 +24,7 @@ correo_receptor: any;
 id_chat: any;
 mensajes: any;
 public isMensajeEnviado = false;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public toastCtrl: ToastController) {
   this.id_publicacion=this.navParams.get('id_publicacion');
   this.correo=this.navParams.get('correo');
   this.nombre=this.navParams.get('nombre');
@@ -57,6 +57,13 @@ public isMensajeEnviado = false;
   }
   enviarMensaje() {
     console.log(this.mensaje.value);
+    if(this.mensaje.value==""){
+      const toast = this.toastCtrl.create({
+        message: 'Ingrese algun mensaje', 
+        duration: 3000
+      });
+      toast.present();
+  }else{
     var headers = new Headers();
       headers.append("Accept", 'application/json');
       headers.append('Content-Type', 'application/json' );
@@ -81,8 +88,8 @@ public isMensajeEnviado = false;
     
     });
     this.reloadPage();
+   }
   }
-
   reloadPage(){
     this.navCtrl.pop().then(() =>{
 

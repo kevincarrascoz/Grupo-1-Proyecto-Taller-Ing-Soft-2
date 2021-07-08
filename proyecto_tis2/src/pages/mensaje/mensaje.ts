@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { Http, RequestOptions, Headers } from '@angular/http';
 import { RegisterPage } from '../register/register';
 import { LoginPage } from '../login/login';
@@ -27,7 +27,7 @@ export class MensajePage {
   mensajes: any;
   public isUserLogged = false;
   public isMensajeEnviado = false;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http,  public toastCtrl: ToastController) {
     console.log(this.correo, this.id_publicacion);
     if(this.correo !=undefined){
     this.isUserLogged = true;
@@ -74,6 +74,13 @@ export class MensajePage {
   enviarMensaje() {
 
     console.log(this.mensaje.value);
+    if(this.mensaje.value==""){
+      const toast = this.toastCtrl.create({
+        message: 'Ingrese algun mensaje', 
+        duration: 3000
+      });
+      toast.present();
+  }else{
     var headers = new Headers();
       headers.append("Accept", 'application/json');
       headers.append('Content-Type', 'application/json' );
@@ -145,12 +152,13 @@ export class MensajePage {
         console.log("opps");
         //this.presentToast("No existen registros aun");
       }
-      );
-  
       
-    this.reloadPage();
-  }
-
+      ); 
+      this.reloadPage();
+     } 
+    }
+     
+  
 
   reloadPage(){
     this.navCtrl.pop().then(() =>{
