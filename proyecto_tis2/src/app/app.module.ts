@@ -24,6 +24,7 @@ import { ProfilePage } from '../pages/profile/profile';
 import { ChatPage } from '../pages/chat/chat';
 import { MensajePage } from '../pages/mensaje/mensaje';
 import { PubOficioPage } from '../pages/pub-oficio/pub-oficio';
+import { MensajeFinalPage } from '../pages/mensaje-final/mensaje-final';
 
 
 
@@ -44,7 +45,8 @@ import { PubOficioPage } from '../pages/pub-oficio/pub-oficio';
     ProfilePage,
     ChatPage,
     MensajePage,
-    PubOficioPage
+    PubOficioPage,
+    MensajeFinalPage
   ],
   imports: [
     BrowserModule,
@@ -69,7 +71,8 @@ import { PubOficioPage } from '../pages/pub-oficio/pub-oficio';
     ProfilePage,
     ChatPage,
     MensajePage,
-    PubOficioPage
+    PubOficioPage,
+    MensajeFinalPage
   ],
   providers: [
     StatusBar,
