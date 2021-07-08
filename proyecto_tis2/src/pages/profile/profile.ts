@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Http}  from "@angular/http";
 import { SearchBarPage } from '../search-bar/search-bar';
+import { MiscertificadosPage } from '../miscertificados/miscertificados';
+import { MispublicacionesPage } from '../mispublicaciones/mispublicaciones';
+import { MiscomentariosPage } from '../miscomentarios/miscomentarios';
+import { FavoritosPage } from '../favoritos/favoritos';
 
 /**
  * Generated class for the ProfilePage page.
@@ -76,6 +80,20 @@ export class ProfilePage {
 
   buscar(){
     this.navCtrl.push(SearchBarPage);
+  }
+
+  publi(){
+    this.navCtrl.push(MispublicacionesPage);
+  } 
+
+  coment(){
+    this.navCtrl.push(MiscomentariosPage);
+  }
+  certi(){
+    this.navCtrl.push(MiscertificadosPage);
+  }
+  favo(){
+    this.navCtrl.push(FavoritosPage);
   }
 
 }

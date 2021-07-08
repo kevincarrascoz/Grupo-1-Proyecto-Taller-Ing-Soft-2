@@ -36,13 +36,16 @@
       <h3>Fecha de nacimiento: {{fecha_nacimiento}}</h3>
     </ion-item>
     <ion-item detail-push lines="none">
-      <h3>Mis publicaciones</h3>
+      <button ion-button full round (click)="publi()" >Mis publicaciones</button>
     </ion-item>
     <ion-item detail-push>
-      <h3>Mis comentarios</h3>
+      <button ion-button full round (click)="coment()">Mis comentarios</button>
     </ion-item>
     <ion-item detail-push>
-      <h3>Mis certificaciones</h3>
+      <button ion-button full round (click)="certi()">Mis certificaciones</button>
+    </ion-item>
+    <ion-item detail-push>
+      <button ion-button full round (click)="favo()" >Publicaciones Favoritas</button>
     </ion-item>
   </ion-list>
     
