@@ -41,7 +41,7 @@ export class DetallepublicacionPage {
     }
     
     this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/publicacion.php/?id_publicacion='+this.id)
-    //this.http.get('https://proyectooficiosapp.000webhostapp.com/publicaciones.php/?id_publicacion='+this.id)
+    //this.http.get('https://proyectoficiosapp.000webhostapp.com/publicacion.php/?id_publicacion='+this.id)
     .map(response => response.json())
     .subscribe(data =>
       {
@@ -59,6 +59,7 @@ export class DetallepublicacionPage {
       );
     
     this.http.get("http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/comentarios.php?id_publicacion="+this.id)
+    //this.http.get('https://proyectoficiosapp.000webhostapp.com/publicacion.php/comentarios.php?id_publicacion="+this.id)
     .map(response => response.json())
     .subscribe(data => {
       this.comentarios = data;
@@ -110,7 +111,7 @@ export class DetallepublicacionPage {
     });
     loader.present().then(() => {
       this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/comentar.php',data, options)
-      //this.http.post('https://proyectooficiosapp.000webhostapp.com/comentarios.php',data, options)
+      //this.http.post('https://proyectoficiosapp.000webhostapp.com/comentar.php',data, options)
       .map(res => res.json())
       .subscribe(res => {
         loader.dismiss()

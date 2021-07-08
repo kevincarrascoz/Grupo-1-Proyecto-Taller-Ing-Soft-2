@@ -31,7 +31,7 @@ export class SearchBarPage {
     this.contrasena = navParams.get('contrasena');
     console.log(this.correo,this.contrasena);
     this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/publicaciones.php/')
-    //this.http.get('https://proyectooficiosapp.000webhostapp.com/publicaciones.php')
+    //this.http.get('https://https://proyectoficiosapp.000webhostapp.com/publicaciones.php/')
     .map(response => response.json())
     .subscribe(data =>
       {
@@ -96,7 +96,7 @@ export class SearchBarPage {
       };
       console.log(data2);
       this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/historial.php',data2, options)
-        //this.http.post('https://proyectooficiosapp.000webhostapp.com/register.php',data, options)
+      //this.http.post('https://https://proyectoficiosapp.000webhostapp.com/historial.php',data2, options)
         .map(res => res.json())
         .subscribe(res => {
         

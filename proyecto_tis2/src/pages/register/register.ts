@@ -32,6 +32,7 @@ export class RegisterPage {
   
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public toastCtrl: ToastController, public loading: LoadingController) {
     this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/comuna.php')
+    //this.http.get('https://https://proyectoficiosapp.000webhostapp.com/comuna.php')
     .map(response => response.json())
     .subscribe(data =>
       {
@@ -123,7 +124,7 @@ export class RegisterPage {
       });
       loader.present().then(() => {
         this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/register.php',data, options)
-        //this.http.post('https://proyectooficiosapp.000webhostapp.com/register.php',data, options)
+        //this.http.get('https://https://proyectoficiosapp.000webhostapp.com/register.php',data, options)
         .map(res => res.json())
         .subscribe(res => {
         

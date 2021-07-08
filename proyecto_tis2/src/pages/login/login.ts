@@ -64,7 +64,7 @@ export class LoginPage {
 
 
       this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/login.php', data, options)
-      //this.http.post('https://proyectooficiosapp.000webhostapp.com/login.php', data, options)
+      //this.http.post('https://https://proyectoficiosapp.000webhostapp.com/login.php', data, options)
       .map(res => res.json())
       .subscribe(res => {
       console.log(res)

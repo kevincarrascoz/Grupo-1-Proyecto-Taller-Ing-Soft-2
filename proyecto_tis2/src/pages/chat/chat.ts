@@ -31,7 +31,7 @@ export class ChatPage {
     };
     console.log(this.correo, this.contrasena);
     this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/checkMensajes.php', data5)
-    //this.http.get('https://proyectooficiosapp.000webhostapp.com/publicaciones.php/?id_publicacion='+this.id)
+    //this.http.post('https://proyectoficiosapp.000webhostapp.com/checkMensajes.php', data5)
     .map(res => res.json())
     .subscribe(data3 =>
       {

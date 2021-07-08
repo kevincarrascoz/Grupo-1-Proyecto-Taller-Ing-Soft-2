@@ -31,7 +31,7 @@ export class ProfilePage {
     this.correo = navParams.get('correo');
     console.log(this.correo);
     this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/perfil.php/?correo='+this.correo)
-    //this.http.get('https://proyectooficiosapp.000webhostapp.com/perfil.php/?correo='+this.correo)
+    //this.http.get('https://https://proyectoficiosapp.000webhostapp.com/perfil.php/?correo='+this.correo)
     .map(response => response.json())
     .subscribe(data =>
       {
@@ -45,7 +45,7 @@ export class ProfilePage {
         console.log(data);
         
         this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/comuna.php/?codigo_comuna='+this.codigo_comuna)
-        //this.http.get('https://proyectooficiosapp.000webhostapp.com/comuna.php/?codigo_comuna='+this.codigo_comuna)
+        //this.http.get('https://https://proyectoficiosapp.000webhostapp.com/comuna.php/?codigo_comuna='+this.codigo_comuna)
         .map(response => response.json())
         .subscribe(data2 =>
           {

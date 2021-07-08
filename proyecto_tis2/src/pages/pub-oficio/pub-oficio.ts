@@ -30,6 +30,7 @@ export class PubOficioPage {
     this.contrasena = navParams.get('contrasena');
     console.log(this.correo,this.contrasena);
     this.http.get("http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/pub_oficio.php?id_oficio="+this.id_oficio)
+    //this.http.get('https://https://proyectoficiosapp.000webhostapp.com/pub_oficio.php?id_oficio="+this.id_oficio)
     .map(response => response.json())
     .subscribe(data => {
       this.publicaciones = data;
@@ -73,7 +74,7 @@ export class PubOficioPage {
       };
       console.log(data2);
       this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/historial.php',data2, options)
-        //this.http.post('https://proyectooficiosapp.000webhostapp.com/register.php',data, options)
+      //this.http.post('https://https://proyectoficiosapp.000webhostapp.com/historial.php',data2, options)
         .map(res => res.json())
         .subscribe(res => {
         

@@ -36,7 +36,7 @@ export class MensajePage {
       id_publicacion: this.id_publicacion
     };
     this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/obtenerMensajes.php', data5)
-    //this.http.get('https://proyectooficiosapp.000webhostapp.com/publicaciones.php/?id_publicacion='+this.id)
+    //this.http.post('https://https://proyectoficiosapp.000webhostapp.com/obtenerMensajes.php', data5)
     .map(res => res.json())
     .subscribe(data3 =>
       {
@@ -86,8 +86,8 @@ export class MensajePage {
       };
 
 
-      this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/validateIngresarChat.php', data)
-    //this.http.get('https://proyectooficiosapp.000webhostapp.com/publicaciones.php/?id_publicacion='+this.id)
+    this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/validateIngresarChat.php', data)
+    //this.http.post('https://https://proyectoficiosapp.000webhostapp.com/validateIngresarChat.php', data)
     .map(res => res.json())
     .subscribe(data2 =>
       {
@@ -98,7 +98,7 @@ export class MensajePage {
         if(data2==false){
           console.log('no hay registros');
           this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/ingresarChat.php',data, options)
-        //this.http.post('https://proyectooficiosapp.000webhostapp.com/register.php',data, options)
+        //this.http.post('https://https://proyectoficiosapp.000webhostapp.com/ingresarChat.php',data, options)
         .map(res => res.json())
         .subscribe(res => {
         this.content = res;
@@ -121,7 +121,7 @@ export class MensajePage {
           console.log(data);
           console.log('si hay registros');
           this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/ingresarMensajeChat.php',data, options)
-        //this.http.post('https://proyectooficiosapp.000webhostapp.com/register.php',data, options)
+        //this.http.post('https://https://proyectoficiosapp.000webhostapp.com/ingresarMensajeChat.php',data, options)
         .map(res => res.json())
         .subscribe(res => {
           if(res=="Mensaje successfull"){

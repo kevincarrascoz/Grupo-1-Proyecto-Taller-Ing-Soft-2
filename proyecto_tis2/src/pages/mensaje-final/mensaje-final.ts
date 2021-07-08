@@ -36,7 +36,7 @@ public isMensajeEnviado = false;
   };
   console.log(this.id_publicacion, this.correo, this.nombre, this.apellido, this.correo_receptor, this.id_chat);
   this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/allMensajes.php', data5)
-  //this.http.get('https://proyectooficiosapp.000webhostapp.com/publicaciones.php/?id_publicacion='+this.id)
+  //this.http.post('https://https://proyectoficiosapp.000webhostapp.com/allMensajes.php', data5)
   .map(res => res.json())
   .subscribe(data3 =>
     {
@@ -69,7 +69,7 @@ public isMensajeEnviado = false;
       console.log(data);
       console.log('si hay registros');
       this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/ingresarMensajeChat.php',data, options)
-    //this.http.post('https://proyectooficiosapp.000webhostapp.com/register.php',data, options)
+    //this.http.post('https://https://proyectoficiosapp.000webhostapp.com/ingresarMensajeChat.php',data, options)
     .map(res => res.json())
     .subscribe(res => {
       if(res=="Mensaje successfull"){

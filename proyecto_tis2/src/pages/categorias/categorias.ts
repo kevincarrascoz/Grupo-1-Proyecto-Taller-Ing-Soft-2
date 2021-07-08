@@ -25,7 +25,7 @@ export class CategoriasPage {
     this.correo = navParams.get('correo');
     this.contrasena = navParams.get('contrasena');
     this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/oficio.php/')
-    //this.http.get('https://proyectooficiosapp.000webhostapp.com/oficio.php')
+    //this.http.get('https://proyectoficiosapp.000webhostapp.com/oficio.php')
     .map(response => response.json())
     .subscribe(data =>
       {
