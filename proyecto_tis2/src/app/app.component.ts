@@ -37,7 +37,7 @@ export class MyApp {
     this.pages = [
       { title: 'Iniciar Sesion', component: LoginPage, icon:'log-in' },
       { title: 'Catalogo', component: PublicacionesPage, icon:'pricetags'  },
-      { title: 'Categorias', component: CategoriasPage, icon:'list-box'  },
+      { title: 'Categorías', component: CategoriasPage, icon:'list-box'  },
       { title: 'Publicar', component: PublicarPage, icon:'briefcase'  },
       { title: 'Preguntas Frecuentes', component: PreguntasPage, icon:'information-circle'  }
     ];
@@ -49,7 +49,7 @@ export class MyApp {
                     { title: 'Historial', component: HistorialPage, icon:'time'  },
                     { title: 'Publicar', component: PublicarPage, icon:'briefcase'  },
                     { title: 'Mensajes', component: ChatPage, icon:'chatbubbles'  },
-                    { title: 'Categorias', component: CategoriasPage, icon:'list-box'  },
+                    { title: 'Categorías', component: CategoriasPage, icon:'list-box'  },
                     { title: 'Preguntas Frecuentes', component: PreguntasPage, icon:'information-circle'  },
                     { title:'Logout', component: LogoutPage, icon:'log-out' },
                     ];
@@ -61,7 +61,7 @@ export class MyApp {
       this.pages = [
                     { title: 'Iniciar Sesion', component: LoginPage, icon:'log-in' },
                     { title: 'Catalogo', component: PublicacionesPage, icon:'pricetags'  },
-                    { title: 'Categorias', component: CategoriasPage, icon:'list-box'  },
+                    { title: 'Categorías', component: CategoriasPage, icon:'list-box'  },
                     { title: 'Publicar', component: PublicarPage, icon:'briefcase'  },
                     { title: 'Preguntas Frecuentes', component: PreguntasPage, icon:'information-circle'  }
                     ];

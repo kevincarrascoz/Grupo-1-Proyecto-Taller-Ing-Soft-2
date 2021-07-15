@@ -54,7 +54,7 @@ export class SearchBarPage {
     const val = event.target.value;
     if(val && val.trim() != ""){
       this.publicaciones = this.publicaciones.filter(ofi => {
-        return ((ofi.nombre_oficio.toLowerCase().indexOf(val.toLowerCase())>-1) || (ofi.nombre_comuna.toLowerCase().indexOf(val.toLowerCase()) > -1));
+        return ((ofi.nombre_oficio.toLowerCase().indexOf(val.toLowerCase())>-1) || (ofi.nombre_comuna.toLowerCase().indexOf(val.toLowerCase()) > -1) || (ofi.nombre_region.toLowerCase().indexOf(val.toLowerCase()) > -1));
       })
     }
     else{
