@@ -83,7 +83,7 @@ export class ProfilePage {
   }
 
   publi(){
-    this.navCtrl.push(MispublicacionesPage);
+    this.navCtrl.push(MispublicacionesPage, {correo: this.correo});
   } 
 
   coment(){

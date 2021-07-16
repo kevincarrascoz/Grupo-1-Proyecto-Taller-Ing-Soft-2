@@ -6,10 +6,51 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>mispublicaciones</ion-title>
+    <ion-title>Mis Publicaciones</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+    <ion-card *ngFor="let pub of publicaciones">
+  <ion-item >
+      <ion-avatar item-start>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png">
+      </ion-avatar>
+      <h2><b>{{pub.nombre}} {{pub.apellido}}</b></h2> 
+      <h2>{{pub.nombre_oficio}}</h2>
+      <h2>{{pub.nombre_comuna}}, {{pub.nombre_region}}</h2>
+    </ion-item>
+   
+    
+    <ion-card-content>
+      <p>{{pub.descripcion}}</p>      
+    </ion-card-content>
+
+    
+    <ion-card-content>
+      <p style="color: gray; font-size: 12px;"> Visitas: {{pub.visitas}}</p>      
+    </ion-card-content>
+  
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-start clear small>
+          <ion-icon name="add-circle"></ion-icon>
+          <div  (click)="detalle(pub.id_publicacion)">Ver mas</div>
+        </button> 
+      </ion-col>
+
+      
+      <ion-col align-self-center text-center>
+        <ion-note>
+          {{pub.fecha_publicacion}}
+        </ion-note>
+      </ion-col>
+    </ion-row>
+  
+  </ion-card> 
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content ></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 
 </ion-content>
