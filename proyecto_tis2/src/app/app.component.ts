@@ -14,6 +14,7 @@ import { Events } from 'ionic-angular';
 import { LogoutPage } from '../pages/logout/logout';
 import { ProfilePage } from '../pages/profile/profile';
 import { ChatPage } from '../pages/chat/chat';
+import { FavoritosPage } from '../pages/favoritos/favoritos';
 
 @Component({
   templateUrl: 'app.html'
@@ -47,6 +48,7 @@ export class MyApp {
                     { title: 'Mi perfil', component: ProfilePage, icon:'contact'  },
                     { title: 'Catalogo', component: PublicacionesPage, icon:'pricetags'  },
                     { title: 'Historial', component: HistorialPage, icon:'time'  },
+                    { title: 'Favoritos', component: FavoritosPage, icon:'star-outline'  },
                     { title: 'Publicar', component: PublicarPage, icon:'briefcase'  },
                     { title: 'Mensajes', component: ChatPage, icon:'chatbubbles'  },
                     { title: 'Categorías', component: CategoriasPage, icon:'list-box'  },
