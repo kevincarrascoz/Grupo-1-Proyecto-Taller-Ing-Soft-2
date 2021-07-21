@@ -19,13 +19,15 @@
 <ion-content padding>
     <h5 text-center>Publicaciones recientes:</h5>
     <ion-card *ngFor="let pub of publicaciones">
-  <ion-item >
+  <ion-item  >
       <ion-avatar item-start>
         <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png">
       </ion-avatar>
+      <!--<ion-icon  name="star-outline" top right item-end  (click)="fav(pub.id_publicacion)" ></ion-icon>-->
       <h2><b>{{pub.nombre}} {{pub.apellido}}</b></h2> 
       <h2>{{pub.nombre_oficio}}</h2>
       <h2>{{pub.nombre_comuna}}, {{pub.nombre_region}}</h2>
+      
     </ion-item>
    
     

@@ -5,7 +5,6 @@ import {Headers, RequestOptions}  from "@angular/http";
 import { DetallepublicacionPage } from '../detallepublicacion/detallepublicacion';
 import { SearchBarPage } from '../search-bar/search-bar';
 import 'rxjs/add/operator/map';
-import { options } from 'sw-toolbox';
 
 
 
@@ -135,6 +134,27 @@ export class PublicacionesPage {
     this.navCtrl.setRoot(this.navCtrl.getActive().component, {valor:id, correo: this.correo}); 
 
   }
+
+  fav(id){
+    var headers = new Headers();
+    headers.append("Accept", 'application/json');
+    headers.append('Content-Type', 'application/json' );
+    let options = new RequestOptions({ headers: headers });
+          
+  
+   let data = {
+    correo: this.correo,
+    id_publicacion: id,
+  };
+  console.log(data);
+  this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/favoritos.php',data, options)
+  //this.http.post('https://https://proyectoficiosapp.000webhostapp.com/favoritos.php',data, options)
+   .map(res => res.json())
+    .subscribe(res => {
+    
+    });
+  }
+
   
   buscar(){
     this.navCtrl.push(SearchBarPage);
