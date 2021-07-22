@@ -19,7 +19,7 @@ import 'rxjs/add/operator/map';
 export class MispublicacionesPage {
   correo: any;
   correo1: any;
-  publicaciones: any = [];
+  publicaciones: any;
   id_publicacion:any;
   data2:any;
   data3:any;
