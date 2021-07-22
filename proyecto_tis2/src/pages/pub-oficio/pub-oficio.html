@@ -5,12 +5,14 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar color="lightblue">
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-searchbar placeholder="Buscar" (click)="buscar()"></ion-searchbar>
- </ion-navbar>
+  <ion-navbar color="lightblue" padding>
+    <ion-title text-center>Tus Expertos</ion-title>
+    <ion-buttons end >
+      <button ion-button  icon-only (click)="buscar()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
   <ion-navbar>
     <ion-title text-center>Publicaciones por Oficio</ion-title>
   </ion-navbar>
