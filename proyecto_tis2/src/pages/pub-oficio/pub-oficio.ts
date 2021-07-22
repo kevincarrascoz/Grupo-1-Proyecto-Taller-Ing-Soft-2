@@ -25,6 +25,7 @@ export class PubOficioPage {
   correo:any;
   contrasena: any;
   correo1: any;
+  public publicaciones_empty = false;
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
     this.correo = navParams.get('correo');
     this.contrasena = navParams.get('contrasena');
@@ -35,9 +36,11 @@ export class PubOficioPage {
     .subscribe(data => {
       this.publicaciones = data;
         console.log(this.publicaciones);
-
-        for (let i = 0; i < data; i++) {
-        this.publicaciones.push( this.publicaciones.length );
+        if(this.publicaciones.length === 0){
+          this.publicaciones_empty = true;
+        }
+      for (let i = 0; i < data; i++) {
+      this.publicaciones.push( this.publicaciones.length );
       }
     }, err => {
       console.log("Oops!");

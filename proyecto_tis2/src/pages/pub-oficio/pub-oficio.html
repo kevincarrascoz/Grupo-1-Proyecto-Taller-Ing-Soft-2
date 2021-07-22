@@ -19,6 +19,7 @@
 </ion-header>
 
 <ion-content padding>
+  <div *ngIf="!publicaciones_empty">
   <ion-card *ngFor="let pub of publicaciones">
     <ion-item >
         <ion-avatar item-start>
@@ -55,5 +56,8 @@
     <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
       <ion-infinite-scroll-content ></ion-infinite-scroll-content>
     </ion-infinite-scroll>
-  
+  </div>
+  <div *ngIf="publicaciones_empty">
+    <h2 text-center>No existen publicaciones que ofrecen este servicio</h2>
+  </div>
 </ion-content>
