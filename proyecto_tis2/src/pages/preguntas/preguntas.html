@@ -24,13 +24,16 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
-      <ion-card-content style="font-size: medium;"*ngFor="let p of preguntas" >
-        <div>
-           {{p.pregunta}}
-        <p >{{p.respuesta}} </p>
-        </div>
+  <ion-list *ngFor="let p of preguntas">
+    <ion-card>
+      <ion-card-header text-center>
+        {{p.pregunta}}
+      </ion-card-header>
+      <ion-card-content style="font-size: medium;" >
+        {{p.respuesta}}
       </ion-card-content>
+    </ion-card>
+      
 
   </ion-list>
 </ion-content>
