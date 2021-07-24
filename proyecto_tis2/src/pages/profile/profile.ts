@@ -6,6 +6,7 @@ import { MiscertificadosPage } from '../miscertificados/miscertificados';
 import { MispublicacionesPage } from '../mispublicaciones/mispublicaciones';
 import { MiscomentariosPage } from '../miscomentarios/miscomentarios';
 import { FavoritosPage } from '../favoritos/favoritos';
+import { ModificarperfilPage } from '../modificarperfil/modificarperfil';
 
 /**
  * Generated class for the ProfilePage page.
@@ -95,5 +96,7 @@ export class ProfilePage {
   favo(){
     this.navCtrl.push(FavoritosPage);
   }
-
+  modPerfil(){
+    this.navCtrl.push(ModificarperfilPage, {correo: this.correo});
+  }
 }

@@ -28,7 +28,7 @@ import { MiscertificadosPage } from '../pages/miscertificados/miscertificados';
 import { MiscomentariosPage } from '../pages/miscomentarios/miscomentarios';
 import { MispublicacionesPage } from '../pages/mispublicaciones/mispublicaciones';
 import { FavoritosPage } from '../pages/favoritos/favoritos';
-
+import { ModificarperfilPage } from '../pages/modificarperfil/modificarperfil';
 
 
 @NgModule({
@@ -52,7 +52,8 @@ import { FavoritosPage } from '../pages/favoritos/favoritos';
     MiscertificadosPage,
     MiscomentariosPage,
     MispublicacionesPage,
-    FavoritosPage
+    FavoritosPage,
+    ModificarperfilPage
   ],
   imports: [
     BrowserModule,
@@ -81,7 +82,8 @@ import { FavoritosPage } from '../pages/favoritos/favoritos';
     MiscertificadosPage,
     MiscomentariosPage,
     MispublicacionesPage,
-    FavoritosPage
+    FavoritosPage,
+    ModificarperfilPage
   ],
   providers: [
     StatusBar,
