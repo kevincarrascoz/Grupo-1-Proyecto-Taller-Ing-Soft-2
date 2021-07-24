@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-07-2021 a las 00:36:36
+-- Tiempo de generación: 25-07-2021 a las 00:24:56
 -- Versión del servidor: 10.4.19-MariaDB
--- Versión de PHP: 8.0.6
+-- Versión de PHP: 7.3.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -267,6 +267,7 @@ CREATE TABLE `usuario` (
   `direccion` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
   `fecha_nacimiento` date NOT NULL,
   `codigo_comuna` int(11) NOT NULL,
+  `tipo_usuario` enum('Demandante','Oferente','Administrador','') COLLATE utf8_spanish2_ci NOT NULL,
   `telefono` int(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
@@ -274,12 +275,12 @@ CREATE TABLE `usuario` (
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`correo`, `nombre`, `apellido`, `contrasena`, `direccion`, `fecha_nacimiento`, `codigo_comuna`, `telefono`) VALUES
-('ara@gmail.com', 'aracely', 'zenteno', '123456789', 'edimburgo 1712', '1996-08-26', 1, 961386241),
-('av@gmail.com', 'Alejandro', 'Vejar', '123', 'Calle 1', '2021-07-07', 3, 123),
-('czenteno@gmail.com', 'carmen', 'zenteno', '12345', 'sadasdsa', '2021-06-21', 4, 987654321),
-('dlipa@gmail.com', 'dua', 'lipa', '1111', 'sadsadsa', '2021-06-30', 3, 987654321),
-('kcarrasco@gmail.com', 'kevin', 'carrasco', '12345', 'finlandia 1667', '1998-02-23', 1, 942018931);
+INSERT INTO `usuario` (`correo`, `nombre`, `apellido`, `contrasena`, `direccion`, `fecha_nacimiento`, `codigo_comuna`, `tipo_usuario`, `telefono`) VALUES
+('ara@gmail.com', 'aracely', 'zenteno', '123456789', 'edimburgo 1712', '1996-08-26', 1, 'Oferente', 961386241),
+('av@gmail.com', 'Alejandro', 'Vejar', '123', 'Calle 1', '2021-07-07', 3, 'Administrador', 123),
+('czenteno@gmail.com', 'carmen', 'zenteno', '12345', 'sadasdsa', '2021-06-21', 4, 'Oferente', 987654321),
+('dlipa@gmail.com', 'dua', 'lipa', '1111', 'sadsadsa', '2021-06-30', 3, 'Demandante', 987654321),
+('kcarrasco@gmail.com', 'kevin', 'carrasco', '12345', 'finlandia 1667', '1998-02-23', 1, 'Oferente', 942018931);
 
 --
 -- Índices para tablas volcadas
