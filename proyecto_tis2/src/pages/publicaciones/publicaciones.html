@@ -23,7 +23,8 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding >
+  <div *ngIf="Relacionado">
     <ion-card *ngFor="let pub of publicaciones">
   <ion-item  >
       <ion-avatar item-start>
@@ -70,5 +71,9 @@
     <ion-infinite-scroll-content ></ion-infinite-scroll-content>
   </ion-infinite-scroll>
 
+</div>
+<div *ngIf="!Relacionado">
+  <h2>Lo sentimos, no existen publicaciones relacionadas a este oficio en tu comuna</h2>
+</div>
 </ion-content>
 

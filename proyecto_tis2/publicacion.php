@@ -5,7 +5,7 @@
     $dbConn =  connect($db);
     if($_SERVER['REQUEST_METHOD']=='GET'){
         if(isset($_GET['id_publicacion'])){
-            $sql = $dbConn->prepare("SELECT pub.id_publicacion, pub.descripcion, pub.fecha_publicacion, pub.horario, pub.precio, pub.edad_usuario, u.correo, u.nombre, u.apellido, u.telefono, of.nombre_oficio, co.nombre_comuna
+            $sql = $dbConn->prepare("SELECT pub.id_publicacion, pub.descripcion, pub.fecha_publicacion, pub.horario, pub.precio, pub.edad_usuario, u.correo, u.nombre, u.apellido, u.telefono, of.nombre_oficio, of.id_oficio, co.nombre_comuna, co.codigo_comuna
                                     FROM publicacion pub, usuario u, oficio of, comuna co
                                     WHERE pub.correo = u.correo
                                     AND pub.id_oficio = of.id_oficio

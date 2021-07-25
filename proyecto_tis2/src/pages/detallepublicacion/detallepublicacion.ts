@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs';
 import { MensajePage } from '../mensaje/mensaje';
 import { LoginPage } from '../login/login';
+import { PublicacionesPage } from '../publicaciones/publicaciones';
 
 /**
  * Generated class for the DetallepublicacionPage page.
@@ -28,6 +29,10 @@ export class DetallepublicacionPage {
   nombre:any;
   apellido:any;
   correo_login:any;
+  id_oficio1:any;
+  codigo_comuna1:any;
+  nombre_comuna:any;
+  nombre_oficio:any;
   contrasena: any;
   correo_publicacion: any;
   public isUserLogged = false;
@@ -50,6 +55,10 @@ export class DetallepublicacionPage {
         this.apellido = data.apellido;
         this.nombre = data.nombre;
         this.correo_publicacion = data.correo;
+        this.codigo_comuna1 = data.codigo_comuna;
+        this.id_oficio1 = data.id_oficio;
+        this.nombre_comuna = data.nombre_comuna;
+        this.nombre_oficio = data.nombre_oficio;
         
       },
       err =>{
@@ -149,6 +158,10 @@ export class DetallepublicacionPage {
       console.log('Async operation has ended');
       infiniteScroll.complete();
     }, 500);
+  }
+
+  IrPublicaciones(){
+    this.navCtrl.push(PublicacionesPage, {correo: this.correo_login, contrasena: this.contrasena, id_oficio1: this.id_oficio1, codigo_comuna1: this.codigo_comuna1, id_publicacion_relacion: this.id});
   }
 
 }

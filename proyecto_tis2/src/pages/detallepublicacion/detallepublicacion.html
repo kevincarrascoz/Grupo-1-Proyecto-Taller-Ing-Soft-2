@@ -101,13 +101,27 @@
         </ion-col>
       </ion-row>
     </ion-card>
-    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
-      <ion-infinite-scroll-content ></ion-infinite-scroll-content>
-    </ion-infinite-scroll>
   </div>
     <ion-card  *ngIf='!comentar'>
       <ion-item>
        <p text-center>No existen comentarios</p> 
         </ion-item>
       </ion-card>
+
+      <ion-title text-center>Publicaciones relacionadas</ion-title>
+      <ion-card>
+        <ion-card-content >
+             <p text-center>Si quieres ver publicaciones sobre {{nombre_oficio}} dentro de tu comuna {{nombre_comuna}} haz click en el boton de abajo</p>
+             <ion-item>
+             <button   ion-button  full round (click)="IrPublicaciones()"> Ver publicaciones</button>
+            </ion-item>
+          </ion-card-content>
+          <ion-row>
+          </ion-row>
+        
+        </ion-card>
+
+      <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content ></ion-infinite-scroll-content>
+      </ion-infinite-scroll>
 </ion-content>

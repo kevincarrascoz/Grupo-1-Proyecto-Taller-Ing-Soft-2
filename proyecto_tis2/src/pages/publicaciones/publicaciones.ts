@@ -18,29 +18,69 @@ export class PublicacionesPage {
   id:any;
   correo:any;
   id_publicacion:any;
+  id_publicacion_relacion:any;
   data2:any;
   data3:any;
   data4:any;
   //id_publicacion: any;
   favorito=false;
   contrasena: any;
+  id_oficio1: any;
+  codigo_comuna1: any;
   oficio: any;
   correo1: any;
   isUserLogged = false;
+  Relacionado = true;
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
     this.correo = navParams.get('correo');
     this.contrasena = navParams.get('contrasena');
-    console.log(this.correo,this.contrasena);
+    this.id_oficio1 = navParams.get('id_oficio1');
+    this.codigo_comuna1 = navParams.get('codigo_comuna1');
+    this.id_publicacion_relacion = navParams.get('id_publicacion_relacion');
+    console.log(this.correo,this.contrasena, this.id_oficio1, this.codigo_comuna1, this.id_publicacion_relacion);
     if(this.correo && this.contrasena != ''){
       this.isUserLogged = true;
     }
-    this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/publicaciones.php/')
+
+      if(this.id_oficio1 && this.codigo_comuna1 && this.id_publicacion_relacion!= ''){
+        console.log("se aplico el filtro");
+        let data7 = {
+          id_oficio1: this.id_oficio1,
+          codigo_comuna1: this.codigo_comuna1,
+          id_publicacion_relacion: this.id_publicacion_relacion
+        };
+        console.log(data7);
+        this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/publicacionesRelacionadas.php', data7)
+        .map(response => response.json())
+        .subscribe(data =>
+        {
+          if(data==false){
+            console.log("no hay publicaciones relacionadas");
+            this.Relacionado = false;
+          }
+        console.log(data);
+        this.publicaciones = data;
+        console.log(this.publicaciones);
+
+        for (let i = 0; i < data; i++) {
+        this.publicaciones.push( this.publicaciones.length );
+        }
+        
+        }
+        );
+        }else{
+        console.log("no se aplico el filtro")
+        this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/publicaciones.php/')
     //this.http.get('https://https://proyectoficiosapp.000webhostapp.com/publicaciones.php/)
     .map(response => response.json())
     .subscribe(data =>
       {
         this.publicaciones = data;
         console.log(this.publicaciones);
+        if(data==false){
+          console.log("no hay publicaciones relacionadas");
+          this.Relacionado = false;
+        }
 
         for (let i = 0; i < data; i++) {
         this.publicaciones.push( this.publicaciones.length );
@@ -52,6 +92,7 @@ export class PublicacionesPage {
         //this.presentToast("No existen registros aun");
       }
       );
+      }
   }
 
   doInfinite(infiniteScroll) {
