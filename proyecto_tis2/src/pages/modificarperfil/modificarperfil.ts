@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, LoadingController, NavController, NavParams, ToastController } from 'ionic-angular';
+import { Http, Headers, RequestOptions } from '@angular/http';
+import 'rxjs/add/operator/map';
 
 /**
  * Generated class for the ModificarperfilPage page.
@@ -14,12 +16,71 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'modificarperfil.html',
 })
 export class ModificarperfilPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  @ViewChild("telefono_nuevo") telefono_nuevo;
+  correo: any;
+  perfil: any = [];
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public toastCtrl: ToastController, public loading: LoadingController) {
+    this.correo = navParams.get('correo');
+    this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/perfil.php/?correo='+this.correo)
+    //this.http.get('https://https://proyectoficiosapp.000webhostapp.com/perfil.php/?correo='+this.correo)
+    .map(response => response.json())
+    .subscribe(data =>
+      {
+        this.perfil = [data];
+      },
+      err =>{
+        console.log("Oops!");
+        //this.presentToast("No existen registros aun");
+      }
+      );
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ModificarperfilPage');
   }
 
+  guardar_cambios(){
+    if(this.telefono_nuevo.value == ''){
+      const toast = this.toastCtrl.create({
+        message: 'Ingrese un nuevo número de telefono', 
+        duration: 3000
+      });
+      toast.present();
+    }
+    else{
+      var headers = new Headers();
+      headers.append("Accept", 'application/json');
+      headers.append('Content-Type', 'application/json' );
+      let options = new RequestOptions({ headers: headers });
+      let data = {
+        correo: this.correo,
+        telefono_nuevo: this.telefono_nuevo.value
+      };
+      let loader = this.loading.create({
+        content: 'Processing please wait...',
+      });
+      loader.present().then(() => {
+        this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/guardar_cambios_perfil.php',data, options)
+        //this.http.post('https://https://proyectoficiosapp.000webhostapp.com/publicar.php',data, options)
+        .map(res => res.json())
+        .subscribe(res => {
+          loader.dismiss()
+          if(res=="Changes successfull"){
+            const toast = this.toastCtrl.create({
+              message: 'Guardado con Exito', 
+              duration: 3000
+            });
+          toast.present();
+        }else
+        {
+          const toast = this.toastCtrl.create({
+            message: 'Fallo en Guardar', 
+            duration: 3000
+          });
+          toast.present();
+          } 
+        });
+      });
+    }
+  }
 }

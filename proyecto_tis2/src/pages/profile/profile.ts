@@ -22,12 +22,7 @@ import { ModificarperfilPage } from '../modificarperfil/modificarperfil';
 })
 export class ProfilePage {
   correo: any;
-  perfil: any;
-  direccion: any;
-  telefono: any;
-  fecha_nacimiento: any;
-  nombre: any;
-  apellido: any;
+  perfil: any = [];
   comuna: any;
   codigo_comuna: any;
   nombre_comuna: any;
@@ -40,12 +35,7 @@ export class ProfilePage {
     .map(response => response.json())
     .subscribe(data =>
       {
-        this.perfil = data;
-        this.nombre=data.nombre;
-        this.apellido=data.apellido;
-        this.direccion=data.direccion;
-        this.telefono=data.telefono;
-        this.fecha_nacimiento=data.fecha_nacimiento;
+        this.perfil = [data];
         this.codigo_comuna=data.codigo_comuna;
         console.log(data);
         

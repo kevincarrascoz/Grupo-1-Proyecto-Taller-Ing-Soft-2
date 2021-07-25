@@ -5,11 +5,37 @@
   Ionic pages and navigation.
 -->
 <ion-header>
+  <ion-toolbar color="lightblue" padding>
+    <ion-buttons start left>
+      <button ion-button menuToggle  icon-only>
+        <ion-icon name="menu"></ion-icon>
+      </button>     
+    </ion-buttons>
+    <ion-title text-center>Tus Expertos</ion-title>
+    <ion-buttons end >
+      <button ion-button  icon-only (click)="buscar()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
   <ion-navbar>
-    <ion-title>Modificar Perfil</ion-title>
+    <ion-title text-center>
+      Modificar Perfil
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
+  <div *ngFor="let pe of perfil">
+    <ion-label>Telefono Actual</ion-label>
+    <ion-item>
+      <ion-label>{{pe.telefono}}</ion-label>
+    </ion-item>
+    <ion-label>Telefono Nuevo</ion-label>
+    <ion-item>
+      <ion-input placeholder="Cambiar Telefono" type="text" name="telefono_nuevo" #telefono_nuevo></ion-input>
+    </ion-item>
+    <br>
+    <button ion-button full round (click)="guardar_cambios()">Guardar Cambios</button>
+  </div>
 </ion-content>
