@@ -22,6 +22,8 @@
       <ion-avatar item-start>
         <img src="https://picsum.photos/300">
       </ion-avatar>
+      <ion-icon *ngIf="isUserLogged && !favorito.includes(pub.id_publicacion)" name="star-outline" top right item-end (click)="fav(pub.id_publicacion)" ></ion-icon>
+      <ion-icon *ngIf="isUserLogged && favorito.includes(pub.id_publicacion)"  name="star" top right item-end (click)="delete(pub.id_publicacion)" ></ion-icon>
       <h2><b>{{pub.nombre}} {{pub.apellido}}</b></h2>
       <h2>{{pub.nombre_oficio}}</h2>
         <p>{{pub.edad_usuario}} años.</p>

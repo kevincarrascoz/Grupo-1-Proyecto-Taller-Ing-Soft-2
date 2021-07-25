@@ -23,7 +23,7 @@ export class PublicacionesPage {
   data3:any;
   data4:any;
   //id_publicacion: any;
-  favorito=false;
+  private favorito=[];
   contrasena: any;
   id_oficio1: any;
   codigo_comuna1: any;
@@ -180,37 +180,54 @@ export class PublicacionesPage {
   }
 
   fav(id){
-        
-        var headers = new Headers();
-        headers.append("Accept", 'application/json');
-        headers.append('Content-Type', 'application/json' );
-        let options = new RequestOptions({ headers: headers });
-              
-      
-       let data3 = {
-        correo: this.correo,
-        id_publicacion: id,
-      };
-      console.log(data3);
-      this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/favoritos.php',data3, options)
-      //this.http.post('https://https://proyectoficiosapp.000webhostapp.com/favoritos.php',data, options)
-        .map(res => res.json())
-        .subscribe(res => {
-        
+
+      var index = this.favorito.indexOf(id);
+      if(index > -1){
+        this.favorito.splice(index,1);
        
-        if(res=="Favorito exitoso"){
+      }else{
+        this.favorito.push(id);
+      }
+      var headers = new Headers();
+      headers.append("Accept", 'application/json');
+      headers.append('Content-Type', 'application/json' );
+      let options = new RequestOptions({ headers: headers });
+            
+    
+     let data3 = {
+      correo: this.correo,
+      id_publicacion: id,
+    };
+    console.log(data3);
+    this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/favoritos.php',data3, options)
+    //this.http.post('https://https://proyectoficiosapp.000webhostapp.com/favoritos.php',data, options)
+      .map(res => res.json())
+      .subscribe(res => {
+
         
-            console.log('Favorito exitoso');
-          }
-        
-        else
-        {
-        console.log('error');
-          } 
-        });
+      
+     
+      if(res=="Favorito exitoso"){
+
+      
+          console.log('Favorito exitoso');
+        }
+      
+      else
+      {
+      console.log('error');
+        } 
+      });  
+      
   }
   delete(id){
-    
+    var index = this.favorito.indexOf(id);
+    if(index > -1){
+      this.favorito.splice(index,1);
+    }else{
+      this.favorito.push(id);
+    }
+
     var headers = new Headers();
     headers.append("Accept", 'application/json');
     headers.append('Content-Type', 'application/json' );
@@ -235,6 +252,7 @@ export class PublicacionesPage {
       console.log('error');
         } 
       });
+   
   } 
   
   buscar(){

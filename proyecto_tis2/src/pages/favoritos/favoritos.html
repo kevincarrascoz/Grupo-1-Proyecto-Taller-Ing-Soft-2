@@ -30,6 +30,8 @@
         <ion-avatar item-start>
           <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png">
         </ion-avatar>
+        <ion-icon *ngIf="isUserLogged && !favorito.includes(pub.id_publicacion)" name="star-outline" top right item-end (click)="fav(pub.id_publicacion)" ></ion-icon>
+        <ion-icon *ngIf="isUserLogged && favorito.includes(pub.id_publicacion)"  name="star" top right item-end (click)="delete(pub.id_publicacion)" ></ion-icon>
         <h2><b>{{pub.nombre}} {{pub.apellido}}</b></h2>
         <h2>{{pub.nombre_oficio}}</h2>
         <h2>{{pub.nombre_comuna}}, {{pub.nombre_region}}</h2>
