@@ -52,6 +52,36 @@
       <p>{{pub.descripcion}}</p>
       </div>
     </ion-card-content>
+    <ion-card-content>
+      <p><b>Valoraciones</b></p>
+      <div style="margin-left: 15px;">
+      <p>5 estrellas <ion-icon name="star" style="color: rgb(158, 158, 6);"></ion-icon><ion-icon name="star" style="color: rgb(158, 158, 6);"></ion-icon><ion-icon name="star" style="color: rgb(158, 158, 6);"></ion-icon><ion-icon name="star" style="color: rgb(158, 158, 6);"></ion-icon><ion-icon name="star" style="color: rgb(158, 158, 6);"></ion-icon>{{porcentaje_cinco}}% ({{estrellas_cinco}})</p>
+      <p>4 estrellas <ion-icon name="star" style="color: rgb(158, 158, 6);"></ion-icon><ion-icon name="star" style="color: rgb(158, 158, 6);"></ion-icon><ion-icon name="star" style="color: rgb(158, 158, 6);"></ion-icon><ion-icon name="star" style="color: rgb(158, 158, 6);"></ion-icon>{{porcentaje_cuatro}}% ({{estrellas_cuatro}})</p>
+      <p>3 estrellas <ion-icon name="star" style="color: rgb(158, 158, 6);"></ion-icon><ion-icon name="star" style="color: rgb(158, 158, 6);"></ion-icon><ion-icon name="star" style="color: rgb(158, 158, 6);"></ion-icon>{{porcentaje_tres}}% ({{estrellas_tres}})</p>
+      <p>2 estrellas <ion-icon name="star" style="color: rgb(158, 158, 6);"></ion-icon><ion-icon name="star" style="color: rgb(158, 158, 6);"></ion-icon>{{porcentaje_dos}}% ({{estrellas_dos}})</p>
+      <p>1 estrellas <ion-icon name="star" style="color: rgb(158, 158, 6);"></ion-icon>{{porcentaje_uno}}% ({{estrellas_uno}})</p>
+      
+      <br>
+      <p *ngIf="isUserLogged" style="color: blue; font-size: small;">Valorar</p>
+      <button style="margin-left: 0; padding-left: 0;"ion-button icon-start clear small *ngIf="isUserLogged">
+        <div  (click)="valorar(1)"><ion-icon name="star-outline"></ion-icon></div>
+      </button> 
+      <button style="margin-left: 0; padding-left: 0;"ion-button icon-start clear small *ngIf="isUserLogged">
+        <div  (click)="valorar(2)"><ion-icon name="star-outline"></ion-icon></div>
+      </button> 
+      <button style="margin-left: 0; padding-left: 0;"ion-button icon-start clear small *ngIf="isUserLogged">
+        <div  (click)="valorar(3)"><ion-icon name="star-outline"></ion-icon></div>
+      </button> 
+      <button style="margin-left: 0; padding-left: 0;"ion-button icon-start clear small *ngIf="isUserLogged">
+        <div  (click)="valorar(4)"><ion-icon name="star-outline"></ion-icon></div>
+      </button> 
+      <button style="margin-left: 0; padding-left: 0;"ion-button icon-start clear small *ngIf="isUserLogged">
+        <div  (click)="valorar(5)"><ion-icon name="star-outline"></ion-icon></div>
+      </button> 
+      
+
+      </div>
+    </ion-card-content>
     <ion-row>
       <ion-col>
         <button ion-button icon-start clear small (click)="enviarMensaje()">

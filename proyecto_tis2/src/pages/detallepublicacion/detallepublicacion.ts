@@ -24,6 +24,19 @@ export class DetallepublicacionPage {
   publicaciones:any = [];
   comentarios: any = [];
   id=this.navParams.get('valor');
+  valoraciones:any;
+  estrellas_cinco:any;
+  estrellas_cuatro:any;
+  estrellas_tres:any;
+  estrellas_dos:any;
+  estrellas_uno:any;
+  estrellas_suma:any;
+
+  porcentaje_cinco:any;
+  porcentaje_cuatro:any;
+  porcentaje_tres:any;
+  porcentaje_dos:any;
+  porcentaje_uno:any;
   data:Observable<any>;
   nombre:any;
   apellido:any;
@@ -57,6 +70,50 @@ export class DetallepublicacionPage {
         //this.presentToast("No existen registros aun");
       }
       );
+
+
+
+
+      console.log('aqui va el id');
+      console.log(this.id);
+      this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/valorarget.php/?id_publicacion='+this.id)
+      //this.http.get('https://proyectoficiosapp.000webhostapp.com/historialget.php/?correo='+this.correo)
+      .map(response => response.json())
+      .subscribe(data =>
+        {
+          this.valoraciones = data;
+          this.estrellas_cinco = data.estrellas_cinco;
+          this.estrellas_cuatro = data.estrellas_cuatro;
+          this.estrellas_tres = data.estrellas_tres;
+          this.estrellas_dos = data.estrellas_dos;
+          this.estrellas_uno = data.estrellas_uno;
+
+          
+
+          this.estrellas_suma = parseInt(this.estrellas_tres) + parseInt(this.estrellas_uno);
+
+          this.porcentaje_cinco = Math.trunc((parseInt(data.estrellas_cinco)/(parseInt(data.estrellas_cinco)+parseInt(data.estrellas_cuatro)+parseInt(data.estrellas_tres)+parseInt(data.estrellas_dos)+parseInt(data.estrellas_uno))*100));
+          this.porcentaje_cuatro = Math.trunc((parseInt(data.estrellas_cuatro)/(parseInt(data.estrellas_cinco)+parseInt(data.estrellas_cuatro)+parseInt(data.estrellas_tres)+parseInt(data.estrellas_dos)+parseInt(data.estrellas_uno))*100));
+          this.porcentaje_tres = Math.trunc((parseInt(data.estrellas_tres)/(parseInt(data.estrellas_cinco)+parseInt(data.estrellas_cuatro)+parseInt(data.estrellas_tres)+parseInt(data.estrellas_dos)+parseInt(data.estrellas_uno))*100));
+          this.porcentaje_dos = Math.trunc((parseInt(data.estrellas_dos)/(parseInt(data.estrellas_cinco)+parseInt(data.estrellas_cuatro)+parseInt(data.estrellas_tres)+parseInt(data.estrellas_dos)+parseInt(data.estrellas_uno))*100));
+          this.porcentaje_uno = Math.trunc((parseInt(data.estrellas_uno)/(parseInt(data.estrellas_cinco)+parseInt(data.estrellas_cuatro)+parseInt(data.estrellas_tres)+parseInt(data.estrellas_dos)+parseInt(data.estrellas_uno))*100));
+
+          console.log('valor estrella suma');
+          console.log(this.estrellas_suma);
+          //console.log(this.valoraciones);
+        },
+        err =>{
+          console.log("Nada!");
+          //this.presentToast("No existen registros aun");
+        }
+        );
+
+
+
+
+
+
+
     
     this.http.get("http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/comentarios.php?id_publicacion="+this.id)
     //this.http.get('https://proyectoficiosapp.000webhostapp.com/publicacion.php/comentarios.php?id_publicacion="+this.id)
@@ -84,6 +141,39 @@ export class DetallepublicacionPage {
   IrLogin(){
     this.navCtrl.push(LoginPage)
   }
+  
+  valorar(nota){
+
+    var headers = new Headers();
+    headers.append("Accept", 'application/json');
+    headers.append('Content-Type', 'application/json' );
+    let options = new RequestOptions({ headers: headers });
+          
+  
+    let data11 = {
+      id_publicacion : this.id,
+      correo: this.correo_login,
+      nota ,
+    };
+    console.log('aca viene la data valorar');
+    console.log(data11);
+    this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/valorar.php',data11, options)
+    //.map(res => res.json())
+    .subscribe(res => {
+    
+   
+    
+      console.log('success');
+        
+      });
+    
+    
+
+
+    console.log(nota);
+  }
+
+
 
   Comentar(){
     if(this.comentario.value==""){
