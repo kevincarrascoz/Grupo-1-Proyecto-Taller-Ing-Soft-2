@@ -161,7 +161,7 @@ export class DetallepublicacionPage {
   }
 
   IrPublicaciones(){
-    this.navCtrl.push(PublicacionesPage, {correo: this.correo_login, contrasena: this.contrasena, id_oficio1: this.id_oficio1, codigo_comuna1: this.codigo_comuna1, id_publicacion_relacion: this.id});
+    this.navCtrl.push(PublicacionesPage, {correo: this.correo_login, contrasena: this.contrasena, id_oficio1: this.id_oficio1, codigo_comuna1: this.codigo_comuna1, id_publicacion_relacion: this.id, nombre_comuna: this.nombre_comuna, nombre_oficio: this.nombre_oficio});
   }
 
 }

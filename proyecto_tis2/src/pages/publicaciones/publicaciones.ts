@@ -19,6 +19,8 @@ export class PublicacionesPage {
   correo:any;
   id_publicacion:any;
   id_publicacion_relacion:any;
+  nombre_oficio: any;
+  nombre_comuna: any;
   data2:any;
   data3:any;
   data4:any;
@@ -37,6 +39,8 @@ export class PublicacionesPage {
     this.id_oficio1 = navParams.get('id_oficio1');
     this.codigo_comuna1 = navParams.get('codigo_comuna1');
     this.id_publicacion_relacion = navParams.get('id_publicacion_relacion');
+    this.nombre_comuna = navParams.get('nombre_comuna');
+    this.nombre_oficio = navParams.get('nombre_oficio');
     console.log(this.correo,this.contrasena, this.id_oficio1, this.codigo_comuna1, this.id_publicacion_relacion);
     if(this.correo && this.contrasena != ''){
       this.isUserLogged = true;
