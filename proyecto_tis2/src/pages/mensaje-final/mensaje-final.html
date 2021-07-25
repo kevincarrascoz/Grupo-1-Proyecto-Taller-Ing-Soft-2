@@ -15,7 +15,7 @@
 <ion-content padding>
         <div style="width: 100%;" *ngIf="isMensajeEnviado">
         <ion-card *ngFor="let men of mensajes">
-          <ion-item color="white" *ngIf="(men.correo!=correo_receptor)">
+          <ion-item color="white" *ngIf="(men.correo==correo_receptor)">
               <h2><b>{{men.mensaje}}</b></h2>
               <ion-row>
                 <ion-col align-self-center text-right>
@@ -26,7 +26,7 @@
               </ion-row>
           </ion-item>
 
-          <ion-item color="light" *ngIf="(men.correo==correo_receptor)">
+          <ion-item color="light" *ngIf="(men.correo!=correo_receptor)">
             <h2 text-left><b>{{men.mensaje}}</b></h2>
             <ion-note>
             </ion-note>

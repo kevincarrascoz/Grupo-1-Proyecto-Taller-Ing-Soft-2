@@ -23,14 +23,15 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding >
+  <div *ngIf="Relacionado">
     <ion-card *ngFor="let pub of publicaciones">
   <ion-item  >
       <ion-avatar item-start>
         <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png">
       </ion-avatar>
-      <ion-icon *ngIf="isUserLogged && !favorito" name="star-outline" top right item-end (click)="fav(pub.id_publicacion)" ></ion-icon>
-      <ion-icon *ngIf="isUserLogged && favorito"  name="star" top right item-end (click)="delete(pub.id_publicacion)" ></ion-icon>
+      <ion-icon *ngIf="isUserLogged && !favorito.includes(pub.id_publicacion)" name="star-outline" top right item-end (click)="fav(pub.id_publicacion)" ></ion-icon>
+      <ion-icon *ngIf="isUserLogged && favorito.includes(pub.id_publicacion)"  name="star" top right item-end (click)="delete(pub.id_publicacion)" ></ion-icon>
 
       <h2><b>{{pub.nombre}} {{pub.apellido}}</b></h2> 
       <h2>{{pub.nombre_oficio}}</h2>
@@ -70,5 +71,9 @@
     <ion-infinite-scroll-content ></ion-infinite-scroll-content>
   </ion-infinite-scroll>
 
+</div>
+<div *ngIf="!Relacionado">
+  <h2 center>Lo sentimos, no existen publicaciones relacionadas al oficio {{nombre_oficio}} en tu comuna {{nombre_comuna}}</h2>
+</div>
 </ion-content>
 

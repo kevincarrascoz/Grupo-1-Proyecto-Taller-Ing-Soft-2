@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs';
 import { MensajePage } from '../mensaje/mensaje';
 import { LoginPage } from '../login/login';
+import { PublicacionesPage } from '../publicaciones/publicaciones';
 
 /**
  * Generated class for the DetallepublicacionPage page.
@@ -41,10 +42,16 @@ export class DetallepublicacionPage {
   nombre:any;
   apellido:any;
   correo_login:any;
+  id_oficio1:any;
+  codigo_comuna1:any;
+  nombre_comuna:any;
+  nombre_oficio:any;
   contrasena: any;
   correo_publicacion: any;
   public isUserLogged = false;
   public comentar = false;
+  correo: any;
+  private favorito=[];
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public toastCtrl: ToastController, public loading: LoadingController) {
     this.correo_login=this.navParams.get('correo');
     this.contrasena = this.navParams.get('contrasena');
@@ -63,6 +70,10 @@ export class DetallepublicacionPage {
         this.apellido = data.apellido;
         this.nombre = data.nombre;
         this.correo_publicacion = data.correo;
+        this.codigo_comuna1 = data.codigo_comuna;
+        this.id_oficio1 = data.id_oficio;
+        this.nombre_comuna = data.nombre_comuna;
+        this.nombre_oficio = data.nombre_oficio;
         
       },
       err =>{
@@ -228,6 +239,81 @@ export class DetallepublicacionPage {
 
   }
   }
+  fav(id){
+
+    var index = this.favorito.indexOf(id);
+    if(index > -1){
+      this.favorito.splice(index,1);
+     
+    }else{
+      this.favorito.push(id);
+    }
+    var headers = new Headers();
+    headers.append("Accept", 'application/json');
+    headers.append('Content-Type', 'application/json' );
+    let options = new RequestOptions({ headers: headers });
+          
+  
+   let data3 = {
+    correo: this.correo,
+    id_publicacion: id,
+  };
+  console.log(data3);
+  this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/favoritos.php',data3, options)
+  //this.http.post('https://https://proyectoficiosapp.000webhostapp.com/favoritos.php',data, options)
+    .map(res => res.json())
+    .subscribe(res => {
+
+      
+    
+   
+    if(res=="Favorito exitoso"){
+
+    
+        console.log('Favorito exitoso');
+      }
+    
+    else
+    {
+    console.log('error');
+      } 
+    });  
+    
+}
+delete(id){
+  var index = this.favorito.indexOf(id);
+  if(index > -1){
+    this.favorito.splice(index,1);
+  }else{
+    this.favorito.push(id);
+  }
+
+  var headers = new Headers();
+  headers.append("Accept", 'application/json');
+  headers.append('Content-Type', 'application/json' );
+  let options = new RequestOptions({ headers: headers });
+   let data = {
+    correo: this.correo,
+    };
+  console.log(data);
+  this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/favoritosdelete.php',data, options)
+  //this.http.post('https://proyectoficiosapp.000webhostapp.com/favoritosdelete.php',data, options)
+    .map(res => res.json())
+    .subscribe(res => {
+    
+   
+    if(res=="Borrado exitoso"){
+    
+        console.log('Borrado exitoso');
+      }
+    
+    else
+    {
+    console.log('error');
+      } 
+    });
+ 
+} 
   doInfinite(infiniteScroll) {
     console.log('Begin async operation');
 
@@ -239,6 +325,10 @@ export class DetallepublicacionPage {
       console.log('Async operation has ended');
       infiniteScroll.complete();
     }, 500);
+  }
+
+  IrPublicaciones(){
+    this.navCtrl.push(PublicacionesPage, {correo: this.correo_login, contrasena: this.contrasena, id_oficio1: this.id_oficio1, codigo_comuna1: this.codigo_comuna1, id_publicacion_relacion: this.id, nombre_comuna: this.nombre_comuna, nombre_oficio: this.nombre_oficio});
   }
 
 }
