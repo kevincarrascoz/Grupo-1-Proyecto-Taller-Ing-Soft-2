@@ -26,8 +26,8 @@
 
 <ion-content padding>
   <div *ngIf="tieneMensajes">
-  <ion-list *ngFor="let m of mensajes" (click)="irMensajes(m.nombre, m.apellido, m.id_publicacion, m.correo, m.id_chat)">
-      <ion-item >
+  <ion-list *ngFor="let m of mensajes" (click)="irMensajes(m.nombre, m.apellido, m.id_publicacion, m.correo, m.id_chat)" >
+      <ion-item style="border-radius:20px ;" padding>
         <ion-avatar item-start>
           <img src="https://picsum.photos/300">
         </ion-avatar>
