@@ -21,7 +21,7 @@
 <ion-content padding>
   <div *ngIf="!publicaciones_empty">
   <ion-card *ngFor="let pub of publicaciones" style="border-radius:20px ;">
-    <ion-item style="border-radius:20px ;" color="light">
+    <ion-item style="border-radius:20px ;">
         <ion-avatar item-start>
           <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png">
         </ion-avatar>
@@ -31,9 +31,9 @@
       </ion-item>
      
       
-      <ion-card-content>
+      <ion-item>
         <p>{{pub.descripcion}}</p>      
-      </ion-card-content>
+      </ion-item>
 
       <ion-item>
         <ion-icon name="eye" style=" font-size: 16px;"  top right item-end >  {{pub.visitas}}</ion-icon>    

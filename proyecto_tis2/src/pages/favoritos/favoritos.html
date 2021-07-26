@@ -25,7 +25,7 @@
 
 <ion-content padding>
   <button ion-button clear padding  (click)="delete()">Borrar todos los favoritos</button>
-  <ion-card *ngFor="let pub of publicaciones">
+  <ion-card *ngFor="let pub of publicaciones" style="border-radius:20px ;"  >
     <ion-item >
         <ion-avatar item-start>
           <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png">
@@ -36,9 +36,9 @@
         <h2>{{pub.nombre_comuna}}, {{pub.nombre_region}}</h2>
       </ion-item>
      
-      <ion-card-content>
+      <ion-item>
         <p>{{pub.descripcion}}</p>      
-      </ion-card-content>
+      </ion-item>
     
       <ion-row>
         <ion-col>

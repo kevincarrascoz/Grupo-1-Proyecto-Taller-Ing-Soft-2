@@ -1,4 +1,8 @@
 page-login {
+
+    ion-content{
+        background: radial-gradient(lightblue 0%, white 100%);
+    }
     ion-title *{
         text-align: center;
         margin-top: 10vh;

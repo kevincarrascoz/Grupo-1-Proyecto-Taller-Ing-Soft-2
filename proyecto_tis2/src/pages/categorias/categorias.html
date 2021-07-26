@@ -25,9 +25,9 @@
 
 <ion-content padding>
   <ion-list>
-    <button ion-item  *ngFor="let of of oficio" value="{{of.id_oficio}}" (click)="verPubOficio(of.id_oficio)" >
+    <button ion-item  *ngFor="let of of oficio" value="{{of.id_oficio}}" (click)="verPubOficio(of.id_oficio)" style="border-radius:20px ;" >
       <ion-icon name="arrow-forward"  item-end></ion-icon>
       {{of.nombre_oficio}}
-    </button>  
+    </button>
   </ion-list>
 </ion-content>

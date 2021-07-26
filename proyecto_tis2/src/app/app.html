@@ -1,19 +1,18 @@
-<ion-menu [content]="content" type="overlay">
+<ion-menu [content]="content" type="overlay" >
     <ion-header >
         <ion-item color="lightblue">
           <ion-label>
                   <h2 text-center padding ><strong>Tus Expertos</strong></h2>
-                  <!--<img src="/proyecto_tis2/imagenes/bar.png" width="270" height="80" >-->
           </ion-label>
         </ion-item>     
     </ion-header>
-    <ion-content color="primary">
+    <ion-content>
       <ion-list  >
         <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)"color="secondary" >
           <ion-icon  name="{{p.icon}}" style="margin-right:10%"></ion-icon>
           {{p.title}}
         </button>
-      </ion-list>
+      </ion-list>    
     </ion-content>
   
   </ion-menu >

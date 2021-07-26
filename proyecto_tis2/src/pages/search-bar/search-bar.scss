@@ -1,4 +1,8 @@
 page-search-bar {
+
+    ion-content{
+        background: radial-gradient(lightblue 0%, white 100%);
+    }
     ion-searchbar{        
         .searchbar-input-container{            
             .searchbar-input{
