@@ -33,6 +33,7 @@ export class PublicacionesPage {
   correo1: any;
   isUserLogged = false;
   Relacionado = true;
+  favoritos: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
     this.correo = navParams.get('correo');
     this.contrasena = navParams.get('contrasena');
@@ -44,8 +45,8 @@ export class PublicacionesPage {
     console.log(this.correo,this.contrasena, this.id_oficio1, this.codigo_comuna1, this.id_publicacion_relacion);
     if(this.correo && this.contrasena != ''){
       this.isUserLogged = true;
+      
     }
-
       if(this.id_oficio1 && this.codigo_comuna1 && this.id_publicacion_relacion!= ''){
         console.log("se aplico el filtro");
         let data7 = {
@@ -97,6 +98,21 @@ export class PublicacionesPage {
       }
       );
       }
+      this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/obtenerfavoritos.php/?correo='+this.correo)
+      //this.http.get('https://https://proyectoficiosapp.000webhostapp.com/obtenerfavoritos.php/?correo='+this.correo)
+      .map(response => response.json())
+      .subscribe(data =>
+        {
+           
+          
+        },
+        err =>{
+          console.log("Oops!");
+          //this.presentToast("No existen registros aun");
+        }
+        );
+        
+
   }
 
   doInfinite(infiniteScroll) {
@@ -208,12 +224,11 @@ export class PublicacionesPage {
       .map(res => res.json())
       .subscribe(res => {
 
-        
       
      
       if(res=="Favorito exitoso"){
 
-      
+
           console.log('Favorito exitoso');
         }
       
@@ -222,6 +237,7 @@ export class PublicacionesPage {
       console.log('error');
         } 
       });  
+
       
   }
   delete(id){

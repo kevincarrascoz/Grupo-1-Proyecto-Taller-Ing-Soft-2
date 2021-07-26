@@ -52,6 +52,19 @@ export class HistorialPage {
         //this.presentToast("No existen registros aun");
       }
       );
+      this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/obtenerfavoritos.php/?correo='+this.correo)
+      //this.http.get('https://https://proyectoficiosapp.000webhostapp.com/obtenerfavoritos.php/?correo='+this.correo)
+      .map(response => response.json())
+      .subscribe(data =>
+        {
+           
+          
+        },
+        err =>{
+          console.log("Oops!");
+          //this.presentToast("No existen registros aun");
+        }
+        );
     
   }
 

@@ -53,9 +53,10 @@ export class DetallepublicacionPage {
   correo: any;
   private favorito=[];
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public toastCtrl: ToastController, public loading: LoadingController) {
-    this.correo_login=this.navParams.get('correo');
+    this.correo=this.navParams.get('correo');
     this.contrasena = this.navParams.get('contrasena');
-    if(this.correo_login && this.contrasena != ''){
+    console.log(this.correo,this.contrasena)
+    if(this.correo && this.contrasena != ''){
       this.isUserLogged =true;
       
     }
@@ -142,6 +143,19 @@ export class DetallepublicacionPage {
       
       
     })
+    this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/obtenerfavoritos.php/?correo='+this.correo)
+      //this.http.get('https://https://proyectoficiosapp.000webhostapp.com/obtenerfavoritos.php/?correo='+this.correo)
+      .map(response => response.json())
+      .subscribe(data =>
+        {
+           
+          
+        },
+        err =>{
+          console.log("Oops!");
+          //this.presentToast("No existen registros aun");
+        }
+        );
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad DetallepublicacionPage');
@@ -240,7 +254,6 @@ export class DetallepublicacionPage {
   }
   }
   fav(id){
-
     var index = this.favorito.indexOf(id);
     if(index > -1){
       this.favorito.splice(index,1);

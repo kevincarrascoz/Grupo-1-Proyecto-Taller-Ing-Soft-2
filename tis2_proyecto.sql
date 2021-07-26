@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-07-2021 a las 19:50:16
--- Versión del servidor: 10.4.14-MariaDB
--- Versión de PHP: 7.4.9
+-- Tiempo de generación: 26-07-2021 a las 03:02:11
+-- Versión del servidor: 10.4.19-MariaDB
+-- Versión de PHP: 8.0.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -123,6 +123,18 @@ INSERT INTO `comuna` (`codigo_comuna`, `nombre_comuna`, `latitud`, `longitud`, `
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `favoritos`
+--
+
+CREATE TABLE `favoritos` (
+  `id_favorito` int(11) NOT NULL,
+  `correo` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
+  `id_publicacion` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `historial`
 --
 
@@ -164,7 +176,8 @@ CREATE TABLE `mensaje` (
 
 INSERT INTO `mensaje` (`id_mensaje`, `correo`, `id_chat`, `mensaje`, `fecha_mensaje`, `visualizacion`) VALUES
 (3, 'av@gmail.com', 16, 'hola', '2021-07-07 14:48:15', 'No vista'),
-(4, 'av@gmail.com', 17, 'hola', '2021-07-07 19:59:20', 'No vista');
+(4, 'av@gmail.com', 17, 'hola', '2021-07-07 19:59:20', 'No vista'),
+(5, 'kcarrasco@gmail.com', 17, 'hola', '2021-07-25 17:23:18', 'No vista');
 
 -- --------------------------------------------------------
 
@@ -257,10 +270,10 @@ CREATE TABLE `publicacion` (
 --
 
 INSERT INTO `publicacion` (`id_publicacion`, `correo`, `foto`, `certificado_oficio`, `descripcion`, `horario`, `precio`, `edad_usuario`, `id_oficio`, `fecha_publicacion`, `estado`, `visitas`) VALUES
-(15, 'kcarrasco@gmail.com', NULL, NULL, 'Ofrezco mis servicios como carpintero 10 años de experiencia', 'disponibilidad lunes a viernes de 11:00 a 17:00', '$20.000 aprox, inbox mas info', 26, 1, '2021-07-05 23:33:29', 'Activa', 42),
-(16, 'ara@gmail.com', NULL, NULL, 'Ofrezco mis servicios como estilista, puedo hacer visitas a domicilio, 3 años de experiencia en este oficio, cualquier consulta inbox o comunicarse a mi numero telefonico', 'Miercoles a viernes de 11:00 a 15:00', 'Aprox $25000', 26, 6, '2021-07-05 23:35:42', 'Activa', 42),
-(17, 'czenteno@gmail.com', NULL, NULL, 'Realizo trabajos como empleada domestica por el día, incluyendo fines de semana y feriados, cualquier consulta inbox', 'Todos los dias de 9:00 a 18:00', '$40.000 aprox ', 42, 5, '2021-07-05 23:35:42', 'Activa', 15),
-(18, 'av@gmail.com', NULL, NULL, 'arreglo canaletas de vio', '24/7', '15000', 40, 7, '2021-07-08 01:52:52', 'Activa', 74);
+(15, 'kcarrasco@gmail.com', NULL, NULL, 'Ofrezco mis servicios como carpintero 10 años de experiencia', 'disponibilidad lunes a viernes de 11:00 a 17:00', '$20.000 aprox, inbox mas info', 26, 1, '2021-07-05 23:33:29', 'Activa', 44),
+(16, 'ara@gmail.com', NULL, NULL, 'Ofrezco mis servicios como estilista, puedo hacer visitas a domicilio, 3 años de experiencia en este oficio, cualquier consulta inbox o comunicarse a mi numero telefonico', 'Miercoles a viernes de 11:00 a 15:00', 'Aprox $25000', 26, 6, '2021-07-05 23:35:42', 'Activa', 44),
+(17, 'czenteno@gmail.com', NULL, NULL, 'Realizo trabajos como empleada domestica por el día, incluyendo fines de semana y feriados, cualquier consulta inbox', 'Todos los dias de 9:00 a 18:00', '$40.000 aprox ', 42, 5, '2021-07-05 23:35:42', 'Activa', 16),
+(18, 'av@gmail.com', NULL, NULL, 'arreglo canaletas de vio', '24/7', '15000', 40, 7, '2021-07-08 01:52:52', 'Activa', 91);
 
 -- --------------------------------------------------------
 
@@ -284,7 +297,9 @@ INSERT INTO `puntuacion` (`id_puntuacion`, `id_publicacion`, `correo`, `estrella
 (2, 16, 'av@gmail.com', 1),
 (5, 17, 'av@gmail.com', 4),
 (6, 18, 'dlipa@gmail.com', 3),
-(7, 18, 'ara@gmail.com', 3);
+(7, 18, 'ara@gmail.com', 3),
+(8, 18, 'kcarrasco@gmail.com', 4),
+(9, 18, '', 5);
 
 -- --------------------------------------------------------
 
@@ -307,7 +322,7 @@ CREATE TABLE `puntuacion_pub` (
 --
 
 INSERT INTO `puntuacion_pub` (`id_puntuacion_pub`, `id_publicacion`, `estrellas_cinco`, `estrellas_cuatro`, `estrellas_tres`, `estrellas_dos`, `estrellas_uno`) VALUES
-(1, 18, 0, 0, 2, 0, 1),
+(1, 18, 1, 1, 2, 0, 1),
 (2, 16, 0, 0, 0, 0, 1),
 (3, 17, 0, 1, 0, 0, 0);
 
@@ -396,6 +411,14 @@ ALTER TABLE `comentario`
 ALTER TABLE `comuna`
   ADD PRIMARY KEY (`codigo_comuna`),
   ADD KEY `codigo_provincia` (`codigo_provincia`);
+
+--
+-- Indices de la tabla `favoritos`
+--
+ALTER TABLE `favoritos`
+  ADD PRIMARY KEY (`id_favorito`),
+  ADD KEY `correo` (`correo`),
+  ADD KEY `id_publicacion` (`id_publicacion`);
 
 --
 -- Indices de la tabla `historial`
@@ -494,16 +517,22 @@ ALTER TABLE `comuna`
   MODIFY `codigo_comuna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT de la tabla `favoritos`
+--
+ALTER TABLE `favoritos`
+  MODIFY `id_favorito` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+
+--
 -- AUTO_INCREMENT de la tabla `historial`
 --
 ALTER TABLE `historial`
-  MODIFY `id_historial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id_historial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de la tabla `mensaje`
 --
 ALTER TABLE `mensaje`
-  MODIFY `id_mensaje` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_mensaje` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `oficio`
@@ -533,7 +562,7 @@ ALTER TABLE `publicacion`
 -- AUTO_INCREMENT de la tabla `puntuacion`
 --
 ALTER TABLE `puntuacion`
-  MODIFY `id_puntuacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_puntuacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `puntuacion_pub`
@@ -576,6 +605,13 @@ ALTER TABLE `comentario`
 --
 ALTER TABLE `comuna`
   ADD CONSTRAINT `comuna_ibfk_1` FOREIGN KEY (`codigo_provincia`) REFERENCES `provincia` (`codigo_provincia`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `favoritos`
+--
+ALTER TABLE `favoritos`
+  ADD CONSTRAINT `favoritos_ibfk_1` FOREIGN KEY (`id_publicacion`) REFERENCES `publicacion` (`id_publicacion`),
+  ADD CONSTRAINT `favoritos_ibfk_2` FOREIGN KEY (`correo`) REFERENCES `usuario` (`correo`);
 
 --
 -- Filtros para la tabla `historial`

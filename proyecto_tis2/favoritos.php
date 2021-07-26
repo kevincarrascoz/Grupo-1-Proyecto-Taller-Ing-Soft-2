@@ -31,10 +31,6 @@ if (isset($_SERVER['HTTP_ORIGIN'])) {
 		
 	}
     
-  
-
-
-
 $consulta = "SELECT * FROM favoritos WHERE correo='$correo' AND id_publicacion='$id_publicacion'";
 $resultado = mysqli_query($con, $consulta);
 if(mysqli_num_rows($resultado)>0){
