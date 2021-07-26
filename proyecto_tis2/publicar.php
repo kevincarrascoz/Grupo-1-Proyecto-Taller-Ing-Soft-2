@@ -42,7 +42,14 @@ VALUES ('', '$correo', NULL, NULL, '$descripcion', '$horario', '$precio' , '$eda
 
 
 if ($con->query($sql) === TRUE) {
-	$response= "Public successfull";
+    $response= $con->insert_id;
+    $sql2 = "INSERT INTO puntuacion_pub (id_puntuacion_pub, id_publicacion, estrellas_cinco, estrellas_cuatro, estrellas_tres, estrellas_dos, estrellas_uno)
+    VALUES ('', '$response', 0, 0, 0, 0, 0)";
+    if($con->query($sql2) === TRUE){
+        $response= "Public successfull";
+    }else {
+        $response= "Error: " . $sql . "<br>" . $db->error;
+     }
    
 } else {
    $response= "Error: " . $sql . "<br>" . $db->error;
