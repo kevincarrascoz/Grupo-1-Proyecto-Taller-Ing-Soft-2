@@ -50,8 +50,6 @@ if(mysqli_num_rows($resultado)>0){
     } else {
     $response= "Error: " . $sql . "<br>" . $db->error;
     }   
-    
-
         if($nota==1){
             $sql = "UPDATE puntuacion_pub SET estrellas_uno=(SELECT estrellas_uno FROM puntuacion_pub WHERE id_publicacion='$id_publicacion')+1 WHERE id_publicacion='$id_publicacion'";
             if ($con->query($sql) === TRUE) {
