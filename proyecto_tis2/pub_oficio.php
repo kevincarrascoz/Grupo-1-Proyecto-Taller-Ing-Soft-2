@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
     if (isset($_GET['id_oficio']))
     {
       //Mostrar un post
-      $sql = $dbConn->prepare("SELECT pub.id_publicacion, pub.descripcion, pub.fecha_publicacion, u.nombre, u.apellido, of.nombre_oficio, co.nombre_comuna, reg.nombre_region 
+      $sql = $dbConn->prepare("SELECT pub.id_publicacion, pub.descripcion, pub.fecha_publicacion, pub.visitas, u.nombre, u.apellido, of.nombre_oficio, co.nombre_comuna, reg.nombre_region 
                                FROM publicacion pub, usuario u, oficio of, comuna co, provincia pr, region reg
                                where of.id_oficio=:id_oficio 
                                and u.correo=pub.correo 
