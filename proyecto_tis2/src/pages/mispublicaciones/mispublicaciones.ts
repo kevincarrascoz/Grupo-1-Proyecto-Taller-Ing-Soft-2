@@ -39,19 +39,7 @@ export class MispublicacionesPage {
       this.publicaciones = data;
       console.log(this.publicaciones);
     })
-    this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/obtenerfavoritos.php/?correo='+this.correo)
-      //this.http.get('https://https://proyectoficiosapp.000webhostapp.com/obtenerfavoritos.php/?correo='+this.correo)
-      .map(response => response.json())
-      .subscribe(data =>
-        {
-           
-          
-        },
-        err =>{
-          console.log("Oops!");
-          //this.presentToast("No existen registros aun");
-        }
-        );
+
   }
 
   ionViewDidLoad() {
@@ -125,79 +113,5 @@ export class MispublicacionesPage {
 
   }
 
-  fav(id){
 
-    var index = this.favorito.indexOf(id);
-    if(index > -1){
-      this.favorito.splice(index,1);
-     
-    }else{
-      this.favorito.push(id);
-    }
-    var headers = new Headers();
-    headers.append("Accept", 'application/json');
-    headers.append('Content-Type', 'application/json' );
-    let options = new RequestOptions({ headers: headers });
-          
-  
-   let data3 = {
-    correo: this.correo,
-    id_publicacion: id,
-  };
-  console.log(data3);
-  this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/favoritos.php',data3, options)
-  //this.http.post('https://https://proyectoficiosapp.000webhostapp.com/favoritos.php',data, options)
-    .map(res => res.json())
-    .subscribe(res => {
-
-      
-    
-   
-    if(res=="Favorito exitoso"){
-
-    
-        console.log('Favorito exitoso');
-      }
-    
-    else
-    {
-    console.log('error');
-      } 
-    });  
-    
-}
-delete(id){
-  var index = this.favorito.indexOf(id);
-  if(index > -1){
-    this.favorito.splice(index,1);
-  }else{
-    this.favorito.push(id);
-  }
-
-  var headers = new Headers();
-  headers.append("Accept", 'application/json');
-  headers.append('Content-Type', 'application/json' );
-  let options = new RequestOptions({ headers: headers });
-   let data = {
-    correo: this.correo,
-    };
-  console.log(data);
-  this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/favoritosdelete.php',data, options)
-  //this.http.post('https://proyectoficiosapp.000webhostapp.com/favoritosdelete.php',data, options)
-    .map(res => res.json())
-    .subscribe(res => {
-    
-   
-    if(res=="Borrado exitoso"){
-    
-        console.log('Borrado exitoso');
-      }
-    
-    else
-    {
-    console.log('error');
-      } 
-    });
- 
-} 
 }
