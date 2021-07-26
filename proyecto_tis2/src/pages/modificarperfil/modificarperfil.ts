@@ -71,6 +71,7 @@ export class ModificarperfilPage {
               duration: 3000
             });
           toast.present();
+          this.navCtrl.pop();
         }else
         {
           const toast = this.toastCtrl.create({
