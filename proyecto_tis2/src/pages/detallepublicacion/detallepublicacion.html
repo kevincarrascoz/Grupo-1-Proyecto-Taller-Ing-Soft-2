@@ -17,7 +17,7 @@
 <ion-content padding>
 
 
-  <ion-card *ngFor="let pub of publicaciones">
+  <ion-card *ngFor="let pub of publicaciones"  style="border-radius:20px ;" >
   <ion-item>
       <ion-avatar item-start>
         <img src="https://picsum.photos/300">
@@ -99,7 +99,7 @@
     </ion-row>
 
   </ion-card>
-    <ion-card *ngIf="!isUserLogged">
+    <ion-card *ngIf="!isUserLogged"  style="border-radius:20px ;" >
       <ion-item >
           <h2 text-center><b>Agregar comentario</b></h2>
            <p text-center>Debes iniciar sesión si deseas comentar</p>
@@ -110,7 +110,7 @@
       
       </ion-card>
 
-    <ion-card *ngIf="isUserLogged">
+    <ion-card *ngIf="isUserLogged"  style="border-radius:20px ;" >
       <br><h2 text-center><b>Agregar comentario</b></h2><br>
       <ion-item >
           <ion-input placeholder="Comenta" type="text" #comentario></ion-input><br>
@@ -119,7 +119,7 @@
     </ion-card>
     <ion-title text-center>Comentarios</ion-title>
     <div *ngIf='comentar'>
-  <ion-card  *ngFor="let c of comentarios">
+  <ion-card  *ngFor="let c of comentarios"  style="border-radius:20px ;" >
     <ion-item>
         <ion-avatar item-start> 
           <img src="https://picsum.photos/300"> 
@@ -135,13 +135,13 @@
     </ion-card>
   </div>
     <ion-card  *ngIf='!comentar'>
-      <ion-item>
+      <ion-item  style="border-radius:20px ;" >
        <p text-center>No existen comentarios</p> 
         </ion-item>
       </ion-card>
 
       <ion-title text-center>Publicaciones relacionadas</ion-title>
-      <ion-card>
+      <ion-card  style="border-radius:20px ;" >
         <ion-card-content >
              <p text-center>Si quieres ver publicaciones sobre {{nombre_oficio}} dentro de tu comuna {{nombre_comuna}} haz click en el boton de abajo</p>
              <ion-item>

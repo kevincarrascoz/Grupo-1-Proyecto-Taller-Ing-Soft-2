@@ -52,7 +52,6 @@ export class DetallepublicacionPage {
   public comentar = false;
   correo: any;
   private favorito=[];
-  favoritos: boolean;
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public toastCtrl: ToastController, public loading: LoadingController) {
     this.correo=this.navParams.get('correo');
     this.contrasena = this.navParams.get('contrasena');
