@@ -26,21 +26,174 @@ $data = file_get_contents("php://input");
 if (isset($data)) {
     $request = json_decode($data);
     $correo = $request->correo;
-    $telefono_nuevo = $request->telefono_nuevo;
+    if((!empty($request->telefono_nuevo)) && (empty($request->direccion_nuevo)) && (empty($request->nombre_nuevo)) && (empty($request->apellido_nuevo))){
+        $telefono_nuevo = $request->telefono_nuevo;
+        $sql = "UPDATE usuario SET telefono = '$telefono_nuevo' WHERE correo = '$correo'";
+        if ($con->query($sql) === TRUE) {
+            $response= "Changes successfull";
+        } else {
+            $response= "Error: " . $sql . "<br>" . $db->error;
+        }
+        echo json_encode( $response);
+    }
+    else if((empty($request->telefono_nuevo)) && (!empty($request->direccion_nuevo)) && (empty($request->nombre_nuevo)) && (empty($request->apellido_nuevo))){
+        $direccion_nuevo = $request->direccion_nuevo;
+        $sql = "UPDATE usuario SET direccion = '$direccion_nuevo' WHERE correo = '$correo'";
+        if ($con->query($sql) === TRUE) {
+            $response= "Changes successfull";
+        } else {
+            $response= "Error: " . $sql . "<br>" . $db->error;
+        }
+        echo json_encode( $response);
+    }
+    else if((empty($request->telefono_nuevo)) && (empty($request->direccion_nuevo)) && (!empty($request->nombre_nuevo)) && (empty($request->apellido_nuevo))){
+        $nombre_nuevo = $request->nombre_nuevo;
+        $sql = "UPDATE usuario SET nombre = '$nombre_nuevo' WHERE correo = '$correo'";
+        if ($con->query($sql) === TRUE) {
+            $response= "Changes successfull";
+        } else {
+            $response= "Error: " . $sql . "<br>" . $db->error;
+        }
+        echo json_encode( $response);
+    }
+    else if((empty($request->telefono_nuevo)) && (empty($request->direccion_nuevo)) && (empty($request->nombre_nuevo)) && (!empty($request->apellido_nuevo))){
+        $apellido_nuevo = $request->apellido_nuevo;
+        $sql = "UPDATE usuario SET apellido = '$apellido_nuevo' WHERE correo = '$correo'";
+        if ($con->query($sql) === TRUE) {
+            $response= "Changes successfull";
+        } else {
+            $response= "Error: " . $sql . "<br>" . $db->error;
+        }
+        echo json_encode( $response);
+    }
+    else if((!empty($request->telefono_nuevo)) && (!empty($request->direccion_nuevo)) && (empty($request->nombre_nuevo)) && (empty($request->apellido_nuevo))){
+        $telefono_nuevo = $request->telefono_nuevo;
+        $direccion_nuevo = $request->telefono_nuevo;
+        $sql = "UPDATE usuario SET telefono = '$telefono_nuevo', direccion = '$direccion_nuevo' WHERE correo = '$correo'";
+        if ($con->query($sql) === TRUE) {
+            $response= "Changes successfull";
+        } else {
+            $response= "Error: " . $sql . "<br>" . $db->error;
+        }
+        echo json_encode( $response);
+    }
+    else if((!empty($request->telefono_nuevo)) && (empty($request->direccion_nuevo)) && (!empty($request->nombre_nuevo)) && (empty($request->apellido_nuevo))){
+        $telefono_nuevo = $request->telefono_nuevo;
+        $nombre_nuevo = $request->nombre_nuevo;
+        $sql = "UPDATE usuario SET telefono = '$telefono_nuevo', nombre = '$nombre_nuevo' WHERE correo = '$correo'";
+        if ($con->query($sql) === TRUE) {
+            $response= "Changes successfull";
+        } else {
+            $response= "Error: " . $sql . "<br>" . $db->error;
+        }
+        echo json_encode( $response);
+    }
+    else if((!empty($request->telefono_nuevo)) && (empty($request->direccion_nuevo)) && (empty($request->nombre_nuevo)) && (!empty($request->apellido_nuevo))){
+        $telefono_nuevo = $request->telefono_nuevo;
+        $apellido_nuevo = $request->apellido_nuevo;
+        $sql = "UPDATE usuario SET telefono = '$telefono_nuevo', apellido = '$apellido_nuevo' WHERE correo = '$correo'";
+        if ($con->query($sql) === TRUE) {
+            $response= "Changes successfull";
+        } else {
+            $response= "Error: " . $sql . "<br>" . $db->error;
+        }
+        echo json_encode( $response);
+    }
+    else if((empty($request->telefono_nuevo)) && (!empty($request->direccion_nuevo)) && (!empty($request->nombre_nuevo)) && (empty($request->apellido_nuevo))){
+        $direccion_nuevo = $request->direccion_nuevo;
+        $nombre_nuevo = $request->nombre_nuevo;
+        $sql = "UPDATE usuario SET direccion = '$direccion_nuevo', nombre = '$nombre_nuevo' WHERE correo = '$correo'";
+        if ($con->query($sql) === TRUE) {
+            $response= "Changes successfull";
+        } else {
+            $response= "Error: " . $sql . "<br>" . $db->error;
+        }
+        echo json_encode( $response);
+    }
+    else if((empty($request->telefono_nuevo)) && (!empty($request->direccion_nuevo)) && (empty($request->nombre_nuevo)) && (!empty($request->apellido_nuevo))){
+        $direccion_nuevo = $request->direccion_nuevo;
+        $apellido_nuevo = $request->apellido_nuevo;
+        $sql = "UPDATE usuario SET direccion = '$direccion_nuevo', apellido = '$apellido_nuevo' WHERE correo = '$correo'";
+        if ($con->query($sql) === TRUE) {
+            $response= "Changes successfull";
+        } else {
+            $response= "Error: " . $sql . "<br>" . $db->error;
+        }
+        echo json_encode( $response);
+    }
+    else if((empty($request->telefono_nuevo)) && (empty($request->direccion_nuevo)) && (!empty($request->nombre_nuevo)) && (!empty($request->apellido_nuevo))){
+        $nombre_nuevo = $request->nombre_nuevo;
+        $apellido_nuevo = $request->apellido_nuevo;
+        $sql = "UPDATE usuario SET nombre = '$nombre_nuevo', apellido = '$apellido_nuevo' WHERE correo = '$correo'";
+        if ($con->query($sql) === TRUE) {
+            $response= "Changes successfull";
+        } else {
+            $response= "Error: " . $sql . "<br>" . $db->error;
+        }
+        echo json_encode( $response);
+    }
+    else if((!empty($request->telefono_nuevo)) && (!empty($request->direccion_nuevo)) && (!empty($request->nombre_nuevo)) && (empty($request->apellido_nuevo))){
+        $telefono_nuevo = $request->telefono_nuevo;
+        $direccion_nuevo = $request->direccion_nuevo;
+        $nombre_nuevo = $request->nombre_nuevo;
+        $sql = "UPDATE usuario SET telefono = '$telefono_nuevo', direccion = '$direccion_nuevo', nombre = '$nombre_nuevo' WHERE correo = '$correo'";
+        if ($con->query($sql) === TRUE) {
+            $response= "Changes successfull";
+        } else {
+            $response= "Error: " . $sql . "<br>" . $db->error;
+        }
+        echo json_encode( $response);
+    }
+    else if((!empty($request->telefono_nuevo)) && (!empty($request->direccion_nuevo)) && (empty($request->nombre_nuevo)) && (!empty($request->apellido_nuevo))){
+        $telefono_nuevo = $request->telefono_nuevo;
+        $direccion_nuevo = $request->direccion_nuevo;
+        $apellido_nuevo = $request->apellido_nuevo;
+        $sql = "UPDATE usuario SET telefono = '$telefono_nuevo', direccion = '$direccion_nuevo', apellido = '$apellido_nuevo' WHERE correo = '$correo'";
+        if ($con->query($sql) === TRUE) {
+            $response= "Changes successfull";
+        } else {
+            $response= "Error: " . $sql . "<br>" . $db->error;
+        }
+        echo json_encode( $response);
+    }
+    else if((!empty($request->telefono_nuevo)) && (empty($request->direccion_nuevo)) && (!empty($request->nombre_nuevo)) && (!empty($request->apellido_nuevo))){
+        $telefono_nuevo = $request->telefono_nuevo;
+        $nombre_nuevo = $request->nombre_nuevo;
+        $apellido_nuevo = $request->apellido_nuevo;
+        $sql = "UPDATE usuario SET telefono = '$telefono_nuevo', nombre = '$nombre_nuevo', apellido = '$apellido_nuevo' WHERE correo = '$correo'";
+        if ($con->query($sql) === TRUE) {
+            $response= "Changes successfull";
+        } else {
+            $response= "Error: " . $sql . "<br>" . $db->error;
+        }
+        echo json_encode( $response);
+    }
+    else if((empty($request->telefono_nuevo)) && (!empty($request->direccion_nuevo)) && (!empty($request->nombre_nuevo)) && (!empty($request->apellido_nuevo))){
+        $direccion_nuevo = $request->direccion_nuevo;
+        $nombre_nuevo = $request->nombre_nuevo;
+        $apellido_nuevo = $request->apellido_nuevo;
+        $sql = "UPDATE usuario SET direccion = '$direccion_nuevo', nombre = '$nombre_nuevo', apellido = '$apellido_nuevo' WHERE correo = '$correo'";
+        if ($con->query($sql) === TRUE) {
+            $response= "Changes successfull";
+        } else {
+            $response= "Error: " . $sql . "<br>" . $db->error;
+        }
+        echo json_encode( $response);
+    }
+    else if((!empty($request->telefono_nuevo)) && (!empty($request->direccion_nuevo)) && (!empty($request->nombre_nuevo)) && (!empty($request->apellido_nuevo))){
+        $telefono_nuevo = $request->telefono_nuevo;
+        $direccion_nuevo = $request->direccion_nuevo;
+        $nombre_nuevo = $request->nombre_nuevo;
+        $apellido_nuevo = $request->apellido_nuevo;
+        $sql = "UPDATE usuario SET telefono = '$telefono_nuevo', direccion = '$direccion_nuevo', nombre = '$nombre_nuevo', apellido = '$apellido_nuevo' WHERE correo = '$correo'";
+        if ($con->query($sql) === TRUE) {
+            $response= "Changes successfull";
+        } else {
+            $response= "Error: " . $sql . "<br>" . $db->error;
+        }
+        echo json_encode( $response);
+    }
 }
-
-$sql = "UPDATE usuario SET telefono = '$telefono_nuevo' WHERE correo = '$correo'";
-
-
-if ($con->query($sql) === TRUE) {
-$response= "Changes successfull";
-
-} else {
-$response= "Error: " . $sql . "<br>" . $db->error;
-}
-
-
-echo json_encode( $response);
 
 
 ?>

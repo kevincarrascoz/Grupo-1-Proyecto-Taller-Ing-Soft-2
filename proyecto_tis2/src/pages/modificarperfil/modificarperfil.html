@@ -27,13 +27,32 @@
 
 <ion-content padding>
   <div *ngFor="let pe of perfil">
-    <ion-label>Telefono Actual</ion-label>
     <ion-item>
-      <ion-label>{{pe.telefono}}</ion-label>
+      <ion-label>Nombre</ion-label>
     </ion-item>
-    <ion-label>Telefono Nuevo</ion-label>
+    <ion-item>
+      <ion-input placeholder="Cambiar Nombre" type="text" name="nombre_nuevo" #nombre_nuevo></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Apellido</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder="Cambiar Apellido" type="text" name="apellido_nuevo" #apellido_nuevo></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Dirección</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder="Cambiar Dirección" type="text" name="direccion_nuevo" #direccion_nuevo></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Telefono</ion-label>
+    </ion-item>
     <ion-item>
       <ion-input placeholder="Cambiar Telefono" type="text" name="telefono_nuevo" #telefono_nuevo></ion-input>
+    </ion-item>
+    <ion-item>
+
     </ion-item>
     <br>
     <button ion-button full round (click)="guardar_cambios()">Guardar Cambios</button>

@@ -17,6 +17,9 @@ import 'rxjs/add/operator/map';
 })
 export class ModificarperfilPage {
   @ViewChild("telefono_nuevo") telefono_nuevo;
+  @ViewChild("direccion_nuevo") direccion_nuevo;
+  @ViewChild("nombre_nuevo") nombre_nuevo;
+  @ViewChild("apellido_nuevo") apellido_nuevo;
   correo: any;
   perfil: any = [];
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public toastCtrl: ToastController, public loading: LoadingController) {
@@ -40,48 +43,51 @@ export class ModificarperfilPage {
   }
 
   guardar_cambios(){
-    if(this.telefono_nuevo.value == ''){
+    if(this.nombre_nuevo.value == '' && this.apellido_nuevo.value == '' && this.direccion_nuevo.value == '' && this.telefono_nuevo.value == ''){
       const toast = this.toastCtrl.create({
-        message: 'Ingrese un nuevo número de telefono', 
+        message: 'Modifique algún dato', 
         duration: 3000
       });
       toast.present();
     }
     else{
       var headers = new Headers();
-      headers.append("Accept", 'application/json');
-      headers.append('Content-Type', 'application/json' );
-      let options = new RequestOptions({ headers: headers });
-      let data = {
-        correo: this.correo,
-        telefono_nuevo: this.telefono_nuevo.value
-      };
-      let loader = this.loading.create({
-        content: 'Processing please wait...',
-      });
-      loader.present().then(() => {
-        this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/guardar_cambios_perfil.php',data, options)
-        //this.http.post('https://https://proyectoficiosapp.000webhostapp.com/publicar.php',data, options)
-        .map(res => res.json())
-        .subscribe(res => {
-          loader.dismiss()
-          if(res=="Changes successfull"){
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json' );
+        let options = new RequestOptions({ headers: headers });
+        let data = {
+          correo: this.correo,
+          telefono_nuevo: this.telefono_nuevo.value,
+          direccion_nuevo: this.direccion_nuevo.value,
+          nombre_nuevo: this.nombre_nuevo.value,
+          apellido_nuevo: this.apellido_nuevo.value
+        };
+        let loader = this.loading.create({
+          content: 'Processing please wait...',
+        });
+        loader.present().then(() => {
+          this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/guardar_cambios_perfil.php',data, options)
+          //this.http.post('https://https://proyectoficiosapp.000webhostapp.com/publicar.php',data, options)
+          .map(res => res.json())
+          .subscribe(res => {
+            loader.dismiss()
+            if(res=="Changes successfull"){
+              const toast = this.toastCtrl.create({
+                message: 'Guardado con Exito', 
+                duration: 3000
+              });
+            toast.present();
+            this.navCtrl.pop();
+          }else
+          {
             const toast = this.toastCtrl.create({
-              message: 'Guardado con Exito', 
+              message: 'Fallo en Guardar', 
               duration: 3000
             });
-          toast.present();
-          this.navCtrl.pop();
-        }else
-        {
-          const toast = this.toastCtrl.create({
-            message: 'Fallo en Guardar', 
-            duration: 3000
+            toast.present();
+            } 
           });
-          toast.present();
-          } 
         });
-      });
     }
   }
 }
