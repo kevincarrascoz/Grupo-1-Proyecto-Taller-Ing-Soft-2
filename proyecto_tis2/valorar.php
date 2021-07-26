@@ -29,13 +29,9 @@ if (isset($_SERVER['HTTP_ORIGIN'])) {
 		$id_publicacion = $request->id_publicacion;
         $correo = $request->correo;
         $nota = $request->nota;
-		
 	}
     
   
-
-
-
 $consulta = "SELECT * FROM puntuacion WHERE id_publicacion='$id_publicacion' AND correo='$correo'";
 $resultado = mysqli_query($con, $consulta);
 if(mysqli_num_rows($resultado)>0){
@@ -95,10 +91,8 @@ if(mysqli_num_rows($resultado)>0){
             $response= "Error: " . $sql . "<br>" . $db->error;
             } 
         }
-    
 }
         
-
-    echo json_encode( $response);
+    echo json_encode($response);
 
 ?>
