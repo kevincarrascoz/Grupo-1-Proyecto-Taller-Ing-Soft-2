@@ -27,6 +27,7 @@ export class RegisterPage {
   @ViewChild("fecha_nacimiento") fecha_nacimiento;
   @ViewChild("telefono") telefono;
   @ViewChild("comuna") comuna;
+  @ViewChild("tipo_usuario") tipo_usuario;
   comunas:any;
   
   
@@ -99,6 +100,12 @@ export class RegisterPage {
         duration: 3000
       });
       toast.present();
+    }else if(this.tipo_usuario.value==""){
+      const toast = this.toastCtrl.create({
+        message: 'Ingrese un tipo de usuario', 
+        duration: 3000
+      });
+      toast.present();
     }else{
 
       var headers = new Headers();
@@ -116,7 +123,8 @@ export class RegisterPage {
         direccion: this.direccion.value,
         fecha_nacimiento: this.fecha_nacimiento.value,
         telefono: this.telefono.value,
-        comuna: this.comuna.value
+        comuna: this.comuna.value,
+        tipo_usuario: this.tipo_usuario.value
       };
       console.log(data);
       let loader = this.loading.create({
