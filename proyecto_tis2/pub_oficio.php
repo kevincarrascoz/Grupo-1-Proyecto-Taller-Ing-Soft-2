@@ -5,9 +5,6 @@ include "utils.php";
 
 $dbConn =  connect($db);
 
-/*
-  listar todos los posts o solo uno
- */
 if ($_SERVER['REQUEST_METHOD'] == 'GET')
 {
     if (isset($_GET['id_oficio']))
