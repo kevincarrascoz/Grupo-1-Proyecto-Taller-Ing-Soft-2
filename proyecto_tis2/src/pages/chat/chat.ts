@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SearchBarPage } from '../search-bar/search-bar';
 import { PublicacionesPage } from '../publicaciones/publicaciones';
-import { Http, RequestOptions, Headers } from '@angular/http';
+import { Http} from '@angular/http';
 import { MensajeFinalPage } from '../mensaje-final/mensaje-final';
 
 

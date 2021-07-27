@@ -25,7 +25,6 @@ export class MispublicacionesPage {
   data3:any;
   id:any;
   isUserLogged=false;
-  private favorito=[];
   contrasena: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
     this.correo = this.navParams.get('correo');

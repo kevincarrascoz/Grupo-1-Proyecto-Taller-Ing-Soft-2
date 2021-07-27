@@ -26,7 +26,6 @@ export class PubOficioPage {
   contrasena: any;
   correo1: any;
   public publicaciones_empty = false;
-  private favorito=[];
   isUserLogged= false;
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
     this.correo = navParams.get('correo');

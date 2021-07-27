@@ -2,8 +2,7 @@ import { Component, ViewChild} from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import {Http, Headers, RequestOptions}  from "@angular/http";
 import { LoadingController } from 'ionic-angular';
-import 'rxjs/add/operator/map';
-import { _appIdRandomProviderFactory } from '@angular/core/src/application_tokens';
+
 
 
 /**

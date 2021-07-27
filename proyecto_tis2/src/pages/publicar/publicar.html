@@ -25,10 +25,10 @@
  
 <ion-content>
   <div *ngIf="isUserLogged">
-    <ion-list>
-      <ion-list-header>
-        Información
-      </ion-list-header>
+    <ion-list padding>
+      <ion-title text-center >
+        Datos Requeridos
+      </ion-title><br>
       <ion-item>
         <ion-input placeholder="Descripcion" type="text" name="descripcion" #descripcion ></ion-input>
       </ion-item>
@@ -50,9 +50,9 @@
           <ion-option *ngFor="let of of oficios" value="{{of.id_oficio}}">{{of.nombre_oficio}}</ion-option>
         </ion-select>
       </ion-item>
-  
-    <button ion-button full round (click)="Publicar()" >Publicar</button>
+       <br> <button ion-button full round (click)="Publicar()">Publicar</button>
     </ion-list>
+   
   </div>
   <div *ngIf="!isUserLogged">
     <h2 text-center >Aún no has iniciado sesión <br><ion-icon name="sad"></ion-icon> </h2>

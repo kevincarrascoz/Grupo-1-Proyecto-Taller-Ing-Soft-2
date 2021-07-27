@@ -21,7 +21,6 @@ export class FavoritosPage {
   contrasena: any;
   publicaciones:any = [];
   isUserLogged= false;
-  private favorito=[];
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
     this.correo = navParams.get('correo');
     this.contrasena = navParams.get('contrasena');
