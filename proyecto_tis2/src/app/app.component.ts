@@ -61,8 +61,8 @@ export class MyApp {
 
       events.subscribe('user:loggedout',()=>{
       this.pages = [
-                    { title: 'Iniciar Sesion', component: LoginPage, icon:'log-in' },
-                    { title: 'Catalogo', component: PublicacionesPage, icon:'pricetags'  },
+                    { title: 'Iniciar Sesión', component: LoginPage, icon:'log-in' },
+                    { title: 'Catálogo', component: PublicacionesPage, icon:'pricetags'  },
                     { title: 'Categorías', component: CategoriasPage, icon:'list-box'  },
                     { title: 'Publicar', component: PublicarPage, icon:'briefcase'  },
                     { title: 'Preguntas Frecuentes', component: PreguntasPage, icon:'information-circle'  }
