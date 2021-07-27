@@ -36,8 +36,8 @@ export class MyApp {
       splashScreen.hide();
     });
     this.pages = [
-      { title: 'Iniciar Sesion', component: LoginPage, icon:'log-in' },
-      { title: 'Catalogo', component: PublicacionesPage, icon:'pricetags'  },
+      { title: 'Iniciar Sesión', component: LoginPage, icon:'log-in' },
+      { title: 'Catálogo', component: PublicacionesPage, icon:'pricetags'  },
       { title: 'Categorías', component: CategoriasPage, icon:'list-box'  },
       { title: 'Publicar', component: PublicarPage, icon:'briefcase'  },
       { title: 'Preguntas Frecuentes', component: PreguntasPage, icon:'information-circle'  }
@@ -46,7 +46,7 @@ export class MyApp {
       console.log('Welcome', correo, contrasena, 'at', time);
       this.pages = [
                     { title: 'Mi perfil', component: ProfilePage, icon:'contact'  },
-                    { title: 'Catalogo', component: PublicacionesPage, icon:'pricetags'  },
+                    { title: 'Catálogo', component: PublicacionesPage, icon:'pricetags'  },
                     { title: 'Historial', component: HistorialPage, icon:'time'  },
                     { title: 'Favoritos', component: FavoritosPage, icon:'star-outline'  },
                     { title: 'Publicar', component: PublicarPage, icon:'briefcase'  },
