@@ -160,7 +160,7 @@ export class DetallepublicacionPage {
     console.log('ionViewDidLoad DetallepublicacionPage');
   }
   enviarMensaje() {
-    this.navCtrl.push(MensajePage, {id_publicacion: this.id, correo: this.correo_login, nombre: this.nombre, apellido: this.apellido, correo_publicacion: this.correo_publicacion});
+    this.navCtrl.push(MensajePage, {id_publicacion: this.id, correo: this.correo, nombre: this.nombre, apellido: this.apellido, correo_publicacion: this.correo_publicacion});
   }
   IrLogin(){
     this.navCtrl.push(LoginPage)
@@ -176,7 +176,7 @@ export class DetallepublicacionPage {
   
     let data11 = {
       id_publicacion : this.id,
-      correo: this.correo_login,
+      correo: this.correo,
       nota ,
     };
     console.log('aca viene la data valorar');
@@ -215,7 +215,7 @@ export class DetallepublicacionPage {
 
     let data = {
       comentario: this.comentario.value,   
-      correo: this.correo_login,
+      correo: this.correo,
       id_publicacion: this.id
        
     };
@@ -306,7 +306,7 @@ export class DetallepublicacionPage {
   }
 
   IrPublicaciones(){
-    this.navCtrl.push(PublicacionesPage, {correo: this.correo_login, contrasena: this.contrasena, id_oficio1: this.id_oficio1, codigo_comuna1: this.codigo_comuna1, id_publicacion_relacion: this.id, nombre_comuna: this.nombre_comuna, nombre_oficio: this.nombre_oficio});
+    this.navCtrl.push(PublicacionesPage, {correo: this.correo, contrasena: this.contrasena, id_oficio1: this.id_oficio1, codigo_comuna1: this.codigo_comuna1, id_publicacion_relacion: this.id, nombre_comuna: this.nombre_comuna, nombre_oficio: this.nombre_oficio});
   }
 
 }
