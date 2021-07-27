@@ -5,6 +5,7 @@ import { SearchBarPage } from '../search-bar/search-bar';
 import { MispublicacionesPage } from '../mispublicaciones/mispublicaciones';
 import { ModificarperfilPage } from '../modificarperfil/modificarperfil';
 
+
 /**
  * Generated class for the ProfilePage page.
  *
