@@ -24,7 +24,6 @@ import { ChatPage } from '../pages/chat/chat';
 import { MensajePage } from '../pages/mensaje/mensaje';
 import { PubOficioPage } from '../pages/pub-oficio/pub-oficio';
 import { MensajeFinalPage } from '../pages/mensaje-final/mensaje-final';
-import { MiscomentariosPage } from '../pages/miscomentarios/miscomentarios';
 import { MispublicacionesPage } from '../pages/mispublicaciones/mispublicaciones';
 import { FavoritosPage } from '../pages/favoritos/favoritos';
 import { ModificarperfilPage } from '../pages/modificarperfil/modificarperfil';
@@ -48,7 +47,6 @@ import { ModificarperfilPage } from '../pages/modificarperfil/modificarperfil';
     MensajePage,
     PubOficioPage,
     MensajeFinalPage,
-    MiscomentariosPage,
     MispublicacionesPage,
     FavoritosPage,
     ModificarperfilPage
@@ -77,7 +75,6 @@ import { ModificarperfilPage } from '../pages/modificarperfil/modificarperfil';
     MensajePage,
     PubOficioPage,
     MensajeFinalPage,
-    MiscomentariosPage,
     MispublicacionesPage,
     FavoritosPage,
     ModificarperfilPage

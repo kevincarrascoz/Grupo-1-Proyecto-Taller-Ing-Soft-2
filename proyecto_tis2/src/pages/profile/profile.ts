@@ -3,8 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Http}  from "@angular/http";
 import { SearchBarPage } from '../search-bar/search-bar';
 import { MispublicacionesPage } from '../mispublicaciones/mispublicaciones';
-import { MiscomentariosPage } from '../miscomentarios/miscomentarios';
-import { FavoritosPage } from '../favoritos/favoritos';
 import { ModificarperfilPage } from '../modificarperfil/modificarperfil';
 
 /**
@@ -76,13 +74,6 @@ export class ProfilePage {
     this.navCtrl.push(MispublicacionesPage, {correo: this.correo});
   } 
 
-  coment(){
-    this.navCtrl.push(MiscomentariosPage);
-  }
-
-  favo(){
-    this.navCtrl.push(FavoritosPage);
-  }
   modPerfil(){
     this.navCtrl.push(ModificarperfilPage, {correo: this.correo});
   }
