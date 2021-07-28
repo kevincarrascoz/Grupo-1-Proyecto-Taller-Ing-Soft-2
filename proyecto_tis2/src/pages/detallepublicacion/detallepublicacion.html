@@ -32,7 +32,7 @@
     <ion-card-content>
       <p><b>Datos de contacto</b></p>
       <div style="margin-left: 15px;">
-        <p style="padding-top: 5px;">E-mail: {{pub.correo}}</p>
+        <p style="padding-top: 5px;">Correo: {{pub.correo}}</p>
         <p>Teléfono: {{pub.telefono}}</p>
       </div>
     </ion-card-content>
@@ -49,7 +49,7 @@
       </div>
     </ion-card-content>
     <ion-card-content>
-      <p><b> Detalles</b></p>
+      <p><b> Descripción</b></p>
       <div style="margin-left: 15px;">
       <p>{{pub.descripcion}}</p>
       </div>
@@ -103,19 +103,19 @@
       <ion-item >
           <h2 text-center><b>Agregar comentario</b></h2>
            <p text-center>Debes iniciar sesión si deseas comentar</p>
-           <button   ion-button  full round (click)="IrLogin()"> Iniciar sesion</button>
+           <button   ion-button  full round (click)="IrLogin()"> Iniciar sesión</button>
         </ion-item>
         <ion-row>
         </ion-row>
       
       </ion-card>
 
-    <ion-card *ngIf="isUserLogged"  style="border-radius:20px ;" >
-      <br><h2 text-center><b>Agregar comentario</b></h2><br>
+    <ion-card *ngIf="isUserLogged"  style="border-radius:20px ;" padding >
+      <h2 text-center><b>Agregar comentario</b></h2><br>
       <ion-item >
           <ion-input placeholder="Comenta" type="text" #comentario></ion-input><br>
         </ion-item>
-        <button ion-button full round (click)="Comentar()" >Enviar</button>
+        <button ion-button full round (click)="Comentar()" >Comentar</button>
     </ion-card>
     <ion-title text-center>Comentarios</ion-title>
     <div *ngIf='comentar'>
