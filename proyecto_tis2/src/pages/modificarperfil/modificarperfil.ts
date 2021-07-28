@@ -45,7 +45,7 @@ export class ModificarperfilPage {
   guardar_cambios(){
     if(this.nombre_nuevo.value == '' && this.apellido_nuevo.value == '' && this.direccion_nuevo.value == '' && this.telefono_nuevo.value == ''){
       const toast = this.toastCtrl.create({
-        message: 'Modifique algún dato', 
+        message: 'Ingrese al menos un dato', 
         duration: 3000
       });
       toast.present();
