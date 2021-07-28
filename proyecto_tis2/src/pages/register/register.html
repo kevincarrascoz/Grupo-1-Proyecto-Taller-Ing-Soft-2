@@ -47,14 +47,6 @@
         <ion-option *ngFor="let com of comunas" value="{{com.codigo_comuna}}">{{com.nombre_comuna}}</ion-option>
       </ion-select>
     </ion-item>
-    <ion-item>
-      <ion-label>Tipo de usuario</ion-label>
-      <ion-select name="tipo_usuario" #tipo_usuario>
-        <ion-option value="Demandante">Demandante</ion-option>
-        <ion-option value="Oferente">Oferente</ion-option>
-      </ion-select>
-
-    </ion-item>
 
   </ion-list>
     <button ion-button full round (click)="Registro()">Registrar</button>

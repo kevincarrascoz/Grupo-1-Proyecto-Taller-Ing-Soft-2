@@ -34,14 +34,13 @@ if (isset($_SERVER['HTTP_ORIGIN'])) {
         $fecha_nacimiento = $request->fecha_nacimiento;
         $telefono = $request->telefono;
         $comuna = $request->comuna;
-        $tipo_usuario = $request->tipo_usuario;
  
 	}
 
 
 
-$sql = "INSERT INTO usuario (correo, nombre, apellido, contrasena, direccion, fecha_nacimiento, codigo_comuna, telefono, tipo_usuario)
-VALUES ('$correo', '$nombre', '$apellido', '$contrasena', '$direccion', '$fecha_nacimiento', '$comuna' , '$telefono','$tipo_usuario')";
+$sql = "INSERT INTO usuario (correo, nombre, apellido, contrasena, direccion, fecha_nacimiento, codigo_comuna, telefono)
+VALUES ('$correo', '$nombre', '$apellido', '$contrasena', '$direccion', '$fecha_nacimiento', '$comuna' , '$telefono')";
 
 
 if ($con->query($sql) === TRUE) {
