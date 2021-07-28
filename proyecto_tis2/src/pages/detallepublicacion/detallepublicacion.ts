@@ -110,6 +110,22 @@ export class DetallepublicacionPage {
           this.porcentaje_dos = Math.trunc((parseInt(data.estrellas_dos)/(parseInt(data.estrellas_cinco)+parseInt(data.estrellas_cuatro)+parseInt(data.estrellas_tres)+parseInt(data.estrellas_dos)+parseInt(data.estrellas_uno))*100));
           this.porcentaje_uno = Math.trunc((parseInt(data.estrellas_uno)/(parseInt(data.estrellas_cinco)+parseInt(data.estrellas_cuatro)+parseInt(data.estrellas_tres)+parseInt(data.estrellas_dos)+parseInt(data.estrellas_uno))*100));
 
+          if(isNaN(this.porcentaje_cinco)==true){
+            this.porcentaje_cinco=0;
+          }
+          if(isNaN(this.porcentaje_cuatro)==true){
+            this.porcentaje_cuatro=0;
+          }
+          if(isNaN(this.porcentaje_tres)==true){
+            this.porcentaje_tres=0;
+          }
+          if(isNaN(this.porcentaje_dos)==true){
+            this.porcentaje_dos=0;
+          }
+          if(isNaN(this.porcentaje_uno)==true){
+            this.porcentaje_uno=0;
+          }
+
           console.log('valor estrella suma');
           console.log(this.estrellas_suma);
           //console.log(this.valoraciones);
