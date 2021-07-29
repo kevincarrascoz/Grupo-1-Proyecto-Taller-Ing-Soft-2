@@ -116,8 +116,8 @@ export class PublicacionesPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad PublicacionesPage');
   }
-  detalle(id){
-    this.visitas(id);
+  detalle(id, visitas){
+    this.visitas(id, visitas);
 
     if(this.correo1==this.correo){
        
@@ -159,7 +159,7 @@ export class PublicacionesPage {
   }
 
 
-  visitas(id){
+  visitas(id, visitas){
     console.log("entre visitas");
     var headers = new Headers();
     headers.append("Accept", 'application/json');
@@ -167,6 +167,7 @@ export class PublicacionesPage {
     let options = new RequestOptions({ headers: headers });
     let data3 = {
       id_publicacion: id,
+      visitas: visitas
     };
     console.log(data3);
     this.http.post('https://edein.cl/equipo1/API/visitas.php',data3, options)
