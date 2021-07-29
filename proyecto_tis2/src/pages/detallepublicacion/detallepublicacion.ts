@@ -191,6 +191,11 @@ export class DetallepublicacionPage {
       id_publicacion : this.id,
       correo: this.correo,
       nota ,
+      estrellas_uno: this.estrellas_uno,
+      estrellas_dos: this.estrellas_dos,
+      estrellas_tres: this.estrellas_tres,
+      estrellas_cuatro: this.estrellas_cuatro,
+      estrellas_cinco: this.estrellas_cinco,
     };
     console.log('aca viene la data valorar');
     console.log(data11);
