@@ -126,13 +126,10 @@ export class DetallepublicacionPage {
             this.porcentaje_uno=0;
           }
 
-          console.log('valor estrella suma');
-          console.log(this.estrellas_suma);
-          //console.log(this.valoraciones);
+          
         },
         err =>{
           console.log("Nada!");
-          //this.presentToast("No existen registros aun");
         }
         );
 
