@@ -61,7 +61,7 @@ export class DetallepublicacionPage {
       
     }
     
-    this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/publicacion.php/?id_publicacion='+this.id)
+    this.http.get('https://edein.cl/equipo1/API/publicacion.php/?id_publicacion='+this.id)
     //this.http.get('https://proyectoficiosapp.000webhostapp.com/publicacion.php/?id_publicacion='+this.id)
     .map(response => response.json())
     .subscribe(data =>
@@ -88,7 +88,7 @@ export class DetallepublicacionPage {
 
       console.log('aqui va el id');
       console.log(this.id);
-      this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/valorarget.php/?id_publicacion='+this.id)
+      this.http.get('https://edein.cl/equipo1/API/valorarget.php/?id_publicacion='+this.id)
       //this.http.get('https://proyectoficiosapp.000webhostapp.com/historialget.php/?correo='+this.correo)
       .map(response => response.json())
       .subscribe(data =>
@@ -143,7 +143,7 @@ export class DetallepublicacionPage {
 
 
     
-    this.http.get("http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/comentarios.php?id_publicacion="+this.id)
+    this.http.get("https://edein.cl/equipo1/API/comentarios.php?id_publicacion="+this.id)
     //this.http.get('https://proyectoficiosapp.000webhostapp.com/publicacion.php/comentarios.php?id_publicacion="+this.id)
     .map(response => response.json())
     .subscribe(data => {
@@ -159,7 +159,7 @@ export class DetallepublicacionPage {
       
       
     })
-    this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/favoritosget.php/?correo='+this.correo)
+    this.http.get('https://edein.cl/equipo1/API/favoritosget.php/?correo='+this.correo)
       //this.http.get('https://https://proyectoficiosapp.000webhostapp.com/obtenerfavoritos.php/?correo='+this.correo)
       .map(response => response.json())
       .subscribe(data =>
@@ -197,7 +197,7 @@ export class DetallepublicacionPage {
     };
     console.log('aca viene la data valorar');
     console.log(data11);
-    this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/valorar.php',data11, options)
+    this.http.post('https://edein.cl/equipo1/API/valorar.php',data11, options)
     //.map(res => res.json())
     .subscribe(res => {
     
@@ -240,7 +240,7 @@ export class DetallepublicacionPage {
       content: 'Processing please wait...',
     });
     loader.present().then(() => {
-      this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/comentar.php',data, options)
+      this.http.post('https://edein.cl/equipo1/API/comentar.php',data, options)
       //this.http.post('https://proyectoficiosapp.000webhostapp.com/comentar.php',data, options)
       .map(res => res.json())
       .subscribe(res => {
@@ -286,7 +286,7 @@ export class DetallepublicacionPage {
     id_publicacion: id,
   };
   console.log(data3);
-  this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/favoritos.php',data3, options)
+  this.http.post('https://edein.cl/equipo1/API/favoritos.php',data3, options)
   //this.http.post('https://https://proyectoficiosapp.000webhostapp.com/favoritos.php',data, options)
     .map(res => res.json())
     .subscribe(res => {

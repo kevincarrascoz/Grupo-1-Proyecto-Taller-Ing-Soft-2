@@ -34,7 +34,7 @@ export class PubOficioPage {
     if(this.correo && this.contrasena != ''){
       this.isUserLogged = true;
     }
-    this.http.get("http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/pub_oficio.php?id_oficio="+this.id_oficio)
+    this.http.get("https://edein.cl/equipo1/API/pub_oficio.php?id_oficio="+this.id_oficio)
     //this.http.get('https://https://proyectoficiosapp.000webhostapp.com/pub_oficio.php?id_oficio="+this.id_oficio)
     .map(response => response.json())
     .subscribe(data => {
@@ -80,7 +80,7 @@ export class PubOficioPage {
         id_publicacion: id,
       };
       console.log(data2);
-      this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/historial.php',data2, options)
+      this.http.post('https://edein.cl/equipo1/API/historial.php',data2, options)
       //this.http.post('https://https://proyectoficiosapp.000webhostapp.com/historial.php',data2, options)
         .map(res => res.json())
         .subscribe(res => {

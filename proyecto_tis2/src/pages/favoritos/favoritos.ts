@@ -28,7 +28,7 @@ export class FavoritosPage {
       this.isUserLogged = true;
     }
    
-    this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/favoritosget.php/?correo='+this.correo)
+    this.http.get('https://edein.cl/equipo1/API/favoritosget.php/?correo='+this.correo)
     //this.http.get('https://proyectoficiosapp.000webhostapp.com/favoritosget.php/?correo='+this.correo)
     .map(response => response.json())
     .subscribe(data =>
@@ -60,7 +60,7 @@ export class FavoritosPage {
       correo: this.correo,
       };
     console.log(data);
-    this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/favoritosdelete.php',data, options)
+    this.http.post('https://edein.cl/equipo1/API/favoritosdelete.php',data, options)
     //this.http.post('https://proyectoficiosapp.000webhostapp.com/favoritosdelete.php',data, options)
       .map(res => res.json())
       .subscribe(res => {

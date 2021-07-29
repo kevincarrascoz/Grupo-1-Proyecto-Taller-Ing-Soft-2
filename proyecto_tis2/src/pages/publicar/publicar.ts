@@ -37,7 +37,7 @@ export class PublicarPage {
       this.isUserLogged = true;
     }
     console.log(this.correo,this.contrasena);
-    this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/oficio.php')
+    this.http.get('https://edein.cl/equipo1/API/oficio.php')
     //this.http.get('https://https://proyectoficiosapp.000webhostapp.com/oficio.php')
     .map(response => response.json())
     .subscribe(data =>
@@ -105,7 +105,7 @@ export class PublicarPage {
         content: 'Processing please wait...',
       });
       loader.present().then(() => {
-        this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/publicar.php',data, options)
+        this.http.post('https://edein.cl/equipo1/API/publicar.php',data, options)
         //this.http.post('https://https://proyectoficiosapp.000webhostapp.com/publicar.php',data, options)
         .map(res => res.json())
         .subscribe(res => {

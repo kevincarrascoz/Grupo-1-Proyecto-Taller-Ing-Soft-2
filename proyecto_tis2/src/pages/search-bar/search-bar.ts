@@ -30,7 +30,7 @@ export class SearchBarPage {
     this.correo = navParams.get('correo');
     this.contrasena = navParams.get('contrasena');
     console.log(this.correo,this.contrasena);
-    this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/publicaciones.php/')
+    this.http.get('https://edein.cl/equipo1/API/publicaciones.php/')
     //this.http.get('https://https://proyectoficiosapp.000webhostapp.com/publicaciones.php/')
     .map(response => response.json())
     .subscribe(data =>
@@ -95,7 +95,7 @@ export class SearchBarPage {
         id_publicacion: id,
       };
       console.log(data2);
-      this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/historial.php',data2, options)
+      this.http.post('https://edein.cl/equipo1/API/historial.php',data2, options)
       //this.http.post('https://https://proyectoficiosapp.000webhostapp.com/historial.php',data2, options)
         .map(res => res.json())
         .subscribe(res => {

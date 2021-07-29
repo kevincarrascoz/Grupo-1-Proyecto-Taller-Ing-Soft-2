@@ -35,7 +35,7 @@ public isMensajeEnviado = false;
     id_chat: this.id_chat
   };
   console.log(this.id_publicacion, this.correo, this.nombre, this.apellido, this.correo_receptor, this.id_chat);
-  this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/allMensajes.php', data5)
+  this.http.post('https://edein.cl/equipo1/API/allMensajes.php', data5)
   //this.http.post('https://https://proyectoficiosapp.000webhostapp.com/allMensajes.php', data5)
   .map(res => res.json())
   .subscribe(data3 =>
@@ -75,7 +75,7 @@ public isMensajeEnviado = false;
       };
       console.log(data);
       console.log('si hay registros');
-      this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/ingresarMensajeChat.php',data, options)
+      this.http.post('https://edein.cl/equipo1/API/ingresarMensajeChat.php',data, options)
     //this.http.post('https://https://proyectoficiosapp.000webhostapp.com/ingresarMensajeChat.php',data, options)
     .map(res => res.json())
     .subscribe(res => {

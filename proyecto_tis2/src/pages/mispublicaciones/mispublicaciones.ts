@@ -31,7 +31,7 @@ export class MispublicacionesPage {
     if(this.correo && this.contrasena != ''){
       this.isUserLogged = true;
     }
-    this.http.get("http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/mispublicaciones.php?correo="+this.correo)
+    this.http.get("https://edein.cl/equipo1/API/mispublicaciones.php?correo="+this.correo)
     //this.http.get('https://https://proyectoficiosapp.000webhostapp.com/mispublicaciones.php/)
     .map(res => res.json())
     .subscribe(data => {
@@ -65,7 +65,7 @@ export class MispublicacionesPage {
         id_publicacion: id,
       };
       console.log(data2);
-      this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/historial.php',data2, options)
+      this.http.post('https://edein.cl/equipo1/API/historial.php',data2, options)
       //this.http.post('https://https://proyectoficiosapp.000webhostapp.com/historial.php',data2, options)
         .map(res => res.json())
         .subscribe(res => {
@@ -98,7 +98,7 @@ export class MispublicacionesPage {
       id_publicacion: id,
     };
     console.log(data3);
-    this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/visitas.php',data3, options)
+    this.http.post('https://edein.cl/equipo1/API/visitas.php',data3, options)
     //this.http.post('https://https://proyectoficiosapp.000webhostapp.com/visitas.php',data3, options)
     //.map(res => res.json())
     .subscribe(res => {

@@ -35,7 +35,7 @@ export class MensajePage {
       correo: this.correo,
       id_publicacion: this.id_publicacion
     };
-    this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/obtenerMensajes.php', data5)
+    this.http.post('https://edein.cl/equipo1/API/obtenerMensajes.php', data5)
     //this.http.post('https://https://proyectoficiosapp.000webhostapp.com/obtenerMensajes.php', data5)
     .map(res => res.json())
     .subscribe(data3 =>
@@ -93,7 +93,7 @@ export class MensajePage {
       };
 
 
-    this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/validateIngresarChat.php', data)
+    this.http.post('https://edein.cl/equipo1/API/validateIngresarChat.php', data)
     //this.http.post('https://https://proyectoficiosapp.000webhostapp.com/validateIngresarChat.php', data)
     .map(res => res.json())
     .subscribe(data2 =>
@@ -104,7 +104,7 @@ export class MensajePage {
         console.log(data);
         if(data2==false){
           console.log('no hay registros');
-          this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/ingresarChat.php',data, options)
+          this.http.post('https://edein.cl/equipo1/API/ingresarChat.php',data, options)
         //this.http.post('https://https://proyectoficiosapp.000webhostapp.com/ingresarChat.php',data, options)
         .map(res => res.json())
         .subscribe(res => {
@@ -127,7 +127,7 @@ export class MensajePage {
           };
           console.log(data);
           console.log('si hay registros');
-          this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/ingresarMensajeChat.php',data, options)
+          this.http.post('https://edein.cl/equipo1/API/ingresarMensajeChat.php',data, options)
         //this.http.post('https://https://proyectoficiosapp.000webhostapp.com/ingresarMensajeChat.php',data, options)
         .map(res => res.json())
         .subscribe(res => {

@@ -24,7 +24,7 @@ export class ModificarperfilPage {
   perfil: any = [];
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public toastCtrl: ToastController, public loading: LoadingController) {
     this.correo = navParams.get('correo');
-    this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/perfil.php/?correo='+this.correo)
+    this.http.get('https://edein.cl/equipo1/API/perfil.php/?correo='+this.correo)
     //this.http.get('https://https://proyectoficiosapp.000webhostapp.com/perfil.php/?correo='+this.correo)
     .map(response => response.json())
     .subscribe(data =>
@@ -66,7 +66,7 @@ export class ModificarperfilPage {
           content: 'Processing please wait...',
         });
         loader.present().then(() => {
-          this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/guardar_cambios_perfil.php',data, options)
+          this.http.post('https://edein.cl/equipo1/API/guardar_cambios_perfil.php',data, options)
           //this.http.post('https://https://proyectoficiosapp.000webhostapp.com/publicar.php',data, options)
           .map(res => res.json())
           .subscribe(res => {

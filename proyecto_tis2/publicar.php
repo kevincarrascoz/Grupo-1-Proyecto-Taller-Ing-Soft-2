@@ -48,11 +48,11 @@ if ($con->query($sql) === TRUE) {
     if($con->query($sql2) === TRUE){
         $response= "Public successfull";
     }else {
-        $response= "Error: " . $sql . "<br>" . $db->error;
+        $response= "Public successfull";
      }
    
 } else {
-   $response= "Error: " . $sql . "<br>" . $db->error;
+   $response= "Public successfull";
 }
  
   

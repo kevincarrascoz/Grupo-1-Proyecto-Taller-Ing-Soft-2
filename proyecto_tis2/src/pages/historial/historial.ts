@@ -38,7 +38,7 @@ export class HistorialPage {
     }
     
 
-    this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/historialget.php/?correo='+this.correo)
+    this.http.get('https://edein.cl/equipo1/API/historialget.php/?correo='+this.correo)
     //this.http.get('https://proyectoficiosapp.000webhostapp.com/historialget.php/?correo='+this.correo)
     .map(response => response.json())
     .subscribe(data =>
@@ -68,7 +68,7 @@ export class HistorialPage {
         correo: this.correo,
         };
       console.log(data2);
-      this.http.post('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/historialdelete.php',data2, options)
+      this.http.post('https://edein.cl/equipo1/API/historialdelete.php',data2, options)
       //this.http.post('https://proyectoficiosapp.000webhostapp.com/historialdelete.php',data2, options)
         .map(res => res.json())
         .subscribe(res => {

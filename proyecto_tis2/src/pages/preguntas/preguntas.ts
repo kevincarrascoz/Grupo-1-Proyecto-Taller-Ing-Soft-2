@@ -21,7 +21,7 @@ pregunta:any;
 respuesta:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
-    this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/preguntas.php/')
+    this.http.get('https://edein.cl/equipo1/API/preguntas.php')
     //this.http.get('https://https://proyectoficiosapp.000webhostapp.com/preguntas.php/)
     .map(response => response.json())
     .subscribe(data =>

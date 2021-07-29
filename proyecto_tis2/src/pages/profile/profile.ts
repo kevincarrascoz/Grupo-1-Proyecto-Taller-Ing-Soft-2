@@ -28,7 +28,7 @@ export class ProfilePage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
     this.correo = navParams.get('correo');
     console.log(this.correo);
-    this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/perfil.php/?correo='+this.correo)
+    this.http.get('https://edein.cl/equipo1/API/perfil.php/?correo='+this.correo)
     //this.http.get('https://https://proyectoficiosapp.000webhostapp.com/perfil.php/?correo='+this.correo)
     .map(response => response.json())
     .subscribe(data =>
@@ -37,7 +37,7 @@ export class ProfilePage {
         this.codigo_comuna=data.codigo_comuna;
         console.log(data);
         
-        this.http.get('http://localhost/xampp/Grupo-1-Proyecto-Taller-Ing-Soft-2/proyecto_tis2/comuna.php/?codigo_comuna='+this.codigo_comuna)
+        this.http.get('https://edein.cl/equipo1/API/comuna.php/?codigo_comuna='+this.codigo_comuna)
         //this.http.get('https://https://proyectoficiosapp.000webhostapp.com/comuna.php/?codigo_comuna='+this.codigo_comuna)
         .map(response => response.json())
         .subscribe(data2 =>
