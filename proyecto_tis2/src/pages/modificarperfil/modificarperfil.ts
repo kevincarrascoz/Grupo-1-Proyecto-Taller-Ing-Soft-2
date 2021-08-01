@@ -73,7 +73,7 @@ export class ModificarperfilPage {
             loader.dismiss()
             if(res=="Changes successfull"){
               const toast = this.toastCtrl.create({
-                message: 'Guardado con Exito', 
+                message: 'Guardado con éxito', 
                 duration: 3000
               });
             toast.present();
@@ -81,7 +81,7 @@ export class ModificarperfilPage {
           }else
           {
             const toast = this.toastCtrl.create({
-              message: 'Fallo en Guardar', 
+              message: 'Error al guardar los cambios', 
               duration: 3000
             });
             toast.present();

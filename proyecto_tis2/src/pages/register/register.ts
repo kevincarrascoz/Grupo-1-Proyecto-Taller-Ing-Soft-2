@@ -64,7 +64,7 @@ export class RegisterPage {
         toast.present();
     }else if(this.correo.value==""){
         const toast = this.toastCtrl.create({
-          message: 'Ingrese el correo electronico', 
+          message: 'Ingrese el correo electrónico', 
           duration: 3000
         });
         toast.present();
@@ -88,7 +88,7 @@ export class RegisterPage {
         toast.present();
     }else if(this.telefono.value==""){
         const toast = this.toastCtrl.create({
-          message: 'Ingrese el telefono', 
+          message: 'Ingrese el teléfono', 
           duration: 3000
         });
         toast.present();
@@ -139,7 +139,7 @@ export class RegisterPage {
         }else
         {
           const toast = this.toastCtrl.create({
-            message: 'Fallo en registro', 
+            message: 'El registro ha fallado', 
             duration: 3000
           });
           toast.present();

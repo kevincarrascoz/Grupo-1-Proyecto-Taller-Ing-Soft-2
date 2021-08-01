@@ -56,8 +56,6 @@ export class MensajePage {
 
   }
 
-
-
   }
 
   ionViewDidLoad() {
@@ -76,7 +74,7 @@ export class MensajePage {
     console.log(this.mensaje.value);
     if(this.mensaje.value==""){
       const toast = this.toastCtrl.create({
-        message: 'Ingrese algun mensaje', 
+        message: 'Ingrese algún mensaje', 
         duration: 3000
       });
       toast.present();
@@ -116,9 +114,6 @@ export class MensajePage {
         });
 
 
-
-
-
         }else{
           let data = {
             correo: this.correo,
@@ -132,7 +127,7 @@ export class MensajePage {
         .map(res => res.json())
         .subscribe(res => {
           if(res=="Mensaje successfull"){
-              console.log('mensaje ingresado correctamente');
+              console.log('Mensaje ingresado correctamente');
           }else{
             console.log('error');
           }
@@ -141,11 +136,7 @@ export class MensajePage {
         });
 
 
-
-
-
         }
-
 
       },
       err =>{
@@ -157,9 +148,7 @@ export class MensajePage {
       this.reloadPage();
      } 
     }
-     
-  
-
+ 
   reloadPage(){
     this.navCtrl.pop().then(() =>{
 

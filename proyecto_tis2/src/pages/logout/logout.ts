@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { Events } from 'ionic-angular';
 import { PublicacionesPage } from '../publicaciones/publicaciones';
 
@@ -17,8 +17,13 @@ import { PublicacionesPage } from '../publicaciones/publicaciones';
 })
 export class LogoutPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, events:Events) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, events:Events, public toastCtrl: ToastController) {
     events.publish('user:loggedout');
+    const toast = this.toastCtrl.create({
+      message: 'Sesión cerrada correctamente', 
+      duration: 3000
+    });
+    toast.present();
     navCtrl.setRoot(PublicacionesPage);
   }
 

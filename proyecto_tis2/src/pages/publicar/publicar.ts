@@ -57,7 +57,7 @@ export class PublicarPage {
   Publicar(){
     if(this.descripcion.value==""){
         const toast = this.toastCtrl.create({
-          message: 'Ingrese una descripcion', 
+          message: 'Ingrese una descripción', 
           duration: 3000
         });
         toast.present();
@@ -79,14 +79,8 @@ export class PublicarPage {
           duration: 3000
         });
         toast.present();
-    }else if(this.certificado==""){
-        const toast = this.toastCtrl.create({
-          message: 'Ingrese un certificado', 
-          duration: 3000
-        });
-        toast.present();
-    }   
-    else{
+    }else{
+
       var headers = new Headers();
       headers.append("Accept", 'application/json');
       headers.append('Content-Type', 'application/json' );
@@ -112,14 +106,14 @@ export class PublicarPage {
           loader.dismiss()
           if(res=="Public successfull"){
             const toast = this.toastCtrl.create({
-              message: 'Publicacion Exitosa', 
+              message: 'Publicación Exitosa', 
               duration: 3000
             });
           toast.present();
         }else
         {
           const toast = this.toastCtrl.create({
-            message: 'Fallo en publicacion', 
+            message: 'La publicación ha fallado', 
             duration: 3000
           });
           toast.present();

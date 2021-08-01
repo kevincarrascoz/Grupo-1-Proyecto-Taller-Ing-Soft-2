@@ -17,8 +17,7 @@ import { SearchBarPage } from '../search-bar/search-bar';
 })
 export class PreguntasPage {
 preguntas:any;
-pregunta:any;
-respuesta:any;
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
     this.http.get('https://edein.cl/equipo1/API/preguntas.php')
@@ -27,10 +26,6 @@ respuesta:any;
     .subscribe(data =>
       {
         this.preguntas = data;
-        this.pregunta=data.pregunta;
-        this.respuesta= data.respuesta;
-        console.log(this.pregunta);
-        console.log(this.respuesta);
         
       },
       err =>{

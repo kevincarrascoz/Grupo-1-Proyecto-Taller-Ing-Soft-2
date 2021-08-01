@@ -82,7 +82,7 @@ export class LoginPage {
       }else
       {
         const toast = this.toastCtrl.create({
-          message: 'Error, intentelo denuevo', 
+          message: 'Error, inténtelo de nuevo', 
           duration: 3000
         });
         toast.present();

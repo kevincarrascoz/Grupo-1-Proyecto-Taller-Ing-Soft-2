@@ -156,18 +156,6 @@ export class DetallepublicacionPage {
       
       
     })
-    this.http.get('https://edein.cl/equipo1/API/favoritosget.php/?correo='+this.correo)
-      //this.http.get('https://https://proyectoficiosapp.000webhostapp.com/obtenerfavoritos.php/?correo='+this.correo)
-      .map(response => response.json())
-      .subscribe(data =>
-        {
-   
-        },
-        err =>{
-          console.log("Oops!");
-          //this.presentToast("No existen registros aun");
-        }
-        );
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad DetallepublicacionPage');
@@ -220,7 +208,7 @@ export class DetallepublicacionPage {
   Comentar(){
     if(this.comentario.value==""){
       const toast = this.toastCtrl.create({
-        message: 'Ingrese algun comentario', 
+        message: 'Ingrese algún comentario', 
         duration: 3000
       });
       toast.present();
@@ -258,7 +246,7 @@ export class DetallepublicacionPage {
       }else
       {
         const toast = this.toastCtrl.create({
-          message: 'Fallo el comentario', 
+          message: 'Error al comentar', 
           duration: 3000
         });
         toast.present();
