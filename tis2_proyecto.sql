@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-07-2021 a las 03:04:07
+-- Tiempo de generación: 02-08-2021 a las 02:41:11
 -- Versión del servidor: 10.4.19-MariaDB
 -- Versión de PHP: 8.0.6
 
@@ -192,27 +192,6 @@ INSERT INTO `oficio` (`id_oficio`, `nombre_oficio`, `descripcion_oficio`) VALUES
 (5, 'Empleado Doméstico', 'Persona que trabaja en el ámbito de una residencia. '),
 (6, 'Estilista', 'Profesionales encargados de crear una armonía estética alrededor de un sujeto o escenario.'),
 (7, 'Gásfiter', 'Actividad relacionada con la instalación y mantenimiento de redes de tuberías para el abastecimiento de agua potable y evacuación de aguas residuales.');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `preguntas`
---
-
-CREATE TABLE `preguntas` (
-  `id` int(11) NOT NULL,
-  `pregunta` varchar(200) COLLATE utf8mb4_spanish2_ci NOT NULL,
-  `respuesta` varchar(500) COLLATE utf8mb4_spanish2_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish2_ci;
-
---
--- Volcado de datos para la tabla `preguntas`
---
-
-INSERT INTO `preguntas` (`id`, `pregunta`, `respuesta`) VALUES
-(1, '¿Cómo elegir a un experto?', 'Para elegir a un experto puedes explorar las publicaciones de la página Catálogo, además, puedes utilizar el buscador para encontrar los servicios cercanos a tu zona.'),
-(2, '¿Cómo publicar un servicio?', 'Para publicar tus servicios, despliega el menú lateral ubicado en la esquina superior izquierda de tu dispositivo y selecciona la opción \"Publicar\", luego rellena todos los campos necesarios y podrás realizar tu publicación. Ahora solo debes esperar a que se contacten contigo.'),
-(3, '¿Cómo registrarse?', 'Para registrarte y utilizar todas las funcionalidades de la aplicación, debes desplegar el menú lateral ubicado en la esquina superior izquierda de tu dispositivo, luego selecciona la opción \"Iniciar Sesión\", donde podrás ingresar o crear una nueva cuenta si es que no la posees aún.');
 
 -- --------------------------------------------------------
 
@@ -428,12 +407,6 @@ ALTER TABLE `oficio`
   ADD PRIMARY KEY (`id_oficio`);
 
 --
--- Indices de la tabla `preguntas`
---
-ALTER TABLE `preguntas`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indices de la tabla `provincia`
 --
 ALTER TABLE `provincia`
@@ -527,12 +500,6 @@ ALTER TABLE `mensaje`
 --
 ALTER TABLE `oficio`
   MODIFY `id_oficio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT de la tabla `preguntas`
---
-ALTER TABLE `preguntas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `provincia`

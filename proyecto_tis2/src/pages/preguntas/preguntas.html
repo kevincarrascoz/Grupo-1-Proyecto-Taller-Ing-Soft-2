@@ -24,16 +24,31 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list *ngFor="let p of preguntas">
+  <ion-list >
     <ion-card style="border-radius:20px ;" >
       <ion-card-header text-center >
-        {{p.pregunta}}
+        <h2>¿Cómo elegir a un experto?</h2>
       </ion-card-header>
       <ion-card-content style="font-size: medium;" >
-        {{p.respuesta}}
+        <p>Para elegir a un experto puedes explorar las publicaciones de la página "Catálogo", además, puedes utilizar el buscador para encontrar los servicios cercanos a tu zona.</p>
       </ion-card-content>
     </ion-card>
-      
+    <ion-card style="border-radius:20px ;" >
+      <ion-card-header text-center >
+        <h2>¿Cómo publicar un servicio?</h2>
+      </ion-card-header>
+      <ion-card-content style="font-size: medium;" >
+        <p>Para publicar tus servicios, despliega el menú lateral ubicado en la esquina superior izquierda de tu dispositivo y selecciona la opción "Publicar", luego rellena todos los campos necesarios y podrás realizar tu publicación. Ahora solo debes esperar a que se contacten contigo.</p>
+      </ion-card-content>
+    </ion-card>
+    <ion-card style="border-radius:20px ;" >
+      <ion-card-header text-center >
+        <h2>¿Cómo registrarse?</h2>
+      </ion-card-header>
+      <ion-card-content style="font-size: medium;" >
+        <p>Para registrarte y utilizar todas las funcionalidades de la aplicación, debes desplegar el menú lateral ubicado en la esquina superior izquierda de tu dispositivo, luego selecciona la opción "Iniciar Sesión", donde podrás ingresar o crear una nueva cuenta si es que no la posees aún.</p>
+      </ion-card-content>
+    </ion-card>
 
   </ion-list>
 </ion-content>

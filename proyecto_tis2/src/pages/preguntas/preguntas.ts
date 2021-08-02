@@ -20,19 +20,7 @@ preguntas:any;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
-    this.http.get('https://edein.cl/equipo1/API/preguntas.php')
-    //this.http.get('https://https://proyectoficiosapp.000webhostapp.com/preguntas.php/)
-    .map(response => response.json())
-    .subscribe(data =>
-      {
-        this.preguntas = data;
-        
-      },
-      err =>{
-        console.log("Oops!");
-        //this.presentToast("No existen registros aun");
-      }
-      );
+   
   }
 
   ionViewDidLoad() {
